@@ -41,7 +41,11 @@ class RootViewController: UIViewController, UISearchControllerDelegate, UISplitV
         super.viewDidLoad()
         
         moveZIMFileToDirectory()
-        configureBarButtons(searchIsActive: searchController.isActive, animated: false)
+        if Reachability.isConnectedToNetwork() {
+            configureBarButtons(searchIsActive: searchController.isActive, animated: false)
+        } else {
+            showInternetConnectionAlert()
+        }
         configureSidebarViewController()
         configureSearchController()
         
@@ -104,13 +108,15 @@ class RootViewController: UIViewController, UISearchControllerDelegate, UISplitV
 
             if fileManager.fileExists(atPath: destination.path) {
                 print("file copied")
-                openArticle()
+                if Reachability.isConnectedToNetwork() {
+                    openArticle()
+                } else {
+                    showInternetConnectionAlert()
+                }
             } else {
                 print("file copy failed")
             }
         }
-        
-        
     }
     
     func openArticle() {
@@ -130,6 +136,15 @@ class RootViewController: UIViewController, UISearchControllerDelegate, UISplitV
         } catch {
             print("Error while enumerating files \(documentsURL.path): \(error.localizedDescription)")
         }
+    }
+    
+    func showInternetConnectionAlert() {
+        let alert = UIAlertController(title: "", message: "Offline mode only available in Pro version. Please connect to the internet.", preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "OK", style: .default) { okAct in
+            print("Ok")
+        }
+        alert.addAction(alertAction)
+        self.present(alert, animated: true, completion: nil)
     }
     
     func openURL(_ url: URL) {

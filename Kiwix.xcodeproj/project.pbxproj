@@ -14,6 +14,7 @@
 		729C9A23277D981B004D7F5C /* libkiwix.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 729C9A21277D981B004D7F5C /* libkiwix.xcframework */; };
 		729C9A24277D981B004D7F5C /* libkiwix.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 729C9A21277D981B004D7F5C /* libkiwix.xcframework */; };
 		729C9A25277D983D004D7F5C /* libkiwix.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 729C9A21277D981B004D7F5C /* libkiwix.xcframework */; };
+		72B5F63D2782D6270074E8F0 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B5F63C2782D6270074E8F0 /* Reachability.swift */; };
 		9707B8F61F4B4F1500075D4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9707B8F51F4B4F1500075D4F /* Assets.xcassets */; };
 		970885D1271339A300C5795C /* wikipedia_dark.css in Resources */ = {isa = PBXBuildFile; fileRef = 970885D0271339A300C5795C /* wikipedia_dark.css */; };
 		970EC3A123BCEC84008DCA27 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970EC3A023BCEC84008DCA27 /* Parser.swift */; };
@@ -240,6 +241,7 @@
 /* Begin PBXFileReference section */
 		72457A9D2782C5920062EFC9 /* offline.zim */ = {isa = PBXFileReference; lastKnownFileType = file; path = offline.zim; sourceTree = "<group>"; };
 		729C9A21277D981B004D7F5C /* libkiwix.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libkiwix.xcframework; sourceTree = "<group>"; };
+		72B5F63C2782D6270074E8F0 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		97041F7E1F9652D4007D63F5 /* WikiMed.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = WikiMed.plist; sourceTree = "<group>"; };
 		9707541A23C2D3AB0076B74E /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		9707B8F51F4B4F1500075D4F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -502,6 +504,7 @@
 				976C4AA0260F876C00472A98 /* SwiftUI */,
 				975FDAD91F6082DA00A10E8C /* AppDelegate.swift */,
 				973B8011239066D0008CC8CE /* SceneDelegate.swift */,
+				72B5F63C2782D6270074E8F0 /* Reachability.swift */,
 				97A996D81F62F3C5007A6282 /* View */,
 				975FDB0E1F60944A00A10E8C /* Controller */,
 				97F425C327151A0D00D0F738 /* QuickLookPreview */,
@@ -1191,6 +1194,7 @@
 				97566A562728F58000DE7165 /* BookmarksViewController.swift in Sources */,
 				97B3998E246759E400BC6F5B /* SearchResult.m in Sources */,
 				97225AA2261A006A00D8CB32 /* LibraryCategoryView.swift in Sources */,
+				72B5F63D2782D6270074E8F0 /* Reachability.swift in Sources */,
 				9779A5BC2456793600F6F6FF /* OPDSStreamParser.swift in Sources */,
 				972E6F641FA11A6100F5C927 /* RoundedButton.swift in Sources */,
 				9779A5C22456793600F6F6FF /* ZimFileService.mm in Sources */,

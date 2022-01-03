@@ -57,19 +57,24 @@ class SearchResultsHostingController: UIViewController, UISearchResultsUpdating 
     // These section of code is necessary because SwiftUI keyboard avoidance does not work as expected on iPadOS 14
     
     @objc func handleKeyboardEvent(notification: Notification) {
-        guard let userInfo = notification.userInfo,
-              let keyboardEndFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue,
-              let duration = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue,
-              let animationCurve = (userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber)?.uintValue
-        else {return}
-        
-        let height = view.convert(keyboardEndFrame, from: nil).intersection(view.bounds).height
-        UIView.animate(
-            withDuration: duration,
-            delay: 0,
-            options: UIView.AnimationOptions(rawValue: animationCurve)) {
-            self.bottomConstraint?.constant = height
-            self.view.layoutIfNeeded()
+        if Reachability.isConnectedToNetwork() {
+            guard let userInfo = notification.userInfo,
+                  let keyboardEndFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue,
+                  let duration = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue,
+                  let animationCurve = (userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber)?.uintValue
+            else {return}
+            
+            let height = view.convert(keyboardEndFrame, from: nil).intersection(view.bounds).height
+            UIView.animate(
+                withDuration: duration,
+                delay: 0,
+                options: UIView.AnimationOptions(rawValue: animationCurve)) {
+                self.bottomConstraint?.constant = height
+                self.view.layoutIfNeeded()
+            }
+        } else {
+            let rootViewController = RootViewController()
+            rootViewController.showInternetConnectionAlert()
         }
     }
     
@@ -164,7 +169,13 @@ private struct SearchResultsView: View {
         } else if horizontalSizeClass == .regular {
             SplitView().edgesIgnoringSafeArea(.all)
         } else if viewModel.searchText.isEmpty {
-            FilterView()
+            if Reachability.isConnectedToNetwork() {
+                FilterView()
+            } else {
+//                let root = RootViewController()
+//                root.showInternetConnectionAlert()
+                EmptyView()
+            }
         } else if viewModel.inProgress {
             ActivityIndicator()
         } else if viewModel.results.isEmpty {
