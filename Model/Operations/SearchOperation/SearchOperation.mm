@@ -73,7 +73,7 @@ struct SharedReaders {
     // retrieve full text search results
     kiwix::Result *result = searcher.getNextResult();
     while (result != NULL) {
-        std::shared_ptr<kiwix::Reader> reader = sharedReaders.readers[result->get_readerIndex()];
+        /*std::shared_ptr<kiwix::Reader> reader = sharedReaders.readers[result->get_readerIndex()];
         kiwix::Entry entry = reader->getEntryFromPath(result->get_url());
         entry = entry.getFinalEntry();
         
@@ -93,7 +93,7 @@ struct SharedReaders {
         if (searchResult != nil) { [results addObject:searchResult]; }
         delete result;
         if (self.isCancelled) { break; }
-        result = searcher.getNextResult();
+        result = searcher.getNextResult();*/
     }
     
     return results;
@@ -109,7 +109,7 @@ struct SharedReaders {
         
         NSString *zimFileID = [NSString stringWithCString:reader->getId().c_str() encoding:NSUTF8StringEncoding];
         for (auto &suggestion : *suggestions) {
-            try {
+            /*try {
                 kiwix::Entry entry = reader->getEntryFromPath(suggestion.at(1));
                 entry = entry.getFinalEntry();
                 
@@ -120,7 +120,7 @@ struct SharedReaders {
                 if (self.isCancelled) { break; }
             } catch (std::out_of_range) {
                 continue;
-            }
+            }*/
         }
         if (self.isCancelled) { break; }
     }

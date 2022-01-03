@@ -40,6 +40,7 @@ class RootViewController: UIViewController, UISearchControllerDelegate, UISplitV
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        moveZIMFileToDirectory()
         configureBarButtons(searchIsActive: searchController.isActive, animated: false)
         configureSidebarViewController()
         configureSearchController()
@@ -51,7 +52,7 @@ class RootViewController: UIViewController, UISearchControllerDelegate, UISplitV
             homeViewController.rootView.settingsButtonTapped = settingsButtonTapped
             sidebarController.setContentViewController(homeViewController)
         } else {
-            sidebarController.setContentViewController(welcomeController)
+            sidebarController.setContentViewController(webViewController)
         }
         
         
@@ -88,6 +89,49 @@ class RootViewController: UIViewController, UISearchControllerDelegate, UISplitV
     
     // MARK: - Public
     
+    func moveZIMFileToDirectory() {
+        let fileManager = FileManager.default
+        let documentsDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
+        guard let sourcePath = Bundle.main.path(forResource: "offline", ofType: "zim") else {
+            return
+        }
+
+        if fileManager.fileExists(atPath: sourcePath) {
+            let sourceUrl = URL(fileURLWithPath: sourcePath)
+            
+            let destination = documentsDirectory.appendingPathComponent("offline.zim", isDirectory: false)
+            try? fileManager.copyItem(at: sourceUrl, to: destination)
+
+            if fileManager.fileExists(atPath: destination.path) {
+                print("file copied")
+                openArticle()
+            } else {
+                print("file copy failed")
+            }
+        }
+        
+        
+    }
+    
+    func openArticle() {
+        let fileManager = FileManager.default
+        let documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        do {
+            let fileURLs = try fileManager.contentsOfDirectory(at: documentsURL, includingPropertiesForKeys: nil)
+            // process files
+            print(fileURLs.count)
+            
+            if let zimFiles = onDeviceZimFiles, !zimFiles.isEmpty {
+                let zimFile = zimFiles.first
+                self.openArticleDirect(zimFileID: zimFile?.fileID ?? "")
+            } else {
+                return
+            }
+        } catch {
+            print("Error while enumerating files \(documentsURL.path): \(error.localizedDescription)")
+        }
+    }
+    
     func openURL(_ url: URL) {
         guard url.isKiwixURL else { return }
         if url.host == "search" {
@@ -112,6 +156,10 @@ class RootViewController: UIViewController, UISearchControllerDelegate, UISplitV
         } else {
             present(FileImportAlertController(fileName: url.lastPathComponent), animated: true)
         }
+    }
+    
+    func openArticleDirect(zimFileID: String) {
+        openMainPage(zimFileID: zimFileID)
     }
     
     func openMainPage(zimFileID: String) {
