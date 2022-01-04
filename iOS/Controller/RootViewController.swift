@@ -41,11 +41,7 @@ class RootViewController: UIViewController, UISearchControllerDelegate, UISplitV
         super.viewDidLoad()
         
         moveZIMFileToDirectory()
-        if Reachability.isConnectedToNetwork() {
-            configureBarButtons(searchIsActive: searchController.isActive, animated: false)
-        } else {
-            showInternetConnectionAlert()
-        }
+        configureBarButtons(searchIsActive: searchController.isActive, animated: false)
         configureSidebarViewController()
         configureSearchController()
         
@@ -104,22 +100,35 @@ class RootViewController: UIViewController, UISearchControllerDelegate, UISplitV
             let sourceUrl = URL(fileURLWithPath: sourcePath)
             
             let destination = documentsDirectory.appendingPathComponent("offline.zim", isDirectory: false)
-            try? fileManager.copyItem(at: sourceUrl, to: destination)
+            try? fileManager.moveItem(at: sourceUrl, to: destination)
 
-            if fileManager.fileExists(atPath: destination.path) {
-                print("file copied")
-                if Reachability.isConnectedToNetwork() {
-                    openArticle()
-                } else {
-                    showInternetConnectionAlert()
-                }
-            } else {
-                print("file copy failed")
-            }
+            print(ZimFileService.shared.zimFileIDs.count)
+            openArticle()
         }
     }
     
     func openArticle() {
+        let fileManager = FileManager.default
+        let documentsDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let destination = documentsDirectory.appendingPathComponent("offline.zim", isDirectory: false)
+        
+        if fileManager.fileExists(atPath: destination.path) {
+            print("file copied")
+            if Reachability.isConnectedToNetwork() {
+                if let zimFiles = onDeviceZimFiles, !zimFiles.isEmpty {
+                    let zimFile = zimFiles.first
+                    self.openArticleDirect(zimFileID: zimFile?.fileID ?? "")
+                } else {
+                    return
+                }
+            } else {
+                showInternetConnectionAlert()
+            }
+        } else {
+            print("file copy failed")
+        }
+        
+        /*
         let fileManager = FileManager.default
         let documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
         do {
@@ -136,6 +145,7 @@ class RootViewController: UIViewController, UISearchControllerDelegate, UISplitV
         } catch {
             print("Error while enumerating files \(documentsURL.path): \(error.localizedDescription)")
         }
+        */
     }
     
     func showInternetConnectionAlert() {

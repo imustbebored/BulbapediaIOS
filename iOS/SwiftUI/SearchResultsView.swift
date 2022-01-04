@@ -174,7 +174,7 @@ private struct SearchResultsView: View {
             } else {
 //                let root = RootViewController()
 //                root.showInternetConnectionAlert()
-                EmptyView()
+                NetworkErrorView()
             }
         } else if viewModel.inProgress {
             ActivityIndicator()
@@ -320,6 +320,20 @@ private struct FilterView: View {
     }
 }
 
+struct NetworkErrorView: View {
+    @ObservedObject var model: InternetErrorModel = InternetErrorModel()
+
+    var body: some View {
+        VStack {
+            Text("")
+        }.alert(isPresented: $model.isValid, content: {
+            Alert(title: Text(""),
+                  message: Text("Offline mode only available in Pro version. Please connect to the internet."),
+                  dismissButton: .default(Text("OK")) { print("do something") })
+        })
+    }
+}
+
 private struct ResultsListView: View {
     @EnvironmentObject var viewModel: ViewModel
     
@@ -354,5 +368,13 @@ private struct ActivityIndicator: UIViewRepresentable {
 
     func updateUIView(_ uiView: UIActivityIndicatorView, context: Context) {
         uiView.startAnimating()
+    }
+}
+
+class InternetErrorModel: ObservableObject {
+    @Published var isValid: Bool = false
+
+    init() {
+        self.isValid = true
     }
 }
