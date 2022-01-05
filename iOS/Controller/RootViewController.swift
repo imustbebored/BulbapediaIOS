@@ -13,6 +13,8 @@ import SafariServices
 import Defaults
 import RealmSwift
 
+var isInitialWeb = true
+
 class RootViewController: UIViewController, UISearchControllerDelegate, UISplitViewControllerDelegate {
     let searchController: UISearchController
     private let sidebarController = SidebarController()
@@ -92,18 +94,28 @@ class RootViewController: UIViewController, UISearchControllerDelegate, UISplitV
     func moveZIMFileToDirectory() {
         let fileManager = FileManager.default
         let documentsDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
-        guard let sourcePath = Bundle.main.path(forResource: "offline", ofType: "zim") else {
-            return
-        }
+        
+        if let zimFiles = onDeviceZimFiles, !zimFiles.isEmpty {
+            let zimFile = zimFiles.first
+            isInitialWeb = false
+            self.openArticleDirect(zimFileID: zimFile?.fileID ?? "")
+        } else {
+            isInitialWeb = true
+            guard let sourcePath = Bundle.main.path(forResource: "offline", ofType: "zim") else {
+                return
+            }
 
-        if fileManager.fileExists(atPath: sourcePath) {
-            let sourceUrl = URL(fileURLWithPath: sourcePath)
-            
-            let destination = documentsDirectory.appendingPathComponent("offline.zim", isDirectory: false)
-            try? fileManager.moveItem(at: sourceUrl, to: destination)
+            if fileManager.fileExists(atPath: sourcePath) {
+                let sourceUrl = URL(fileURLWithPath: sourcePath)
+                
+                let destination = documentsDirectory.appendingPathComponent("offline.zim", isDirectory: false)
+                try? fileManager.moveItem(at: sourceUrl, to: destination)
 
-            print(ZimFileService.shared.zimFileIDs.count)
-            openArticle()
+                print(ZimFileService.shared.zimFileIDs.count)
+                openArticle()
+            } else {
+                return
+            }
         }
     }
     
@@ -119,7 +131,9 @@ class RootViewController: UIViewController, UISearchControllerDelegate, UISplitV
                     let zimFile = zimFiles.first
                     self.openArticleDirect(zimFileID: zimFile?.fileID ?? "")
                 } else {
-                    return
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                        self.checkAndOpenZIMWithDelay()
+                    }
                 }
             } else {
                 showInternetConnectionAlert()
@@ -127,25 +141,15 @@ class RootViewController: UIViewController, UISearchControllerDelegate, UISplitV
         } else {
             print("file copy failed")
         }
-        
-        /*
-        let fileManager = FileManager.default
-        let documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        do {
-            let fileURLs = try fileManager.contentsOfDirectory(at: documentsURL, includingPropertiesForKeys: nil)
-            // process files
-            print(fileURLs.count)
-            
-            if let zimFiles = onDeviceZimFiles, !zimFiles.isEmpty {
-                let zimFile = zimFiles.first
-                self.openArticleDirect(zimFileID: zimFile?.fileID ?? "")
-            } else {
-                return
-            }
-        } catch {
-            print("Error while enumerating files \(documentsURL.path): \(error.localizedDescription)")
+    }
+    
+    func checkAndOpenZIMWithDelay() {
+        if let zimFiles = onDeviceZimFiles, !zimFiles.isEmpty {
+            let zimFile = zimFiles.first
+            self.openArticleDirect(zimFileID: zimFile?.fileID ?? "")
+        } else {
+            return
         }
-        */
     }
     
     func showInternetConnectionAlert() {
@@ -158,6 +162,7 @@ class RootViewController: UIViewController, UISearchControllerDelegate, UISplitV
     }
     
     func openURL(_ url: URL) {
+        NotificationCenter.default.post(name: NSNotification.Name("Hide_Loader_OnWeb"), object: nil)
         guard url.isKiwixURL else { return }
         if url.host == "search" {
             searchController.isActive = true

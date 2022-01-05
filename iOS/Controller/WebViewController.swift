@@ -37,6 +37,8 @@ class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
         splitViewController?.parent as? RootViewController
     }
     
+    var activityIndicator = UIActivityIndicatorView(style: .large)
+    
     init() {
         super.init(nibName: nil, bundle: nil)
         webView.navigationDelegate = self
@@ -63,9 +65,12 @@ class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
         if #available(iOS 14.0, *) {
             navigationController?.isNavigationBarHidden = true
         }
+        setActivityIndicator()
         
         // observe webView font size adjust factor
         textSizeAdjustFactorObserver = Defaults.observe(keys: .webViewTextSizeAdjustFactor) { self.adjustTextSize() }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(hideIndicator), name: NSNotification.Name("Hide_Loader_OnWeb"), object: nil)
     }
     
     override func viewDidLayoutSubviews() {
@@ -73,10 +78,24 @@ class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
         webView.setValue(view.safeAreaInsets, forKey: "_obscuredInsets")
     }
     
+    func setActivityIndicator() {
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(activityIndicator)
+        activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        if isInitialWeb {
+            activityIndicator.startAnimating()
+        }
+    }
+    
     func adjustTextSize() {
         let scale = Defaults[.webViewTextSizeAdjustFactor]
         let javascript = String(format: "document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '%.0f%%'", scale * 100)
         webView.evaluateJavaScript(javascript, completionHandler: nil)
+    }
+    
+    @objc func hideIndicator() {
+        activityIndicator.stopAnimating()
     }
     
     // MARK: - WKNavigationDelegate
