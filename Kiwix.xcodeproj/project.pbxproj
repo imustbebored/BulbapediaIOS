@@ -10,10 +10,8 @@
 		7215C834277DB8690089DCCD /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 7215C833277DB8690089DCCD /* Realm */; };
 		7215C836277DB8690089DCCD /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7215C835277DB8690089DCCD /* RealmSwift */; };
 		72457A9E2782C5920062EFC9 /* offline.zim in Resources */ = {isa = PBXBuildFile; fileRef = 72457A9D2782C5920062EFC9 /* offline.zim */; };
-		729C9A22277D981B004D7F5C /* libkiwix.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 729C9A21277D981B004D7F5C /* libkiwix.xcframework */; };
-		729C9A23277D981B004D7F5C /* libkiwix.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 729C9A21277D981B004D7F5C /* libkiwix.xcframework */; };
-		729C9A24277D981B004D7F5C /* libkiwix.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 729C9A21277D981B004D7F5C /* libkiwix.xcframework */; };
-		729C9A25277D983D004D7F5C /* libkiwix.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 729C9A21277D981B004D7F5C /* libkiwix.xcframework */; };
+		7277D6CC27855D03005D5A3B /* libkiwix.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7277D6CB27855D03005D5A3B /* libkiwix.xcframework */; };
+		7277D6CD278560DC005D5A3B /* libkiwix.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7277D6CB27855D03005D5A3B /* libkiwix.xcframework */; };
 		72B5F63D2782D6270074E8F0 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B5F63C2782D6270074E8F0 /* Reachability.swift */; };
 		9707B8F61F4B4F1500075D4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9707B8F51F4B4F1500075D4F /* Assets.xcassets */; };
 		970885D1271339A300C5795C /* wikipedia_dark.css in Resources */ = {isa = PBXBuildFile; fileRef = 970885D0271339A300C5795C /* wikipedia_dark.css */; };
@@ -240,7 +238,7 @@
 
 /* Begin PBXFileReference section */
 		72457A9D2782C5920062EFC9 /* offline.zim */ = {isa = PBXFileReference; lastKnownFileType = file; path = offline.zim; sourceTree = "<group>"; };
-		729C9A21277D981B004D7F5C /* libkiwix.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libkiwix.xcframework; sourceTree = "<group>"; };
+		7277D6CB27855D03005D5A3B /* libkiwix.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libkiwix.xcframework; sourceTree = "<group>"; };
 		72B5F63C2782D6270074E8F0 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		97041F7E1F9652D4007D63F5 /* WikiMed.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = WikiMed.plist; sourceTree = "<group>"; };
 		9707541A23C2D3AB0076B74E /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -381,7 +379,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				729C9A24277D981B004D7F5C /* libkiwix.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,7 +386,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				729C9A23277D981B004D7F5C /* libkiwix.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,11 +395,11 @@
 			files = (
 				7215C834277DB8690089DCCD /* Realm in Frameworks */,
 				97C5763D202CD9C000E37502 /* NotificationCenter.framework in Frameworks */,
+				7277D6CC27855D03005D5A3B /* libkiwix.xcframework in Frameworks */,
 				7215C836277DB8690089DCCD /* RealmSwift in Frameworks */,
 				9744658026F7981500072DC2 /* Fuzi in Frameworks */,
 				97A36C351F8C21210079B452 /* WebKit.framework in Frameworks */,
 				97654726273214530070163D /* Defaults in Frameworks */,
-				729C9A22277D981B004D7F5C /* libkiwix.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,7 +423,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				729C9A25277D983D004D7F5C /* libkiwix.xcframework in Frameworks */,
+				7277D6CD278560DC005D5A3B /* libkiwix.xcframework in Frameworks */,
 				97F425C227151A0D00D0F738 /* QuickLook.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -818,7 +814,7 @@
 		97EC18AE26E8555E008309ED /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				729C9A21277D981B004D7F5C /* libkiwix.xcframework */,
+				7277D6CB27855D03005D5A3B /* libkiwix.xcframework */,
 			);
 			path = Libraries;
 			sourceTree = "<group>";
@@ -1639,7 +1635,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/bigsur/Documents/Kiwix/apple/Model/Support/Kiwix-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Model/Support/Kiwix-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "Kiwix-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1678,7 +1674,7 @@
 				PRODUCT_NAME = Kiwix;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTS_MACCATALYST = NO;
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/bigsur/Documents/Kiwix/apple/Model/Support/Kiwix-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Model/Support/Kiwix-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "Kiwix-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
