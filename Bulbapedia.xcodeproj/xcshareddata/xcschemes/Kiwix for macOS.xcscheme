@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "97A36C241F8C21210079B452"
-               BuildableName = "Kiwix.app"
-               BlueprintName = "iOS"
-               ReferencedContainer = "container:Kiwix.xcodeproj">
+               BlueprintIdentifier = "979315801E5127930093D3BA"
+               BuildableName = "Bulbapedia.app"
+               BlueprintName = "macOS"
+               ReferencedContainer = "container:Bulbapedia.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -28,26 +28,6 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "970EC3F023BE8E20008DCA27"
-               BuildableName = "ModelTests.xctest"
-               BlueprintName = "ModelTests"
-               ReferencedContainer = "container:Kiwix.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9797431E257BEBAB00D30F03"
-               BuildableName = "iOSUITests.xctest"
-               BlueprintName = "iOSUITests"
-               ReferencedContainer = "container:Kiwix.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -64,10 +44,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "97A36C241F8C21210079B452"
-            BuildableName = "Kiwix.app"
-            BlueprintName = "iOS"
-            ReferencedContainer = "container:Kiwix.xcodeproj">
+            BlueprintIdentifier = "979315801E5127930093D3BA"
+            BuildableName = "Bulbapedia.app"
+            BlueprintName = "macOS"
+            ReferencedContainer = "container:Bulbapedia.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -81,10 +61,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "97A36C241F8C21210079B452"
-            BuildableName = "Kiwix.app"
-            BlueprintName = "iOS"
-            ReferencedContainer = "container:Kiwix.xcodeproj">
+            BlueprintIdentifier = "979315801E5127930093D3BA"
+            BuildableName = "Bulbapedia.app"
+            BlueprintName = "macOS"
+            ReferencedContainer = "container:Bulbapedia.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

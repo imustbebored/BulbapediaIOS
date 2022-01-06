@@ -172,8 +172,6 @@ private struct SearchResultsView: View {
             if Reachability.isConnectedToNetwork() {
                 FilterView()
             } else {
-//                let root = RootViewController()
-//                root.showInternetConnectionAlert()
                 NetworkErrorView()
             }
         } else if viewModel.inProgress {
@@ -268,28 +266,6 @@ private struct FilterView: View {
                     }.listRowInsets(EdgeInsets(top: 4, leading: 0, bottom: 4, trailing: 0))
                 }
             }
-            if zimFiles.count > 0 {
-                Section(header: HStack {
-                    Text("Search Filter")
-                    Spacer()
-                    if zimFiles.count == zimFiles.filter({ $0.includedInSearch }).count {
-                        Button("None", action: { excludeAllInSearch() }).foregroundColor(.secondary)
-                    } else {
-                        Button("All", action: { includeAllInSearch() }).foregroundColor(.secondary)
-                    }
-                }) {
-                    ForEach(zimFiles) { zimFile in
-                        Button { toggleSearch(zimFile.fileID) } label: {
-                            ListRow(
-                                title: zimFile.title,
-                                detail: zimFile.description,
-                                faviconData: zimFile.faviconData,
-                                accessories: zimFile.includedInSearch ? [.includedInSearch] : []
-                            )
-                        }
-                    }
-                }
-            }
         }.listStyle(GroupedListStyle())
     }
     
@@ -297,7 +273,7 @@ private struct FilterView: View {
         guard let database = try? Realm(),
               let zimFile = database.object(ofType: ZimFile.self, forPrimaryKey: zimFileID) else { return }
         try? database.write {
-            zimFile.includedInSearch = !zimFile.includedInSearch
+            zimFile.includedInSearch = zimFile.includedInSearch
         }
     }
     
@@ -315,7 +291,7 @@ private struct FilterView: View {
         try? database.write {
             database.objects(ZimFile.self)
                 .filter(NSPredicate(format: "stateRaw == %@", ZimFile.State.onDevice.rawValue))
-                .forEach { $0.includedInSearch = false }
+                .forEach { $0.includedInSearch = true }
         }
     }
 }

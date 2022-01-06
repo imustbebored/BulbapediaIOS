@@ -320,7 +320,7 @@
 		977D509526268AAB005345D1 /* LibrarySearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrarySearchResultView.swift; sourceTree = "<group>"; };
 		978B688824F8080E003CCA8C /* BarButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarButtons.swift; sourceTree = "<group>"; };
 		978FA76725851B4D00666E1B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		979315811E5127930093D3BA /* Kiwix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kiwix.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		979315811E5127930093D3BA /* Bulbapedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bulbapedia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9793158C1E5127930093D3BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		97952EF2264F557B00FC9237 /* SearchResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsView.swift; sourceTree = "<group>"; };
 		97974349257BF2B000D30F03 /* OutlineItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutlineItem.swift; sourceTree = "<group>"; };
@@ -328,7 +328,7 @@
 		97974367257BF37E00D30F03 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		979AAF3F257167C60078492F /* ZimFileDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZimFileDetailView.swift; sourceTree = "<group>"; };
 		97A2AE2125866D9200DEF81D /* ButtonProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonProvider.swift; sourceTree = "<group>"; };
-		97A36C4E1F8C21210079B452 /* Kiwix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kiwix.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		97A36C4E1F8C21210079B452 /* Bulbapedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bulbapedia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97A963C3259D38D900496214 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		97B3998824673FE000BC6F5B /* SearchOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchOperation.h; sourceTree = "<group>"; };
 		97B3998924673FE000BC6F5B /* SearchOperation.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SearchOperation.mm; sourceTree = "<group>"; };
@@ -354,7 +354,7 @@
 		97D19F062546FF3700910CAE /* BuildingBlocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingBlocks.swift; sourceTree = "<group>"; };
 		97DED67E275278FF008D2C56 /* SearchField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchField.swift; sourceTree = "<group>"; };
 		97E173D325733D10002CAD17 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
-		97E94B17271EF24D005B0295 /* Kiwix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kiwix.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		97E94B17271EF24D005B0295 /* Bulbapedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bulbapedia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97E94B19271EF24D005B0295 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		97E94B1B271EF24D005B0295 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		97E94B1D271EF250005B0295 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -678,7 +678,7 @@
 			isa = PBXGroup;
 			children = (
 				9759D4211F4F278800705779 /* Kiwix.entitlements */,
-				979315811E5127930093D3BA /* Kiwix.app */,
+				979315811E5127930093D3BA /* Bulbapedia.app */,
 				9793158C1E5127930093D3BA /* Info.plist */,
 			);
 			path = Support;
@@ -695,11 +695,11 @@
 				97B44895210FBC2C0004B056 /* WikiMed */,
 				970EC3F223BE8E20008DCA27 /* ModelTests */,
 				3B93EAF9B5C5AA23046BDEAC /* Frameworks */,
-				97A36C4E1F8C21210079B452 /* Kiwix.app */,
+				97A36C4E1F8C21210079B452 /* Bulbapedia.app */,
 				970EC3F123BE8E20008DCA27 /* ModelTests.xctest */,
 				970EC3FD23BE9987008DCA27 /* WikiMed.app */,
 				97F425C027151A0D00D0F738 /* QuickLookPreview.appex */,
-				97E94B17271EF24D005B0295 /* Kiwix.app */,
+				97E94B17271EF24D005B0295 /* Bulbapedia.app */,
 			);
 			sourceTree = "<group>";
 			wrapsLines = 0;
@@ -866,7 +866,7 @@
 			packageProductDependencies = (
 			);
 			productName = Kiwix;
-			productReference = 979315811E5127930093D3BA /* Kiwix.app */;
+			productReference = 979315811E5127930093D3BA /* Bulbapedia.app */;
 			productType = "com.apple.product-type.application";
 		};
 		97A36C241F8C21210079B452 /* iOS */ = {
@@ -893,7 +893,7 @@
 				7215C835277DB8690089DCCD /* RealmSwift */,
 			);
 			productName = WikiMed;
-			productReference = 97A36C4E1F8C21210079B452 /* Kiwix.app */;
+			productReference = 97A36C4E1F8C21210079B452 /* Bulbapedia.app */;
 			productType = "com.apple.product-type.application";
 		};
 		97B44893210FBC2C0004B056 /* WikiMed */ = {
@@ -932,7 +932,7 @@
 				97242BAA2735E70F00C87F85 /* Defaults */,
 			);
 			productName = Kiwix;
-			productReference = 97E94B17271EF24D005B0295 /* Kiwix.app */;
+			productReference = 97E94B17271EF24D005B0295 /* Bulbapedia.app */;
 			productType = "com.apple.product-type.application";
 		};
 		97F425BF27151A0D00D0F738 /* QuickLookPreview */ = {
@@ -1013,7 +1013,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 97A2AB831C1B80FF00052E74 /* Build configuration list for PBXProject "Kiwix" */;
+			buildConfigurationList = 97A2AB831C1B80FF00052E74 /* Build configuration list for PBXProject "Bulbapedia" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -1392,7 +1392,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Kiwix.app/Kiwix";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bulbapedia.app/Bulbapedia";
 			};
 			name = Debug;
 		};
@@ -1421,7 +1421,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Kiwix.app/Kiwix";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bulbapedia.app/Bulbapedia";
 			};
 			name = Release;
 		};
@@ -1448,7 +1448,7 @@
 				MARKETING_VERSION = 2.1.2;
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.kiwix.KiwixMacOS;
-				PRODUCT_NAME = Kiwix;
+				PRODUCT_NAME = Bulbapedia;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
@@ -1480,7 +1480,7 @@
 				MARKETING_VERSION = 2.1.2;
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.kiwix.KiwixMacOS;
-				PRODUCT_NAME = Kiwix;
+				PRODUCT_NAME = Bulbapedia;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
@@ -1631,7 +1631,7 @@
 					SwiftUI,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = self.Kiwix;
-				PRODUCT_NAME = Kiwix;
+				PRODUCT_NAME = Bulbapedia;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -1671,7 +1671,7 @@
 					SwiftUI,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = self.Kiwix;
-				PRODUCT_NAME = Kiwix;
+				PRODUCT_NAME = Bulbapedia;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Model/Support/Kiwix-Bridging-Header.h";
@@ -1769,7 +1769,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = org.kiwix.Kiwix;
-				PRODUCT_NAME = Kiwix;
+				PRODUCT_NAME = Bulbapedia;
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1809,7 +1809,7 @@
 				MARKETING_VERSION = 1.0;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = org.kiwix.Kiwix;
-				PRODUCT_NAME = Kiwix;
+				PRODUCT_NAME = Bulbapedia;
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1907,7 +1907,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		97A2AB831C1B80FF00052E74 /* Build configuration list for PBXProject "Kiwix" */ = {
+		97A2AB831C1B80FF00052E74 /* Build configuration list for PBXProject "Bulbapedia" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				97A2ABB11C1B810000052E74 /* Debug */,

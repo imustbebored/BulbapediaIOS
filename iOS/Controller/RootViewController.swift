@@ -104,7 +104,6 @@ class RootViewController: UIViewController, UISearchControllerDelegate, UISplitV
             guard let sourcePath = Bundle.main.path(forResource: "offline", ofType: "zim") else {
                 return
             }
-
             if fileManager.fileExists(atPath: sourcePath) {
                 let sourceUrl = URL(fileURLWithPath: sourcePath)
                 
@@ -126,17 +125,13 @@ class RootViewController: UIViewController, UISearchControllerDelegate, UISplitV
         
         if fileManager.fileExists(atPath: destination.path) {
             print("file copied")
-            if Reachability.isConnectedToNetwork() {
-                if let zimFiles = onDeviceZimFiles, !zimFiles.isEmpty {
-                    let zimFile = zimFiles.first
-                    self.openArticleDirect(zimFileID: zimFile?.fileID ?? "")
-                } else {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                        self.checkAndOpenZIMWithDelay()
-                    }
-                }
+            if let zimFiles = onDeviceZimFiles, !zimFiles.isEmpty {
+                let zimFile = zimFiles.first
+                self.openArticleDirect(zimFileID: zimFile?.fileID ?? "")
             } else {
-                showInternetConnectionAlert()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                    self.checkAndOpenZIMWithDelay()
+                }
             }
         } else {
             print("file copy failed")

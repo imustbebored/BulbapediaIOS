@@ -88,6 +88,15 @@ class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
         }
     }
     
+    func showInternetConnectionAlert() {
+        let alert = UIAlertController(title: "", message: "Offline mode only available in Pro version. Please connect to the internet.", preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "OK", style: .default) { okAct in
+            print("Ok")
+        }
+        alert.addAction(alertAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     func adjustTextSize() {
         let scale = Defaults[.webViewTextSizeAdjustFactor]
         let javascript = String(format: "document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '%.0f%%'", scale * 100)
@@ -105,6 +114,11 @@ class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
                  preferences: WKWebpagePreferences,
                  decisionHandler: @escaping (WKNavigationActionPolicy, WKWebpagePreferences) -> Void) {
         guard let url = navigationAction.request.url else { decisionHandler(.cancel, preferences); return }
+        if !Reachability.isConnectedToNetwork() {
+            showInternetConnectionAlert()
+            decisionHandler(.cancel, preferences)
+            return
+        }
         if url.isKiwixURL {
             if let redirectedURL = ZimFileService.shared.getRedirectedURL(url: url) {
                 decisionHandler(.cancel, preferences)
