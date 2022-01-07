@@ -10,6 +10,7 @@ import UIKit
 import WebKit
 import SafariServices
 import Defaults
+import GoogleMobileAds
 
 class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
     let webView: WKWebView = {
@@ -32,6 +33,10 @@ class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
         }()
         return WKWebView(frame: .zero, configuration: config)
     }()
+    
+    var bannerView: GAMBannerView!
+    var interstitial: GAMInterstitialAd?
+    
     private var textSizeAdjustFactorObserver: DefaultsObservation?
     private var rootViewController: RootViewController? {
         splitViewController?.parent as? RootViewController
@@ -67,10 +72,17 @@ class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
         }
         setActivityIndicator()
         
+        setBannerAd()
+        
         // observe webView font size adjust factor
         textSizeAdjustFactorObserver = Defaults.observe(keys: .webViewTextSizeAdjustFactor) { self.adjustTextSize() }
         
         NotificationCenter.default.addObserver(self, selector: #selector(hideIndicator), name: NSNotification.Name("Hide_Loader_OnWeb"), object: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setInterstitialAd()
     }
     
     override func viewDidLayoutSubviews() {
@@ -85,6 +97,61 @@ class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
         activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         if isInitialWeb {
             activityIndicator.startAnimating()
+        }
+    }
+    
+    func setBannerAd() {
+        let request = GAMRequest()
+        
+        // In this case, we instantiate the banner with desired ad size.
+        let adSize = GADAdSizeFromCGSize(CGSize(width: 320, height: 50))
+        bannerView = GAMBannerView(adSize: adSize)
+        
+        bannerView.adUnitID = "/154013155,7264022/1016210/72846/1016210-72846-mobile_leaderboard"
+        bannerView.rootViewController = self
+        bannerView.load(request)
+        
+        addBannerViewToView(bannerView)
+    }
+    
+    func setInterstitialAd() {
+        let request = GAMRequest()
+        
+        GAMInterstitialAd.load(withAdManagerAdUnitID: "/154013155,7264022/1016210/72846/1016210-72846-in_game_item", request: request) { [self] ad, error in
+            if let error = error {
+              print("Failed to load interstitial ad with error: \(error.localizedDescription)")
+              return
+            }
+            interstitial = ad
+        }
+    }
+    
+    func addBannerViewToView(_ bannerView: GAMBannerView) {
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(bannerView)
+        view.addConstraints(
+          [NSLayoutConstraint(item: bannerView,
+                              attribute: .bottom,
+                              relatedBy: .equal,
+                              toItem: view.safeAreaLayoutGuide,
+                              attribute: .bottom,
+                              multiplier: 1,
+                              constant: 0),
+           NSLayoutConstraint(item: bannerView,
+                              attribute: .centerX,
+                              relatedBy: .equal,
+                              toItem: view,
+                              attribute: .centerX,
+                              multiplier: 1,
+                              constant: 0)
+        ])
+    }
+    
+    func presentInterstitialAdOnArticle() {
+        if interstitial != nil {
+            interstitial?.present(fromRootViewController: self)
+        } else {
+            print("Ad wasn't ready")
         }
     }
     
@@ -120,6 +187,8 @@ class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
             return
         }
         if url.isKiwixURL {
+            var viewedArticleCount = UserDefaults.standard.integer(forKey: "NumberOf_Article_viewed")
+                        
             if let redirectedURL = ZimFileService.shared.getRedirectedURL(url: url) {
                 decisionHandler(.cancel, preferences)
                 webView.load(URLRequest(url: redirectedURL))
@@ -127,6 +196,16 @@ class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
                 preferences.preferredContentMode = .mobile
                 decisionHandler(.allow, preferences)
             }
+            if viewedArticleCount == 7 {
+                viewedArticleCount = 0
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                    self.presentInterstitialAdOnArticle()
+                }
+            } else {
+                viewedArticleCount += 1
+            }
+            UserDefaults.standard.set(viewedArticleCount, forKey: "NumberOf_Article_viewed")
+            UserDefaults.standard.synchronize()
         } else if url.scheme == "http" || url.scheme == "https" {
             let policy = Defaults[.externalLinkLoadingPolicy]
             if policy == .alwaysLoad {

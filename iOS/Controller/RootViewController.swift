@@ -57,7 +57,6 @@ class RootViewController: UIViewController, UISearchControllerDelegate, UISplitV
             sidebarController.setContentViewController(webViewController)
         }
         
-        
         if #available(iOS 15.0, *) {
             navigationItem.scrollEdgeAppearance = {
                 let apperance = UINavigationBarAppearance()
