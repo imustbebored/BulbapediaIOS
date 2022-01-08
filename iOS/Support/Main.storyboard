@@ -12,7 +12,7 @@
         <!--Setting Font Size View Controller-->
         <scene sceneID="xoy-LW-jlV">
             <objects>
-                <viewController storyboardIdentifier="SettingFontSizeViewController" id="ixK-lM-nyu" customClass="SettingFontSizeViewController" customModule="Kiwix" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingFontSizeViewController" id="ixK-lM-nyu" customClass="SettingFontSizeViewController" customModule="Bulbapedia" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fXk-M7-fW2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -99,7 +99,7 @@
         <!--Welcome Controller-->
         <scene sceneID="MAQ-Q2-rYU">
             <objects>
-                <viewController storyboardIdentifier="WelcomeController" id="1qf-Qn-OTE" customClass="WelcomeController" customModule="Kiwix" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WelcomeController" id="1qf-Qn-OTE" customClass="WelcomeController" customModule="Bulbapedia" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hKl-AZ-y4g">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -138,7 +138,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="eGK-bW-Ahk">
                                         <rect key="frame" x="0.0" y="149" width="288" height="30"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="npo-vi-gnv" customClass="RoundedButton" customModule="Kiwix" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="npo-vi-gnv" customClass="RoundedButton" customModule="Bulbapedia" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="288" height="30"/>
                                                 <state key="normal" title="Button"/>
                                                 <connections>

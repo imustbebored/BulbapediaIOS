@@ -11,6 +11,7 @@ import WebKit
 import SafariServices
 import Defaults
 import GoogleMobileAds
+import SwiftUI
 
 class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
     let webView: WKWebView = {
@@ -102,6 +103,9 @@ class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
     
     func setBannerAd() {
         let request = GAMRequest()
+        let extras = GADExtras()
+        extras.additionalParameters = ["suppress_test_label": "1"]
+        request.register(extras)
         
         // In this case, we instantiate the banner with desired ad size.
         let adSize = GADAdSizeFromCGSize(CGSize(width: 320, height: 50))
@@ -116,6 +120,9 @@ class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
     
     func setInterstitialAd() {
         let request = GAMRequest()
+        let extras = GADExtras()
+        extras.additionalParameters = ["suppress_test_label": "1"]
+        request.register(extras)
         
         GAMInterstitialAd.load(withAdManagerAdUnitID: "/154013155,7264022/1016210/72846/1016210-72846-in_game_item", request: request) { [self] ad, error in
             if let error = error {
@@ -123,6 +130,7 @@ class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
               return
             }
             interstitial = ad
+            interstitial?.fullScreenContentDelegate = self
         }
     }
     
@@ -152,6 +160,7 @@ class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
             interstitial?.present(fromRootViewController: self)
         } else {
             print("Ad wasn't ready")
+            setInterstitialAd()
         }
     }
     
@@ -250,4 +259,22 @@ class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
             completionHandler(nil)
         }
     }
+}
+
+//MARK:- Interstitial ad delegates.
+extension WebViewController: GADFullScreenContentDelegate {
+      func ad(_ ad: GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {
+          print("Ad did fail to present full screen content.")
+      }
+
+      func adDidPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+          print("Ad did present full screen content.")
+      }
+
+      func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+          let swiftUIView = RemoveAdsView()
+          let hostingController = UIHostingController(rootView: swiftUIView)
+          hostingController.modalPresentationStyle = .fullScreen
+          present(hostingController, animated: false, completion: nil)
+      }
 }
