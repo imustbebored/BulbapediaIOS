@@ -37,6 +37,7 @@ class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
     
     var bannerView: GAMBannerView!
     var interstitial: GAMInterstitialAd?
+    let lblName = UILabel()
     
     private var textSizeAdjustFactorObserver: DefaultsObservation?
     private var rootViewController: RootViewController? {
@@ -102,6 +103,21 @@ class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
     }
     
     func setBannerAd() {
+        lblName.isHidden = true
+        let height = CGFloat(50)
+
+        lblName.text = ""
+        lblName.backgroundColor = .white
+        lblName.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(lblName)
+
+        NSLayoutConstraint.activate([
+            lblName.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
+            lblName.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
+            lblName.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor,constant: -height),
+            lblName.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
+        ])
+        
         let request = GAMRequest()
         let extras = GADExtras()
         extras.additionalParameters = ["suppress_test_label": "1"]
@@ -113,6 +129,7 @@ class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
         
         bannerView.adUnitID = "/154013155,7264022/1016210/72846/1016210-72846-mobile_leaderboard"
         bannerView.rootViewController = self
+        bannerView.delegate = self
         bannerView.load(request)
         
         addBannerViewToView(bannerView)
@@ -272,9 +289,40 @@ extension WebViewController: GADFullScreenContentDelegate {
       }
 
       func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
-          let swiftUIView = RemoveAdsView()
-          let hostingController = UIHostingController(rootView: swiftUIView)
-          hostingController.modalPresentationStyle = .fullScreen
-          present(hostingController, animated: false, completion: nil)
+          if UserDefaults.standard.bool(forKey: "Is_Active_Session") == false {
+              UserDefaults.standard.set(true, forKey: "Is_Active_Session")
+              UserDefaults.standard.synchronize()
+              let swiftUIView = RemoveAdsView()
+              let hostingController = UIHostingController(rootView: swiftUIView)
+              hostingController.modalPresentationStyle = .fullScreen
+              present(hostingController, animated: false, completion: nil)
+          }
       }
+}
+
+//MARK:- Banner ad delegates.
+extension WebViewController: GADBannerViewDelegate {
+    func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
+        self.lblName.isHidden = false
+    }
+
+    func bannerView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: Error) {
+        print("bannerView:didFailToReceiveAdWithError: \(error.localizedDescription)")
+    }
+
+    func bannerViewDidRecordImpression(_ bannerView: GADBannerView) {
+        print("bannerViewDidRecordImpression")
+    }
+
+    func bannerViewWillPresentScreen(_ bannerView: GADBannerView) {
+        print("bannerViewWillPresentScreen")
+    }
+
+    func bannerViewWillDismissScreen(_ bannerView: GADBannerView) {
+        print("bannerViewWillDIsmissScreen")
+    }
+
+    func bannerViewDidDismissScreen(_ bannerView: GADBannerView) {
+        self.lblName.isHidden = true
+    }
 }

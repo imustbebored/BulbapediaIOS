@@ -18,77 +18,63 @@ struct RemoveAdsView: View {
     }
     
     var content: some View {
-        /*ZStack() {
-            Color.white
-            HStack {
-                VStack(spacing: 20) {
-                    Color.white
-                    HStack {
-                        Button(action: {
-                            presentationMode.wrappedValue.dismiss()
-                        }) {
-                            Image("icn_close")
-                                .renderingMode(Image.TemplateRenderingMode?.init(Image.TemplateRenderingMode.original))
-                        }
-                        Spacer()
-                    }
-                    
-                    Image("img_icon")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(height: 100)
-                    Text("Upgrade to Pro!")
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                        .foregroundColor(.gray)
-                    Text("Going Pro removes all ads AND allows you to download the entire wiki for offline viewing without any internet.")
-                        .font(.body)
-                        .fontWeight(.regular)
-                        .foregroundColor(.gray)
-                        .multilineTextAlignment(.center)
-                    HStack(spacing: 20) {
-                        Color.white
-                        Spacer()
+        ZStack {
+            Color(.white).opacity(0.2).edgesIgnoringSafeArea(.all)
+
+            VStack(spacing: 30) {
+                HStack {
+                    Button(action: {
+                        presentationMode.wrappedValue.dismiss()
+                    }) {
+                        Image("icn_close")
+                            .renderingMode(Image.TemplateRenderingMode?.init(Image.TemplateRenderingMode.original))
                     }
                     Spacer()
-                }.padding()
+                }
+                
+                Image("img_icon")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(height: 100)
+                Text("Upgrade to Pro!")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .foregroundColor(.gray)
+                Text("Going Pro removes all ads AND allows you to download the entire wiki for offline viewing without any internet.")
+                    .font(.body)
+                    .fontWeight(.regular)
+                    .foregroundColor(.gray)
+                    .multilineTextAlignment(.center)
+                Spacer()
+                HStack(spacing: 20) {
+                    Button(action: {
+                        print("Clicked left")
+                    }) {
+                        Text("₹320.00 / YEAR")
+                            .foregroundColor(.white)
+                    }
+                    .background(Color.green)
+                    
+                    Button(action: {
+                        print("Clicked right")
+                    }) {
+                        Text("₹450.00 / ONE TIME")
+                            .foregroundColor(.white)
+                    }
+                    .background(Color.green)
+                }
+                .frame(height: 50)
+                Spacer()
+                Text("Remove Ads and Go Offline")
+                    .font(.body)
+                    .fontWeight(.regular)
+                    .foregroundColor(.gray)
+                    .multilineTextAlignment(.center)
                 Spacer()
             }
-        }*/
-        
-        ZStack {
-                Color(.white).opacity(0.2).edgesIgnoringSafeArea(.all)
-
-                VStack(spacing: 30) {
-                    HStack {
-                        Button(action: {
-                            presentationMode.wrappedValue.dismiss()
-                        }) {
-                            Image("icn_close")
-                                .renderingMode(Image.TemplateRenderingMode?.init(Image.TemplateRenderingMode.original))
-                        }
-                        Spacer()
-                    }
-                    
-                    Image("img_icon")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(height: 100)
-                    Text("Upgrade to Pro!")
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                        .foregroundColor(.gray)
-                    Text("Going Pro removes all ads AND allows you to download the entire wiki for offline viewing without any internet.")
-                        .font(.body)
-                        .fontWeight(.regular)
-                        .foregroundColor(.gray)
-                        .multilineTextAlignment(.center)
-                    Spacer()
-                    
-                }
-                .foregroundColor(Color.black.opacity(0.7))
-                .padding()
-            }
+            .foregroundColor(Color.black.opacity(0.7))
+            .padding()
+        }
     }
     
 }

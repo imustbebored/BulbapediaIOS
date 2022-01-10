@@ -45,6 +45,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, DirectoryMonitorDelegate 
     }
     
     func applicationWillTerminate(_ application: UIApplication) {
+        UserDefaults.standard.set(false, forKey: "Is_Active_Session")
+        UserDefaults.standard.synchronize()
         fileMonitor.stop()
     }
     
