@@ -18,6 +18,7 @@ struct HomeView: View {
     var zimFileTapped: ((String) -> Void)?
     var libraryButtonTapped: (() -> Void)?
     var settingsButtonTapped: (() -> Void)?
+    var updateZimButtonTapped: (() -> Void)?
     
     var body: some View {
         content
@@ -95,6 +96,12 @@ struct HomeView: View {
                 iconSystemName: "gear",
                 backgroundColor: Color(.systemGray),
                 action: settingsButtonTapped
+            )
+            RoundedRectButton(
+                title: "Update your ZIM",
+                iconSystemName: "update_zim",
+                backgroundColor: Color(.systemGray),
+                action: updateZimButtonTapped
             )
         }
     }

@@ -218,9 +218,115 @@
             </objects>
             <point key="canvasLocation" x="1665" y="177"/>
         </scene>
+        <!--Remove AdsVC-->
+        <scene sceneID="Jmo-pY-Gdc">
+            <objects>
+                <viewController storyboardIdentifier="RemoveAdsVC" id="bfR-05-AQq" customClass="RemoveAdsVC" customModule="Bulbapedia" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wcz-XS-fUr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ViP-7F-ClB">
+                                <rect key="frame" x="12" y="56" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Pad-A6-Fhn"/>
+                                    <constraint firstAttribute="width" constant="40" id="q8D-cs-bKz"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="icn_close"/>
+                                <connections>
+                                    <action selector="btnCloseTapped:" destination="bfR-05-AQq" eventType="touchUpInside" id="FVk-as-uQx"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_icon" translatesAutoresizingMaskIntoConstraints="NO" id="CUc-mJ-EBd">
+                                <rect key="frame" x="142" y="106" width="130" height="130"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="130" id="MiH-Ys-ZDj"/>
+                                    <constraint firstAttribute="width" constant="130" id="ahL-6O-Wt4"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upgrade to Pro!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CHm-eh-Rfi">
+                                <rect key="frame" x="10" y="266" width="394" height="36"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Going Pro removes all ads AND allows you to download the entire wiki for offline viewing without any internet." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wbC-Ui-SAX">
+                                <rect key="frame" x="14" y="332" width="386" height="82.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="pnh-Jq-fUh">
+                                <rect key="frame" x="30" y="459.5" width="354" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rVz-K2-OPR">
+                                        <rect key="frame" x="0.0" y="0.0" width="167" height="60"/>
+                                        <color key="backgroundColor" red="0.078431372549019607" green="0.4823529411764706" blue="0.38431372549019605" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="₹320.00 / YEAR">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btn320Tapped:" destination="bfR-05-AQq" eventType="touchUpInside" id="q1F-Qc-Fxs"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mpi-5Z-tQq">
+                                        <rect key="frame" x="187" y="0.0" width="167" height="60"/>
+                                        <color key="backgroundColor" red="0.078431372549019607" green="0.4823529411764706" blue="0.38431372549019605" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="₹450.00 ONE TIME">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btn450Tapped:" destination="bfR-05-AQq" eventType="touchUpInside" id="uLj-CM-cR8"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="iup-YZ-yaU"/>
+                                </constraints>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remove Ads and Go Offline" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CYf-NO-Z4W">
+                                <rect key="frame" x="20" y="799.5" width="374" height="27.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="yxb-Lb-ZaR"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="yxb-Lb-ZaR" firstAttribute="trailing" secondItem="pnh-Jq-fUh" secondAttribute="trailing" constant="30" id="05Y-pc-eGW"/>
+                            <constraint firstItem="yxb-Lb-ZaR" firstAttribute="trailing" secondItem="wbC-Ui-SAX" secondAttribute="trailing" constant="14" id="15J-v7-90b"/>
+                            <constraint firstItem="ViP-7F-ClB" firstAttribute="top" secondItem="yxb-Lb-ZaR" secondAttribute="top" constant="12" id="B2N-KM-yGd"/>
+                            <constraint firstItem="pnh-Jq-fUh" firstAttribute="top" secondItem="wbC-Ui-SAX" secondAttribute="bottom" constant="45" id="KDO-Xm-5Ec"/>
+                            <constraint firstItem="CHm-eh-Rfi" firstAttribute="leading" secondItem="yxb-Lb-ZaR" secondAttribute="leading" constant="10" id="KNe-Ib-gvn"/>
+                            <constraint firstItem="CUc-mJ-EBd" firstAttribute="centerX" secondItem="wcz-XS-fUr" secondAttribute="centerX" id="PyW-PS-qFc"/>
+                            <constraint firstItem="yxb-Lb-ZaR" firstAttribute="bottom" secondItem="CYf-NO-Z4W" secondAttribute="bottom" constant="35" id="RCI-sP-dgl"/>
+                            <constraint firstItem="CYf-NO-Z4W" firstAttribute="leading" secondItem="yxb-Lb-ZaR" secondAttribute="leading" constant="20" id="YHl-sT-wBf"/>
+                            <constraint firstItem="CUc-mJ-EBd" firstAttribute="top" secondItem="ViP-7F-ClB" secondAttribute="bottom" constant="10" id="aZi-hU-SPr"/>
+                            <constraint firstItem="pnh-Jq-fUh" firstAttribute="leading" secondItem="yxb-Lb-ZaR" secondAttribute="leading" constant="30" id="gi3-xc-JNA"/>
+                            <constraint firstItem="CHm-eh-Rfi" firstAttribute="top" secondItem="CUc-mJ-EBd" secondAttribute="bottom" constant="30" id="jCv-2J-188"/>
+                            <constraint firstItem="wbC-Ui-SAX" firstAttribute="top" secondItem="CHm-eh-Rfi" secondAttribute="bottom" constant="30" id="nO2-qt-mfe"/>
+                            <constraint firstItem="yxb-Lb-ZaR" firstAttribute="trailing" secondItem="CHm-eh-Rfi" secondAttribute="trailing" constant="10" id="stf-ME-b6u"/>
+                            <constraint firstItem="yxb-Lb-ZaR" firstAttribute="trailing" secondItem="CYf-NO-Z4W" secondAttribute="trailing" constant="20" id="tzK-Yd-mt0"/>
+                            <constraint firstItem="wbC-Ui-SAX" firstAttribute="leading" secondItem="yxb-Lb-ZaR" secondAttribute="leading" constant="14" id="wNW-3E-23K"/>
+                            <constraint firstItem="ViP-7F-ClB" firstAttribute="leading" secondItem="yxb-Lb-ZaR" secondAttribute="leading" constant="12" id="zQt-OG-sEk"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LY5-8E-v6E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2517" y="177"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Kiwix" width="1256" height="1256"/>
+        <image name="icn_close" width="20" height="20"/>
+        <image name="img_icon" width="29" height="29"/>
         <systemColor name="groupTableViewBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

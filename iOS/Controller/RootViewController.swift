@@ -52,6 +52,7 @@ class RootViewController: UIViewController, UISearchControllerDelegate, UISplitV
             homeViewController.rootView.zimFileTapped = openMainPage
             homeViewController.rootView.libraryButtonTapped = libraryButtonTapped
             homeViewController.rootView.settingsButtonTapped = settingsButtonTapped
+            homeViewController.rootView.updateZimButtonTapped = updateZimButtonTapped
             sidebarController.setContentViewController(homeViewController)
         } else {
             sidebarController.setContentViewController(webViewController)
@@ -403,9 +404,14 @@ class RootViewController: UIViewController, UISearchControllerDelegate, UISplitV
         present(SettingsViewController(), animated: true)
     }
     
+    @objc func updateZimButtonTapped() {
+        
+    }
+    
     @objc func moreButtonTapped() {
         let controller = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         controller.addAction(UIAlertAction(title: "Open Main Page", style: .default, handler: { _  in self.houseButtonTapped()}))
+        controller.addAction(UIAlertAction(title: "Update ZIM", style: .default, handler: { _ in self.updateZimButtonTapped()}))
         controller.addAction(UIAlertAction(title: "Open Library", style: .default, handler: { _  in self.libraryButtonTapped()}))
         controller.addAction(UIAlertAction(title: "Open Settings", style: .default, handler: { _  in self.settingsButtonTapped()}))
         controller.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))

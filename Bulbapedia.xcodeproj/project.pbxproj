@@ -14,6 +14,8 @@
 		72457A9E2782C5920062EFC9 /* offline.zim in Resources */ = {isa = PBXBuildFile; fileRef = 72457A9D2782C5920062EFC9 /* offline.zim */; };
 		7277D6CC27855D03005D5A3B /* libkiwix.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7277D6CB27855D03005D5A3B /* libkiwix.xcframework */; };
 		7277D6CD278560DC005D5A3B /* libkiwix.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7277D6CB27855D03005D5A3B /* libkiwix.xcframework */; };
+		7288DA77278D444300BDDD07 /* RemoveAdsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7288DA76278D444300BDDD07 /* RemoveAdsVC.swift */; };
+		7288DA79278D511100BDDD07 /* IAPHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7288DA78278D511100BDDD07 /* IAPHandler.swift */; };
 		7295BF9E27896F3C0010BD30 /* RemoveAdsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7295BF9D27896F3B0010BD30 /* RemoveAdsView.swift */; };
 		72B5F63D2782D6270074E8F0 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B5F63C2782D6270074E8F0 /* Reachability.swift */; };
 		9707B8F61F4B4F1500075D4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9707B8F51F4B4F1500075D4F /* Assets.xcassets */; };
@@ -253,6 +255,8 @@
 		4E58D5390A70DEE9A0E5F499 /* Pods_WikiMed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WikiMed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		72457A9D2782C5920062EFC9 /* offline.zim */ = {isa = PBXFileReference; lastKnownFileType = file; path = offline.zim; sourceTree = "<group>"; };
 		7277D6CB27855D03005D5A3B /* libkiwix.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libkiwix.xcframework; sourceTree = "<group>"; };
+		7288DA76278D444300BDDD07 /* RemoveAdsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveAdsVC.swift; sourceTree = "<group>"; };
+		7288DA78278D511100BDDD07 /* IAPHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPHandler.swift; sourceTree = "<group>"; };
 		7295BF9D27896F3B0010BD30 /* RemoveAdsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveAdsView.swift; sourceTree = "<group>"; };
 		72B5F63C2782D6270074E8F0 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		80F3A5ECA0C898C906E4BA87 /* Pods_macOS_SwiftUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_macOS_SwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -550,6 +554,7 @@
 				975FDAD91F6082DA00A10E8C /* AppDelegate.swift */,
 				973B8011239066D0008CC8CE /* SceneDelegate.swift */,
 				72B5F63C2782D6270074E8F0 /* Reachability.swift */,
+				7288DA78278D511100BDDD07 /* IAPHandler.swift */,
 				97A996D81F62F3C5007A6282 /* View */,
 				975FDB0E1F60944A00A10E8C /* Controller */,
 				97F425C327151A0D00D0F738 /* QuickLookPreview */,
@@ -585,6 +590,7 @@
 				977D50622621E47D005345D1 /* LibraryViewController.swift */,
 				9797435B257BF33600D30F03 /* WebViewController.swift */,
 				972C977F26F042E40070987F /* SettingsViewController.swift */,
+				7288DA76278D444300BDDD07 /* RemoveAdsVC.swift */,
 				97B4ADF72392B73300264AF6 /* Utilities */,
 			);
 			path = Controller;
@@ -1377,6 +1383,7 @@
 				97566A562728F58000DE7165 /* BookmarksViewController.swift in Sources */,
 				97B3998E246759E400BC6F5B /* SearchResult.m in Sources */,
 				97225AA2261A006A00D8CB32 /* LibraryCategoryView.swift in Sources */,
+				7288DA79278D511100BDDD07 /* IAPHandler.swift in Sources */,
 				72B5F63D2782D6270074E8F0 /* Reachability.swift in Sources */,
 				9779A5BC2456793600F6F6FF /* OPDSStreamParser.swift in Sources */,
 				972E6F641FA11A6100F5C927 /* RoundedButton.swift in Sources */,
@@ -1396,6 +1403,7 @@
 				978B688924F8080E003CCA8C /* BarButtons.swift in Sources */,
 				977D506D2621EAD1005345D1 /* LibraryPrimaryView.swift in Sources */,
 				972C978026F042E40070987F /* SettingsViewController.swift in Sources */,
+				7288DA77278D444300BDDD07 /* RemoveAdsVC.swift in Sources */,
 				972B6662200808D6003F5365 /* WelcomeController.swift in Sources */,
 				973B2A5D254609FD00093661 /* Modifiers.swift in Sources */,
 				9779A5B82456793600F6F6FF /* LibraryOperationBase.swift in Sources */,

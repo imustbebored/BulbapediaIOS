@@ -19,6 +19,7 @@ class ButtonProvider {
     private let bookmarkButton = BookmarkButton(imageName: "star", bookmarkedImageName: "star.fill")
     private let diceButton = BarButton(imageName: "die.face.5")
     private let houseButton = BarButton(imageName: "house")
+    private let updateButton = BarButton(imageName: "update_zim")
     private let libraryButton = BarButton(imageName: "folder")
     private let settingsButton = BarButton(imageName: "gear")
     private let moreButton = BarButton(imageName: "ellipsis.circle")
@@ -26,7 +27,7 @@ class ButtonProvider {
     
     let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: nil, action: nil)
     var navigationLeftButtons: [BarButton] { [chevronLeftButton, chevronRightButton, outlineButton, bookmarkButton] }
-    var navigationRightButtons: [BarButton] { [diceButton, houseButton, libraryButton, settingsButton] }
+    var navigationRightButtons: [BarButton] { [diceButton, houseButton, libraryButton, settingsButton, updateButton] }
     var toolbarButtons: [BarButton] { [chevronLeftButton, chevronRightButton, outlineButton, bookmarkButton, diceButton, moreButton] }
     
     private let onDeviceZimFiles = LibraryService.onDeviceZimFiles()?.sorted(byKeyPath: "size", ascending: false)
@@ -76,6 +77,7 @@ class ButtonProvider {
         bookmarkButton.addTarget(controller, action: #selector(controller.bookmarkButtonTapped), for: .touchUpInside)
         diceButton.addTarget(controller, action: #selector(controller.diceButtonTapped), for: .touchUpInside)
         houseButton.addTarget(controller, action: #selector(controller.houseButtonTapped), for: .touchUpInside)
+        updateButton.addTarget(controller, action: #selector(controller.updateZimButtonTapped), for: .touchUpInside)
         libraryButton.addTarget(controller, action: #selector(controller.libraryButtonTapped), for: .touchUpInside)
         settingsButton.addTarget(controller, action: #selector(controller.settingsButtonTapped), for: .touchUpInside)
         moreButton.addTarget(controller, action: #selector(controller.moreButtonTapped), for: .touchUpInside)
@@ -114,6 +116,7 @@ class ButtonProvider {
     @available(iOS 14.0, *)
     private func configureMoreButtonMenu() {
         var items: [UIMenuElement] = [
+            UIAction(title: "Update ZIM", image: UIImage(systemName: "update_zim"), handler: { _ in self.rootViewController?.updateZimButtonTapped() }),
             UIAction(title: "Library", image: UIImage(systemName: "folder"), handler: { _ in self.rootViewController?.libraryButtonTapped() }),
             UIAction(title: "Settings", image: UIImage(systemName: "gear"), handler: { _ in self.rootViewController?.settingsButtonTapped() }),
         ]

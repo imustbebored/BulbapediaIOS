@@ -292,10 +292,9 @@ extension WebViewController: GADFullScreenContentDelegate {
           if UserDefaults.standard.bool(forKey: "Is_Active_Session") == false {
               UserDefaults.standard.set(true, forKey: "Is_Active_Session")
               UserDefaults.standard.synchronize()
-              let swiftUIView = RemoveAdsView()
-              let hostingController = UIHostingController(rootView: swiftUIView)
-              hostingController.modalPresentationStyle = .fullScreen
-              present(hostingController, animated: false, completion: nil)
+              let removeAdsPopup = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RemoveAdsVC") as! RemoveAdsVC
+              removeAdsPopup.modalPresentationStyle = .fullScreen
+              self.present(removeAdsPopup, animated: true, completion: nil)
           }
       }
 }
