@@ -125,16 +125,14 @@ class RootViewController: UIViewController, UISearchControllerDelegate, UISplitV
         
         if fileManager.fileExists(atPath: destination.path) {
             print("file copied")
-            if let zimFiles = onDeviceZimFiles, !zimFiles.isEmpty {
-                let zimFile = zimFiles.first
-                self.openArticleDirect(zimFileID: zimFile?.fileID ?? "")
-            } else {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                    self.checkAndOpenZIMWithDelay()
-                }
-            }
+            self.checkAndOpenZIMWithDelay()
         } else {
-            print("file copy failed")
+            guard let sourcePath = Bundle.main.path(forResource: "offline", ofType: "zim") else {
+                return
+            }
+            let sourceUrl = URL(fileURLWithPath: sourcePath)
+            try? fileManager.copyItem(at: sourceUrl, to: destination)
+            self.checkAndOpenZIMWithDelay()
         }
     }
     
@@ -143,7 +141,9 @@ class RootViewController: UIViewController, UISearchControllerDelegate, UISplitV
             let zimFile = zimFiles.first
             self.openArticleDirect(zimFileID: zimFile?.fileID ?? "")
         } else {
-            return
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                self.checkAndOpenZIMWithDelay()
+            }
         }
     }
     

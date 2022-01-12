@@ -7,11 +7,26 @@
 //
 
 import UIKit
+import StoreKit
 
 class RemoveAdsVC: UIViewController {
 
+    var productsArray = [SKProduct]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        IAPHandler.shared.setProductIds(ids: ["org.bulbagarden.alpha.removeads"])
+        IAPHandler.shared.fetchAvailableProducts { [weak self] (products) in
+            guard let sSelf = self else {
+                return
+            }
+            sSelf.productsArray = products
+            print(sSelf.productsArray)
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
     }
 
