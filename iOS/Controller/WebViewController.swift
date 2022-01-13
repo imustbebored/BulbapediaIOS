@@ -80,6 +80,7 @@ class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
         textSizeAdjustFactorObserver = Defaults.observe(keys: .webViewTextSizeAdjustFactor) { self.adjustTextSize() }
         
         NotificationCenter.default.addObserver(self, selector: #selector(hideIndicator), name: NSNotification.Name("Hide_Loader_OnWeb"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(hideAdOnPurchase), name: NSNotification.Name("Hide_Banner_Purchase"), object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -90,6 +91,11 @@ class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         webView.setValue(view.safeAreaInsets, forKey: "_obscuredInsets")
+    }
+    
+    @objc func hideAdOnPurchase() {
+        bannerView.isHidden = true
+        lblName.isHidden = true
     }
     
     func setActivityIndicator() {
@@ -127,6 +133,11 @@ class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
         let adSize = GADAdSizeFromCGSize(CGSize(width: 320, height: 50))
         bannerView = GAMBannerView(adSize: adSize)
         
+        if UserDefaults.standard.bool(forKey: "Is_Purchased") {
+            bannerView.isHidden = true
+        } else {
+            bannerView.isHidden = false
+        }
         bannerView.adUnitID = "/154013155,7264022/1016210/72846/1016210-72846-mobile_leaderboard"
         bannerView.rootViewController = self
         bannerView.delegate = self
@@ -207,7 +218,8 @@ class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
                  preferences: WKWebpagePreferences,
                  decisionHandler: @escaping (WKNavigationActionPolicy, WKWebpagePreferences) -> Void) {
         guard let url = navigationAction.request.url else { decisionHandler(.cancel, preferences); return }
-        if !Reachability.isConnectedToNetwork() {
+        let isPurchased = UserDefaults.standard.bool(forKey: "Is_Purchased")
+        if !Reachability.isConnectedToNetwork() && !isPurchased {
             showInternetConnectionAlert()
             decisionHandler(.cancel, preferences)
             return
@@ -224,8 +236,10 @@ class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
             }
             if viewedArticleCount == 7 {
                 viewedArticleCount = 0
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                    self.presentInterstitialAdOnArticle()
+                if !UserDefaults.standard.bool(forKey: "Is_Purchased") {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                        self.presentInterstitialAdOnArticle()
+                    }
                 }
             } else {
                 viewedArticleCount += 1

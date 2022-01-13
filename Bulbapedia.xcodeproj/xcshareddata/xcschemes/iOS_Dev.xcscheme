@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "72744C5B278EB9A8006A1C6A"
-               BuildableName = "iOS copy.app"
+               BuildableName = "iOS_Dev.app"
                BlueprintName = "iOS_Dev"
                ReferencedContainer = "container:Bulbapedia.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "72744C5B278EB9A8006A1C6A"
-            BuildableName = "iOS copy.app"
+            BuildableName = "iOS_Dev.app"
             BlueprintName = "iOS_Dev"
             ReferencedContainer = "container:Bulbapedia.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "72744C5B278EB9A8006A1C6A"
-            BuildableName = "iOS copy.app"
+            BuildableName = "iOS_Dev.app"
             BlueprintName = "iOS_Dev"
             ReferencedContainer = "container:Bulbapedia.xcodeproj">
          </BuildableReference>

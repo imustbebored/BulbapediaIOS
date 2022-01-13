@@ -116,6 +116,7 @@ class ButtonProvider {
     @available(iOS 14.0, *)
     private func configureMoreButtonMenu() {
         var items: [UIMenuElement] = [
+            UIAction(title: "Restore In App Purchase", image: UIImage(systemName: ""), handler: { _ in self.rootViewController?.restoreIAP() }),
             UIAction(title: "Update ZIM", image: UIImage(systemName: "update_zim"), handler: { _ in self.rootViewController?.updateZimButtonTapped() }),
             UIAction(title: "Library", image: UIImage(systemName: "folder"), handler: { _ in self.rootViewController?.libraryButtonTapped() }),
             UIAction(title: "Settings", image: UIImage(systemName: "gear"), handler: { _ in self.rootViewController?.settingsButtonTapped() }),

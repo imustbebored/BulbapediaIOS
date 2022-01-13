@@ -36,6 +36,7 @@ class IAPHandler: NSObject {
     //MARK:- Properties
     //MARK:- Private
     fileprivate var productIds = [String]()
+    fileprivate var purchasedProductIdentifiers = [String]()
     fileprivate var productID = ""
     fileprivate var productsRequest = SKProductsRequest()
     fileprivate var fetchProductComplition: (([SKProduct])->Void)?
@@ -69,14 +70,13 @@ class IAPHandler: NSObject {
             
             log("PRODUCT TO PURCHASE: \(product.productIdentifier)")
             productID = product.productIdentifier
-        }
-        else {
+        } else {
             complition(IAPHandlerAlertType.disabled, nil, nil)
         }
     }
     
     // RESTORE PURCHASE
-    func restorePurchase(){
+    func restorePurchase() {
         SKPaymentQueue.default().add(self)
         SKPaymentQueue.default().restoreCompletedTransactions()
     }
@@ -122,6 +122,7 @@ extension IAPHandler: SKProductsRequestDelegate, SKPaymentTransactionObserver{
     
     func paymentQueueRestoreCompletedTransactionsFinished(_ queue: SKPaymentQueue) {
         if let complition = self.purchaseProductComplition {
+            UserDefaults.standard.set(true, forKey: "Is_Purchased")
             complition(IAPHandlerAlertType.restored, nil, nil)
         }
     }
@@ -135,16 +136,20 @@ extension IAPHandler: SKProductsRequestDelegate, SKPaymentTransactionObserver{
                     log("Product purchase done")
                     SKPaymentQueue.default().finishTransaction(transaction as! SKPaymentTransaction)
                     if let complition = self.purchaseProductComplition {
+                        UserDefaults.standard.set(true, forKey: "Is_Purchased")
+                        NotificationCenter.default.post(name: NSNotification.Name("Hide_Banner_Purchase"), object: nil)
+                        NotificationCenter.default.post(name: NSNotification.Name("dismissRemoveAds"), object: nil)
                         complition(IAPHandlerAlertType.purchased, self.productToPurchase, trans)
                     }
                     break
-                    
                 case .failed:
                     log("Product purchase failed")
                     SKPaymentQueue.default().finishTransaction(transaction as! SKPaymentTransaction)
                     break
                 case .restored:
                     log("Product restored")
+                    UserDefaults.standard.set(true, forKey: "Is_Purchased")
+                    NotificationCenter.default.post(name: NSNotification.Name("Hide_Banner_Purchase"), object: nil)
                     SKPaymentQueue.default().finishTransaction(transaction as! SKPaymentTransaction)
                     break
                     

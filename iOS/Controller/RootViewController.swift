@@ -408,9 +408,14 @@ class RootViewController: UIViewController, UISearchControllerDelegate, UISplitV
         
     }
     
+    @objc func restoreIAP() {
+        IAPHandler.shared.restorePurchase()
+    }
+    
     @objc func moreButtonTapped() {
         let controller = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         controller.addAction(UIAlertAction(title: "Open Main Page", style: .default, handler: { _  in self.houseButtonTapped()}))
+        controller.addAction(UIAlertAction(title: "Restore In App Purchase", style: .default, handler: { _ in self.restoreIAP()}))
         controller.addAction(UIAlertAction(title: "Update ZIM", style: .default, handler: { _ in self.updateZimButtonTapped()}))
         controller.addAction(UIAlertAction(title: "Open Library", style: .default, handler: { _  in self.libraryButtonTapped()}))
         controller.addAction(UIAlertAction(title: "Open Settings", style: .default, handler: { _  in self.settingsButtonTapped()}))

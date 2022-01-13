@@ -10,7 +10,9 @@ import UIKit
 import StoreKit
 
 class RemoveAdsVC: UIViewController {
-
+    
+    @IBOutlet weak var btnPrice: UIButton!
+    
     var productsArray = [SKProduct]()
     
     override func viewDidLoad() {
@@ -21,24 +23,35 @@ class RemoveAdsVC: UIViewController {
                 return
             }
             sSelf.productsArray = products
+            DispatchQueue.main.async {
+                sSelf.btnPrice.setTitle("\(sSelf.productsArray[0].price) ONE TIME", for: .normal)
+            }
             print(sSelf.productsArray)
         }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(dismissSelf), name: NSNotification.Name("dismissRemoveAds"), object: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
     }
+    
+    @objc func dismissSelf() {
+        self.dismiss(animated: true, completion: nil)
+    }
 
     @IBAction func btnCloseTapped(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func btn320Tapped(_ sender: UIButton) {
-        
-    }
-    
-    @IBAction func btn450Tapped(_ sender: UIButton) {
-        
+    @IBAction func btnPricePurchaseTapped(_ sender: UIButton) {
+        IAPHandler.shared.purchase(product: self.productsArray[0]) { alert, product, transaction in
+            if let tran = transaction, let prod = product {
+                print(tran)
+                self.dismiss(animated: true, completion: nil)
+                print("Purchased product:- \(prod.localizedTitle)")
+            }
+        }
     }
 }

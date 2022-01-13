@@ -91,10 +91,10 @@
 		72744CB5278EB9A8006A1C6A /* wikipedia_dark.css in Resources */ = {isa = PBXBuildFile; fileRef = 970885D0271339A300C5795C /* wikipedia_dark.css */; };
 		72744CB6278EB9A8006A1C6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97F4D10B20ADFE370038FC87 /* Assets.xcassets */; };
 		72744CBF278EBA3F006A1C6A /* libkiwix.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72744C59278EB7FD006A1C6A /* libkiwix.xcframework */; };
-		72744CC3278EDA78006A1C6A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72744CC2278EDA78006A1C6A /* StoreKit.framework */; };
 		727669C3278E8EE7003D40B9 /* libkiwix.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 727669C2278E8EE7003D40B9 /* libkiwix.xcframework */; };
 		7288DA77278D444300BDDD07 /* RemoveAdsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7288DA76278D444300BDDD07 /* RemoveAdsVC.swift */; };
 		7288DA79278D511100BDDD07 /* IAPHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7288DA78278D511100BDDD07 /* IAPHandler.swift */; };
+		72902BC82790373200F1A865 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72744CC2278EDA78006A1C6A /* StoreKit.framework */; };
 		7295BF9E27896F3C0010BD30 /* RemoveAdsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7295BF9D27896F3B0010BD30 /* RemoveAdsView.swift */; };
 		72B5F63D2782D6270074E8F0 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B5F63C2782D6270074E8F0 /* Reachability.swift */; };
 		9707B8F61F4B4F1500075D4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9707B8F51F4B4F1500075D4F /* Assets.xcassets */; };
@@ -519,7 +519,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				72744CC3278EDA78006A1C6A /* StoreKit.framework in Frameworks */,
+				72902BC82790373200F1A865 /* StoreKit.framework in Frameworks */,
 				7215C834277DB8690089DCCD /* Realm in Frameworks */,
 				97C5763D202CD9C000E37502 /* NotificationCenter.framework in Frameworks */,
 				7215C836277DB8690089DCCD /* RealmSwift in Frameworks */,
@@ -1771,11 +1771,11 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_ENTITLEMENTS = iOS/Support/Kiwix.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 86;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = PRSXWJFD38;
+				DEVELOPMENT_TEAM = WQJVTURJ6W;
 				ENABLE_BITCODE = YES;
 				"EXCLUDED_ARCHS[sdk=iphoneos*]" = "x86_64 i386";
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "arm64 arm64e armv7";
@@ -1787,9 +1787,9 @@
 				);
 				MARKETING_VERSION = 1.15.4;
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = self.Kiwix;
+				PRODUCT_BUNDLE_IDENTIFIER = org.bulbagarden.alpha;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = mawahib_dev;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Model/Support/Kiwix-Bridging-Header.h";
@@ -1812,11 +1812,11 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_ENTITLEMENTS = iOS/Support/Kiwix.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 86;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = PRSXWJFD38;
+				DEVELOPMENT_TEAM = WQJVTURJ6W;
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = "iOS copy3-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1826,9 +1826,9 @@
 				);
 				MARKETING_VERSION = 1.15.4;
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = self.Kiwix;
+				PRODUCT_BUNDLE_IDENTIFIER = org.bulbagarden.alpha;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = mawahib_dev;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Model/Support/Kiwix-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "Kiwix-Bridging-Header.h";
@@ -2081,7 +2081,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FB998002CA5ADDF440939B2C /* Pods-iOS.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_Kiwix;
 				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -2091,9 +2090,9 @@
 				CODE_SIGN_ENTITLEMENTS = iOS/Support/Kiwix.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 86;
+				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = PRSXWJFD38;
+				DEVELOPMENT_TEAM = WQJVTURJ6W;
 				ENABLE_BITCODE = YES;
 				"EXCLUDED_ARCHS[sdk=iphoneos*]" = "x86_64 i386";
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "arm64 arm64e armv7";
@@ -2103,11 +2102,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.15.4;
+				MARKETING_VERSION = 6.0.1;
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = self.Kiwix;
+				PRODUCT_BUNDLE_IDENTIFIER = org.bulbagarden.alpha;
 				PRODUCT_NAME = Bulbapedia;
-				PROVISIONING_PROFILE_SPECIFIER = mawahib_dev;
+				PROVISIONING_PROFILE_SPECIFIER = bulba_dev;
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Model/Support/Kiwix-Bridging-Header.h";
@@ -2122,7 +2121,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AD7A5F9050010537B319C530 /* Pods-iOS.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_Kiwix;
 				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -2130,11 +2128,11 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_ENTITLEMENTS = iOS/Support/Kiwix.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 86;
+				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = PRSXWJFD38;
+				DEVELOPMENT_TEAM = WQJVTURJ6W;
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = iOS/Support/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -2142,11 +2140,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.15.4;
+				MARKETING_VERSION = 6.0.1;
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = self.Kiwix;
+				PRODUCT_BUNDLE_IDENTIFIER = org.bulbagarden.alpha;
 				PRODUCT_NAME = Bulbapedia;
-				PROVISIONING_PROFILE_SPECIFIER = mawahib_dev;
+				PROVISIONING_PROFILE_SPECIFIER = "dist-bulba";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Model/Support/Kiwix-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "Kiwix-Bridging-Header.h";
