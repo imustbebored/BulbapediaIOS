@@ -9,6 +9,8 @@
 import UIKit
 import Defaults
 import RealmSwift
+import Firebase
+import FirebaseAnalytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, DirectoryMonitorDelegate {
@@ -22,6 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, DirectoryMonitorDelegate 
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil
     ) -> Bool {
         Realm.Configuration.defaultConfiguration = Realm.defaultConfig
+        
+        FirebaseApp.configure()
         
         print("Document Directory URL: \(URL.documentDirectory)")
         

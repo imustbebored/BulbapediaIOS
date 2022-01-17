@@ -52,6 +52,8 @@
 	</array>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
+    <key>ITSAppUsesNonExemptEncryption</key>
+    <false/>
 	<key>GADApplicationIdentifier</key>
 	<string>ca-app-pub-6531503260671471~4219297136</string>
 	<key>GADIsAdManagerApp</key>

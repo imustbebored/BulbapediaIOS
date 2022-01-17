@@ -12,6 +12,7 @@ import SafariServices
 import Defaults
 import GoogleMobileAds
 import SwiftUI
+import FirebaseAnalytics
 
 class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
     let webView: WKWebView = {
@@ -78,6 +79,13 @@ class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
         
         // observe webView font size adjust factor
         textSizeAdjustFactorObserver = Defaults.observe(keys: .webViewTextSizeAdjustFactor) { self.adjustTextSize() }
+        
+        FirebaseAnalytics.Analytics.logEvent("webview_viewed", parameters: [
+          // 2
+          AnalyticsParameterScreenName: "webview_screen",
+          // 3
+          "webview": "opened"
+        ])
         
         NotificationCenter.default.addObserver(self, selector: #selector(hideIndicator), name: NSNotification.Name("Hide_Loader_OnWeb"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(hideAdOnPurchase), name: NSNotification.Name("Hide_Banner_Purchase"), object: nil)
