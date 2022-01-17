@@ -12,6 +12,7 @@
 		7215C834277DB8690089DCCD /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 7215C833277DB8690089DCCD /* Realm */; };
 		7215C836277DB8690089DCCD /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7215C835277DB8690089DCCD /* RealmSwift */; };
 		72457A9E2782C5920062EFC9 /* offline.zim in Resources */ = {isa = PBXBuildFile; fileRef = 72457A9D2782C5920062EFC9 /* offline.zim */; };
+		7247485A279541FE00CA8629 /* libkiwix.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72474859279541FE00CA8629 /* libkiwix.xcframework */; };
 		72744C66278EB9A8006A1C6A /* BookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97566A552728F58000DE7165 /* BookmarksViewController.swift */; };
 		72744C67278EB9A8006A1C6A /* SearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 97B3998C2467561900BC6F5B /* SearchResult.m */; };
 		72744C68278EB9A8006A1C6A /* LibraryCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97225AA1261A006A00D8CB32 /* LibraryCategoryView.swift */; };
@@ -90,8 +91,7 @@
 		72744CB4278EB9A8006A1C6A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 975FDAE21F6082DA00A10E8C /* LaunchScreen.storyboard */; };
 		72744CB5278EB9A8006A1C6A /* wikipedia_dark.css in Resources */ = {isa = PBXBuildFile; fileRef = 970885D0271339A300C5795C /* wikipedia_dark.css */; };
 		72744CB6278EB9A8006A1C6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97F4D10B20ADFE370038FC87 /* Assets.xcassets */; };
-		72744CBF278EBA3F006A1C6A /* libkiwix.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72744C59278EB7FD006A1C6A /* libkiwix.xcframework */; };
-		727669C3278E8EE7003D40B9 /* libkiwix.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 727669C2278E8EE7003D40B9 /* libkiwix.xcframework */; };
+		727EC887279543BF00474438 /* libkiwix_sim.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 727EC886279543BF00474438 /* libkiwix_sim.xcframework */; };
 		7288DA77278D444300BDDD07 /* RemoveAdsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7288DA76278D444300BDDD07 /* RemoveAdsVC.swift */; };
 		7288DA79278D511100BDDD07 /* IAPHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7288DA78278D511100BDDD07 /* IAPHandler.swift */; };
 		72902BC82790373200F1A865 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72744CC2278EDA78006A1C6A /* StoreKit.framework */; };
@@ -334,12 +334,12 @@
 		4E58D5390A70DEE9A0E5F499 /* Pods_WikiMed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WikiMed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		72108629278EB239007C19EF /* iOS copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "iOS copy-Info.plist"; path = "/Users/bigsur/Documents/Hardik/Jonathan/Bulbapedia/iOS copy-Info.plist"; sourceTree = "<absolute>"; };
 		72457A9D2782C5920062EFC9 /* offline.zim */ = {isa = PBXFileReference; lastKnownFileType = file; path = offline.zim; sourceTree = "<group>"; };
+		72474859279541FE00CA8629 /* libkiwix.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libkiwix.xcframework; sourceTree = "<group>"; };
 		72744C58278EB7CC006A1C6A /* iOS copy2-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "iOS copy2-Info.plist"; path = "/Users/bigsur/Documents/Hardik/Jonathan/Bulbapedia/iOS copy2-Info.plist"; sourceTree = "<absolute>"; };
-		72744C59278EB7FD006A1C6A /* libkiwix.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = libkiwix.xcframework; path = ../../../../Bulba_docs/libkiwix.xcframework; sourceTree = "<group>"; };
 		72744CBD278EB9A8006A1C6A /* iOS_Dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS_Dev.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72744CBE278EB9A9006A1C6A /* iOS copy3-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "iOS copy3-Info.plist"; path = "/Users/bigsur/Documents/Hardik/Jonathan/Bulbapedia/iOS copy3-Info.plist"; sourceTree = "<absolute>"; };
 		72744CC2278EDA78006A1C6A /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		727669C2278E8EE7003D40B9 /* libkiwix.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libkiwix.xcframework; sourceTree = "<group>"; };
+		727EC886279543BF00474438 /* libkiwix_sim.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libkiwix_sim.xcframework; sourceTree = "<group>"; };
 		7288DA76278D444300BDDD07 /* RemoveAdsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveAdsVC.swift; sourceTree = "<group>"; };
 		7288DA78278D511100BDDD07 /* IAPHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPHandler.swift; sourceTree = "<group>"; };
 		7295BF9D27896F3B0010BD30 /* RemoveAdsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveAdsView.swift; sourceTree = "<group>"; };
@@ -491,11 +491,11 @@
 			files = (
 				72744CA7278EB9A8006A1C6A /* Realm in Frameworks */,
 				72744CA8278EB9A8006A1C6A /* NotificationCenter.framework in Frameworks */,
+				727EC887279543BF00474438 /* libkiwix_sim.xcframework in Frameworks */,
 				72744CA9278EB9A8006A1C6A /* RealmSwift in Frameworks */,
 				72744CAA278EB9A8006A1C6A /* Fuzi in Frameworks */,
 				72744CAB278EB9A8006A1C6A /* WebKit.framework in Frameworks */,
 				72744CAC278EB9A8006A1C6A /* Defaults in Frameworks */,
-				72744CBF278EBA3F006A1C6A /* libkiwix.xcframework in Frameworks */,
 				72744CAE278EB9A8006A1C6A /* Pods_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -521,12 +521,12 @@
 			files = (
 				72902BC82790373200F1A865 /* StoreKit.framework in Frameworks */,
 				7215C834277DB8690089DCCD /* Realm in Frameworks */,
+				7247485A279541FE00CA8629 /* libkiwix.xcframework in Frameworks */,
 				97C5763D202CD9C000E37502 /* NotificationCenter.framework in Frameworks */,
 				7215C836277DB8690089DCCD /* RealmSwift in Frameworks */,
 				9744658026F7981500072DC2 /* Fuzi in Frameworks */,
 				97A36C351F8C21210079B452 /* WebKit.framework in Frameworks */,
 				97654726273214530070163D /* Defaults in Frameworks */,
-				727669C3278E8EE7003D40B9 /* libkiwix.xcframework in Frameworks */,
 				6BCC02EA7ABB4655D903B4CC /* Pods_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -586,6 +586,22 @@
 				0405EBA9D85A6BDE01476F49 /* Pods-macOS_SwiftUI.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		727EC88827954BB200474438 /* Development */ = {
+			isa = PBXGroup;
+			children = (
+				727EC886279543BF00474438 /* libkiwix_sim.xcframework */,
+			);
+			path = Development;
+			sourceTree = "<group>";
+		};
+		727EC88927954BBF00474438 /* Production */ = {
+			isa = PBXGroup;
+			children = (
+				72474859279541FE00CA8629 /* libkiwix.xcframework */,
+			);
+			path = Production;
 			sourceTree = "<group>";
 		};
 		9706555A2473682C00A51319 /* Utilities */ = {
@@ -965,8 +981,8 @@
 		97EC18AE26E8555E008309ED /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				72744C59278EB7FD006A1C6A /* libkiwix.xcframework */,
-				727669C2278E8EE7003D40B9 /* libkiwix.xcframework */,
+				727EC88927954BBF00474438 /* Production */,
+				727EC88827954BB200474438 /* Development */,
 			);
 			path = Libraries;
 			sourceTree = "<group>";
