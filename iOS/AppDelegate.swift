@@ -27,6 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, DirectoryMonitorDelegate 
         
         FirebaseApp.configure()
         
+        IAPHandler.shared.restorePurchase()
+        
         print("Document Directory URL: \(URL.documentDirectory)")
         
         DownloadService.shared.restorePreviousState()
@@ -50,6 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, DirectoryMonitorDelegate 
     
     func applicationWillTerminate(_ application: UIApplication) {
         UserDefaults.standard.set(false, forKey: "Is_Active_Session")
+        UserDefaults.standard.set(false, forKey: "Is_Purchased")
         UserDefaults.standard.synchronize()
         fileMonitor.stop()
     }

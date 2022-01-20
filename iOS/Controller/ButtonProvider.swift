@@ -80,11 +80,21 @@ class ButtonProvider {
         updateButton.addTarget(controller, action: #selector(controller.updateZimButtonTapped), for: .touchUpInside)
         libraryButton.addTarget(controller, action: #selector(controller.libraryButtonTapped), for: .touchUpInside)
         settingsButton.addTarget(controller, action: #selector(controller.settingsButtonTapped), for: .touchUpInside)
-        moreButton.addTarget(controller, action: #selector(controller.moreButtonTapped), for: .touchUpInside)
+        moreButton.addTarget(controller, action: #selector(controller.moreButtonWithIAPOptionTapped), for: .touchUpInside)
         
         bookmarkLongPressGestureRecognizer.addTarget(controller, action: #selector(controller.bookmarkButtonLongPressed))
         cancelButton.target = controller
         cancelButton.action = #selector(controller.dismissSearch)
+    }
+    
+    @objc func setIAPOptionInMenu() {
+        guard let controller = rootViewController else { return }
+        moreButton.addTarget(controller, action: #selector(controller.moreButtonWithIAPOptionTapped), for: .touchUpInside)
+    }
+    
+    @objc func removeIAPOptionFromMenu() {
+        guard let controller = rootViewController else { return }
+        moreButton.addTarget(controller, action: #selector(controller.moreButtonWithOutIAPOptionTapped), for: .touchUpInside)
     }
     
     @available(iOS 14.0, *)

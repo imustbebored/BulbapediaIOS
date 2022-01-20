@@ -101,13 +101,13 @@ class RootViewController: UIViewController, UISearchControllerDelegate, UISplitV
             self.openArticleDirect(zimFileID: zimFile?.fileID ?? "")
         } else {
             isInitialWeb = true
-            guard let sourcePath = Bundle.main.path(forResource: "offline", ofType: "zim") else {
+            guard let sourcePath = Bundle.main.path(forResource: "offline_bulba", ofType: "zim") else {
                 return
             }
             if fileManager.fileExists(atPath: sourcePath) {
                 let sourceUrl = URL(fileURLWithPath: sourcePath)
                 
-                let destination = documentsDirectory.appendingPathComponent("offline.zim", isDirectory: false)
+                let destination = documentsDirectory.appendingPathComponent("offline_bulba.zim", isDirectory: false)
                 try? fileManager.moveItem(at: sourceUrl, to: destination)
 
                 print(ZimFileService.shared.zimFileIDs.count)
@@ -121,13 +121,13 @@ class RootViewController: UIViewController, UISearchControllerDelegate, UISplitV
     func openArticle() {
         let fileManager = FileManager.default
         let documentsDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
-        let destination = documentsDirectory.appendingPathComponent("offline.zim", isDirectory: false)
+        let destination = documentsDirectory.appendingPathComponent("offline_bulba.zim", isDirectory: false)
         
         if fileManager.fileExists(atPath: destination.path) {
             print("file copied")
             self.checkAndOpenZIMWithDelay()
         } else {
-            guard let sourcePath = Bundle.main.path(forResource: "offline", ofType: "zim") else {
+            guard let sourcePath = Bundle.main.path(forResource: "offline_bulba", ofType: "zim") else {
                 return
             }
             let sourceUrl = URL(fileURLWithPath: sourcePath)
@@ -412,7 +412,25 @@ class RootViewController: UIViewController, UISearchControllerDelegate, UISplitV
         IAPHandler.shared.restorePurchase()
     }
     
-    @objc func moreButtonTapped() {
+    @objc func removeAdsGoOffline() {
+        let removeAdsPopup = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RemoveAdsVC") as! RemoveAdsVC
+        removeAdsPopup.modalPresentationStyle = .fullScreen
+        self.present(removeAdsPopup, animated: true, completion: nil)
+    }
+    
+    @objc func moreButtonWithIAPOptionTapped() {
+        let controller = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        controller.addAction(UIAlertAction(title: "Open Main Page", style: .default, handler: { _  in self.houseButtonTapped()}))
+        controller.addAction(UIAlertAction(title: "Restore In App Purchase", style: .default, handler: { _ in self.restoreIAP()}))
+        controller.addAction(UIAlertAction(title: "Remove Ads and Go Offline", style: .default, handler: { _ in self.removeAdsGoOffline()}))
+        controller.addAction(UIAlertAction(title: "Update ZIM", style: .default, handler: { _ in self.updateZimButtonTapped()}))
+        controller.addAction(UIAlertAction(title: "Open Library", style: .default, handler: { _  in self.libraryButtonTapped()}))
+        controller.addAction(UIAlertAction(title: "Open Settings", style: .default, handler: { _  in self.settingsButtonTapped()}))
+        controller.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(controller, animated: true)
+    }
+    
+    @objc func moreButtonWithOutIAPOptionTapped() {
         let controller = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         controller.addAction(UIAlertAction(title: "Open Main Page", style: .default, handler: { _  in self.houseButtonTapped()}))
         controller.addAction(UIAlertAction(title: "Restore In App Purchase", style: .default, handler: { _ in self.restoreIAP()}))

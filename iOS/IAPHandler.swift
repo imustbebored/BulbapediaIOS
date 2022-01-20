@@ -121,10 +121,14 @@ extension IAPHandler: SKProductsRequestDelegate, SKPaymentTransactionObserver{
     }
     
     func paymentQueueRestoreCompletedTransactionsFinished(_ queue: SKPaymentQueue) {
-        if let complition = self.purchaseProductComplition {
-            UserDefaults.standard.set(true, forKey: "Is_Purchased")
-            complition(IAPHandlerAlertType.restored, nil, nil)
+        guard queue.transactions.count != 0 else {
+            UserDefaults.standard.set(false, forKey: "Is_Purchased")
+            NotificationCenter.default.post(name: NSNotification.Name("Handle_Banner_ads"), object: nil)
+            return
         }
+        print(queue.transactions.count)
+        UserDefaults.standard.set(true, forKey: "Is_Purchased")
+        NotificationCenter.default.post(name: NSNotification.Name("Hide_Banner_Purchase"), object: nil)
     }
     
     // IAP PAYMENT QUEUE
@@ -148,12 +152,12 @@ extension IAPHandler: SKProductsRequestDelegate, SKPaymentTransactionObserver{
                     break
                 case .restored:
                     log("Product restored")
-                    UserDefaults.standard.set(true, forKey: "Is_Purchased")
-                    NotificationCenter.default.post(name: NSNotification.Name("Hide_Banner_Purchase"), object: nil)
                     SKPaymentQueue.default().finishTransaction(transaction as! SKPaymentTransaction)
                     break
                     
                 default: break
-                }}}
+                }
+            }
+        }
     }
 }
