@@ -57,7 +57,7 @@ class SearchResultsHostingController: UIViewController, UISearchResultsUpdating 
     // These section of code is necessary because SwiftUI keyboard avoidance does not work as expected on iPadOS 14
     
     @objc func handleKeyboardEvent(notification: Notification) {
-        let isPurchased = UserDefaults.standard.bool(forKey: "Is_Purchased")
+        let isPurchased = UserDefaults.standard.bool(forKey: UserDefaultKeys.UD_IsPurchased)
         if !Reachability.isConnectedToNetwork() && !isPurchased {
             let rootViewController = RootViewController()
             rootViewController.showInternetConnectionAlert()
@@ -170,7 +170,7 @@ private struct SearchResultsView: View {
         } else if horizontalSizeClass == .regular {
             SplitView().edgesIgnoringSafeArea(.all)
         } else if viewModel.searchText.isEmpty {
-            let isPurchased = UserDefaults.standard.bool(forKey: "Is_Purchased")
+            let isPurchased = UserDefaults.standard.bool(forKey: UserDefaultKeys.UD_IsPurchased)
             if !Reachability.isConnectedToNetwork() && !isPurchased {
                 NetworkErrorView()
             } else {

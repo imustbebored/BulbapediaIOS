@@ -122,13 +122,15 @@ extension IAPHandler: SKProductsRequestDelegate, SKPaymentTransactionObserver{
     
     func paymentQueueRestoreCompletedTransactionsFinished(_ queue: SKPaymentQueue) {
         guard queue.transactions.count != 0 else {
-            UserDefaults.standard.set(false, forKey: "Is_Purchased")
-            NotificationCenter.default.post(name: NSNotification.Name("Handle_Banner_ads"), object: nil)
+            UserDefaults.standard.set(false, forKey: UserDefaultKeys.UD_IsPurchased)
+            NotificationCenter.default.post(name: NSNotification.Name(UserDefaultKeys.UD_HandleBannerAdsAppearance), object: nil)
+            NotificationCenter.default.post(name: NSNotification.Name(UserDefaultKeys.UD_UpdateMoreButtonWithIAP), object: nil)
             return
         }
         print(queue.transactions.count)
-        UserDefaults.standard.set(true, forKey: "Is_Purchased")
-        NotificationCenter.default.post(name: NSNotification.Name("Hide_Banner_Purchase"), object: nil)
+        UserDefaults.standard.set(true, forKey: UserDefaultKeys.UD_IsPurchased)
+        NotificationCenter.default.post(name: NSNotification.Name(UserDefaultKeys.UD_HideBannerOnPurchase), object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name(UserDefaultKeys.UD_UpdateMoreButtonWithIAP), object: nil)
     }
     
     // IAP PAYMENT QUEUE
@@ -140,9 +142,10 @@ extension IAPHandler: SKProductsRequestDelegate, SKPaymentTransactionObserver{
                     log("Product purchase done")
                     SKPaymentQueue.default().finishTransaction(transaction as! SKPaymentTransaction)
                     if let complition = self.purchaseProductComplition {
-                        UserDefaults.standard.set(true, forKey: "Is_Purchased")
-                        NotificationCenter.default.post(name: NSNotification.Name("Hide_Banner_Purchase"), object: nil)
+                        UserDefaults.standard.set(true, forKey: UserDefaultKeys.UD_IsPurchased)
+                        NotificationCenter.default.post(name: NSNotification.Name(UserDefaultKeys.UD_HideBannerOnPurchase), object: nil)
                         NotificationCenter.default.post(name: NSNotification.Name("dismissRemoveAds"), object: nil)
+                        NotificationCenter.default.post(name: NSNotification.Name(UserDefaultKeys.UD_UpdateMoreButtonWithIAP), object: nil)
                         complition(IAPHandlerAlertType.purchased, self.productToPurchase, trans)
                     }
                     break

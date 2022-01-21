@@ -81,16 +81,9 @@ class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
         // observe webView font size adjust factor
         textSizeAdjustFactorObserver = Defaults.observe(keys: .webViewTextSizeAdjustFactor) { self.adjustTextSize() }
         
-        FirebaseAnalytics.Analytics.logEvent("webview_viewed", parameters: [
-          // 2
-          AnalyticsParameterScreenName: "webview_screen",
-          // 3
-          "webview": "opened"
-        ])
-        
         NotificationCenter.default.addObserver(self, selector: #selector(hideIndicator), name: NSNotification.Name("Hide_Loader_OnWeb"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(hideAdOnPurchase), name: NSNotification.Name("Hide_Banner_Purchase"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(handleBannerAdAppearance), name: NSNotification.Name("Handle_Banner_ads"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(hideAdOnPurchase), name: NSNotification.Name(UserDefaultKeys.UD_HideBannerOnPurchase), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleBannerAdAppearance), name: NSNotification.Name(UserDefaultKeys.UD_HandleBannerAdsAppearance), object: nil)
     }
     
     override func viewDidLayoutSubviews() {
@@ -104,7 +97,7 @@ class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
     }
     
     @objc func handleBannerAdAppearance() {
-        if UserDefaults.standard.bool(forKey: "Is_Purchased") {
+        if UserDefaults.standard.bool(forKey: UserDefaultKeys.UD_IsPurchased) {
             bannerView.isHidden = true
             lblName.isHidden = true
         } else {
@@ -124,7 +117,7 @@ class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
     }
     
     func setBannerAd() {
-//        lblName.isHidden = true
+        lblName.isHidden = true
         let height = CGFloat(50)
 
         lblName.text = ""
@@ -236,7 +229,7 @@ class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
                  preferences: WKWebpagePreferences,
                  decisionHandler: @escaping (WKNavigationActionPolicy, WKWebpagePreferences) -> Void) {
         guard let url = navigationAction.request.url else { decisionHandler(.cancel, preferences); return }
-        let isPurchased = UserDefaults.standard.bool(forKey: "Is_Purchased")
+        let isPurchased = UserDefaults.standard.bool(forKey: UserDefaultKeys.UD_IsPurchased)
         if !Reachability.isConnectedToNetwork() && !isPurchased {
             showInternetConnectionAlert()
             decisionHandler(.cancel, preferences)
@@ -252,9 +245,17 @@ class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
                 preferences.preferredContentMode = .mobile
                 decisionHandler(.allow, preferences)
             }
+            let arrSeperatedUrl = url.absoluteString.components(separatedBy: "/")
+            let title = arrSeperatedUrl.last ?? ""
+            guard let articleTitle = title.removingPercentEncoding else {
+                return
+            }
+            FirebaseAnalytics.Analytics.logEvent("view_item", parameters: [
+              "item_name": articleTitle
+            ])
             if viewedArticleCount == 7 {
                 viewedArticleCount = 0
-                if !UserDefaults.standard.bool(forKey: "Is_Purchased") {
+                if !UserDefaults.standard.bool(forKey: UserDefaultKeys.UD_IsPurchased) {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                         self.presentInterstitialAdOnArticle()
                     }
@@ -336,7 +337,7 @@ extension WebViewController: GADFullScreenContentDelegate {
 //MARK:- Banner ad delegates.
 extension WebViewController: GADBannerViewDelegate {
     func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
-        print("bannerView received ad to show.")
+        lblName.isHidden = self.bannerView.isHidden ? true : false
     }
 
     func bannerView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: Error) {

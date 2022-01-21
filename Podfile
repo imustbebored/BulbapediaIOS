@@ -8,6 +8,9 @@ target 'iOS' do
   # Pods for iOS
    pod 'Google-Mobile-Ads-SDK'
    pod 'Firebase/Analytics'
+   pod 'Firebase/Core'
+   pod 'Firebase/Messaging'
+   pod 'Toast-Swift', '~> 5.0.1'
 
 end
 
@@ -18,5 +21,8 @@ target 'iOS_Dev' do
   # Pods for iOS_Dev
   pod 'Google-Mobile-Ads-SDK'
   pod 'Firebase/Analytics'
+  pod 'Firebase/Core'
+  pod 'Firebase/Messaging'
+  pod 'Toast-Swift', '~> 5.0.1'
 
 end

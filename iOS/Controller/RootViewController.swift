@@ -12,6 +12,7 @@ import WebKit
 import SafariServices
 import Defaults
 import RealmSwift
+import Toast_Swift
 
 var isInitialWeb = true
 
@@ -42,6 +43,7 @@ class RootViewController: UIViewController, UISearchControllerDelegate, UISplitV
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        showInitialGDPRDialog()
         moveZIMFileToDirectory()
         configureBarButtons(searchIsActive: searchController.isActive, animated: false)
         configureSidebarViewController()
@@ -90,6 +92,34 @@ class RootViewController: UIViewController, UISearchControllerDelegate, UISplitV
     }
     
     // MARK: - Public
+    
+    func showInitialGDPRDialog() {
+        if !UserDefaults.standard.bool(forKey: UserDefaultKeys.UD_HasLaunchedOnce) {
+            UserDefaults.standard.set(true, forKey: UserDefaultKeys.UD_HasLaunchedOnce)
+            UserDefaults.standard.synchronize()
+            // Show GDPR Dialog
+            let alertController = UIAlertController(title: "Just So You Know", message: ConstantsKeys.InitialGDPRTexts, preferredStyle: .alert)
+            
+            let noAction = UIAlertAction(title: "No Thanks", style: .default) { no in
+                print("Navigate to About page.")
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let aboutVC = storyboard.instantiateViewController(withIdentifier: "AboutVC") as! AboutVC
+                self.navigationController?.pushViewController(aboutVC, animated: true)
+            }
+            
+            let agreeAction = UIAlertAction(title: "I Agree", style: .default) { agree in
+                print("Show the toast from here.")
+                self.view.makeToast("Great, thanks!")
+            }
+            
+            alertController.addAction(noAction)
+            alertController.addAction(agreeAction)
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+                self.present(alertController, animated: true, completion: nil)
+            }
+        }
+    }
     
     func moveZIMFileToDirectory() {
         let fileManager = FileManager.default
@@ -418,19 +448,7 @@ class RootViewController: UIViewController, UISearchControllerDelegate, UISplitV
         self.present(removeAdsPopup, animated: true, completion: nil)
     }
     
-    @objc func moreButtonWithIAPOptionTapped() {
-        let controller = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        controller.addAction(UIAlertAction(title: "Open Main Page", style: .default, handler: { _  in self.houseButtonTapped()}))
-        controller.addAction(UIAlertAction(title: "Restore In App Purchase", style: .default, handler: { _ in self.restoreIAP()}))
-        controller.addAction(UIAlertAction(title: "Remove Ads and Go Offline", style: .default, handler: { _ in self.removeAdsGoOffline()}))
-        controller.addAction(UIAlertAction(title: "Update ZIM", style: .default, handler: { _ in self.updateZimButtonTapped()}))
-        controller.addAction(UIAlertAction(title: "Open Library", style: .default, handler: { _  in self.libraryButtonTapped()}))
-        controller.addAction(UIAlertAction(title: "Open Settings", style: .default, handler: { _  in self.settingsButtonTapped()}))
-        controller.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        present(controller, animated: true)
-    }
-    
-    @objc func moreButtonWithOutIAPOptionTapped() {
+    @objc func moreButtonWithOptionTapped() {
         let controller = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         controller.addAction(UIAlertAction(title: "Open Main Page", style: .default, handler: { _  in self.houseButtonTapped()}))
         controller.addAction(UIAlertAction(title: "Restore In App Purchase", style: .default, handler: { _ in self.restoreIAP()}))

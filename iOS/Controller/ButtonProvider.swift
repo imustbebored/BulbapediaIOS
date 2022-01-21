@@ -67,6 +67,7 @@ class ButtonProvider {
                     break
                 }
             }
+        NotificationCenter.default.addObserver(self, selector: #selector(updateMoreButtonWithIAP), name: NSNotification.Name(UserDefaultKeys.UD_UpdateMoreButtonWithIAP), object: nil)
     }
     
     private func setupTargetActions() {
@@ -80,21 +81,17 @@ class ButtonProvider {
         updateButton.addTarget(controller, action: #selector(controller.updateZimButtonTapped), for: .touchUpInside)
         libraryButton.addTarget(controller, action: #selector(controller.libraryButtonTapped), for: .touchUpInside)
         settingsButton.addTarget(controller, action: #selector(controller.settingsButtonTapped), for: .touchUpInside)
-        moreButton.addTarget(controller, action: #selector(controller.moreButtonWithIAPOptionTapped), for: .touchUpInside)
+        moreButton.addTarget(controller, action: #selector(controller.moreButtonWithOptionTapped), for: .touchUpInside)
         
         bookmarkLongPressGestureRecognizer.addTarget(controller, action: #selector(controller.bookmarkButtonLongPressed))
         cancelButton.target = controller
         cancelButton.action = #selector(controller.dismissSearch)
     }
     
-    @objc func setIAPOptionInMenu() {
-        guard let controller = rootViewController else { return }
-        moreButton.addTarget(controller, action: #selector(controller.moreButtonWithIAPOptionTapped), for: .touchUpInside)
-    }
-    
-    @objc func removeIAPOptionFromMenu() {
-        guard let controller = rootViewController else { return }
-        moreButton.addTarget(controller, action: #selector(controller.moreButtonWithOutIAPOptionTapped), for: .touchUpInside)
+    @objc func updateMoreButtonWithIAP() {
+        if #available(iOS 14.0, *) {
+            configureMoreButtonMenu()
+        }
     }
     
     @available(iOS 14.0, *)
@@ -131,6 +128,9 @@ class ButtonProvider {
             UIAction(title: "Library", image: UIImage(systemName: "folder"), handler: { _ in self.rootViewController?.libraryButtonTapped() }),
             UIAction(title: "Settings", image: UIImage(systemName: "gear"), handler: { _ in self.rootViewController?.settingsButtonTapped() }),
         ]
+        if !UserDefaults.standard.bool(forKey: UserDefaultKeys.UD_IsPurchased) {
+            items.insert(UIAction(title: "Remove Ads and Go Offline", image: UIImage(systemName: ""), handler: { _ in self.rootViewController?.removeAdsGoOffline() }), at: 1)
+        }
         if let zimFiles = onDeviceZimFiles, !zimFiles.isEmpty {
             items.insert(UIMenu(options: .displayInline, children: zimFiles.map { zimFile in
                 UIAction(title: zimFile.title, image: UIImage(systemName: "house")) { _ in self.rootViewController?.openMainPage(zimFileID: zimFile.fileID) }
