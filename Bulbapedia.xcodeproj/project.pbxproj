@@ -1190,7 +1190,7 @@
 			packageReferences = (
 				9744657E26F7981500072DC2 /* XCRemoteSwiftPackageReference "Fuzi" */,
 				97654724273214530070163D /* XCRemoteSwiftPackageReference "Defaults" */,
-				7215C832277DB8690089DCCD /* XCRemoteSwiftPackageReference "realm-swift.git" */,
+				7215C832277DB8690089DCCD /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = 97A2AB7F1C1B80FF00052E74;
 			projectDirPath = "";
@@ -2323,7 +2323,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		7215C832277DB8690089DCCD /* XCRemoteSwiftPackageReference "realm-swift.git" */ = {
+		7215C832277DB8690089DCCD /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift.git";
 			requirement = {
@@ -2347,7 +2347,7 @@
 				minimumVersion = 6.0.0;
 			};
 		};
-		72744C61278EB9A8006A1C6A /* XCRemoteSwiftPackageReference "realm-swift.git" */ = {
+		72744C61278EB9A8006A1C6A /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift.git";
 			requirement = {
@@ -2376,12 +2376,12 @@
 /* Begin XCSwiftPackageProductDependency section */
 		7215C833277DB8690089DCCD /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 7215C832277DB8690089DCCD /* XCRemoteSwiftPackageReference "realm-swift.git" */;
+			package = 7215C832277DB8690089DCCD /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = Realm;
 		};
 		7215C835277DB8690089DCCD /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 7215C832277DB8690089DCCD /* XCRemoteSwiftPackageReference "realm-swift.git" */;
+			package = 7215C832277DB8690089DCCD /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
 		};
 		72744C5C278EB9A8006A1C6A /* Fuzi */ = {
@@ -2396,12 +2396,12 @@
 		};
 		72744C60278EB9A8006A1C6A /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 72744C61278EB9A8006A1C6A /* XCRemoteSwiftPackageReference "realm-swift.git" */;
+			package = 72744C61278EB9A8006A1C6A /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = Realm;
 		};
 		72744C62278EB9A8006A1C6A /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 72744C61278EB9A8006A1C6A /* XCRemoteSwiftPackageReference "realm-swift.git" */;
+			package = 72744C61278EB9A8006A1C6A /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
 		};
 		97242BA32735E6D700C87F85 /* Fuzi */ = {

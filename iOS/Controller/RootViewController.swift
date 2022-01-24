@@ -74,6 +74,11 @@ class RootViewController: UIViewController, UISearchControllerDelegate, UISplitV
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setToolbarHidden(false, animated: animated)
+    }
+    
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
         super.willTransition(to: newCollection, with: coordinator)
         if newCollection.horizontalSizeClass == .regular {
@@ -101,14 +106,11 @@ class RootViewController: UIViewController, UISearchControllerDelegate, UISplitV
             let alertController = UIAlertController(title: "Just So You Know", message: ConstantsKeys.InitialGDPRTexts, preferredStyle: .alert)
             
             let noAction = UIAlertAction(title: "No Thanks", style: .default) { no in
-                print("Navigate to About page.")
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let aboutVC = storyboard.instantiateViewController(withIdentifier: "AboutVC") as! AboutVC
-                self.navigationController?.pushViewController(aboutVC, animated: true)
+                let aboutView = UIHostingController(rootView: AboutView())
+                self.navigationController?.pushViewController(aboutView, animated: true)
             }
             
             let agreeAction = UIAlertAction(title: "I Agree", style: .default) { agree in
-                print("Show the toast from here.")
                 self.view.makeToast("Great, thanks!")
             }
             

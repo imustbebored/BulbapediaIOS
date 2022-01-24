@@ -94,9 +94,11 @@
 		</dict>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Kiwix need your location to show nearby articles.</string>
+	<string>Bulbapedia need your location to show nearby articles.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>Kiwix needs permission to saves images to your photos app.</string>
+	<string>Bulbapedia needs permission to saves images to your photos app.</string>
+    <key>NSUserTrackingUsageDescription</key>
+    <string>Bulbapedia need request permission to track users.</string>
 	<key>SKAdNetworkItems</key>
 	<array>
 		<dict>

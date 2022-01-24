@@ -38,7 +38,6 @@ class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
     
     var bannerView: GAMBannerView!
     var interstitial: GAMInterstitialAd?
-    let lblName = UILabel()
     
     private var textSizeAdjustFactorObserver: DefaultsObservation?
     private var rootViewController: RootViewController? {
@@ -93,16 +92,13 @@ class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
     
     @objc func hideAdOnPurchase() {
         bannerView.isHidden = true
-        lblName.isHidden = true
     }
     
     @objc func handleBannerAdAppearance() {
         if UserDefaults.standard.bool(forKey: UserDefaultKeys.UD_IsPurchased) {
             bannerView.isHidden = true
-            lblName.isHidden = true
         } else {
             bannerView.isHidden = false
-            lblName.isHidden = false
         }
     }
     
@@ -117,21 +113,6 @@ class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
     }
     
     func setBannerAd() {
-        lblName.isHidden = true
-        let height = CGFloat(50)
-
-        lblName.text = ""
-        lblName.backgroundColor = .white
-        lblName.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(lblName)
-
-        NSLayoutConstraint.activate([
-            lblName.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
-            lblName.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
-            lblName.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor,constant: -height),
-            lblName.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
-        ])
-        
         let request = GAMRequest()
         let extras = GADExtras()
         extras.additionalParameters = ["suppress_test_label": "1"]
@@ -337,7 +318,7 @@ extension WebViewController: GADFullScreenContentDelegate {
 //MARK:- Banner ad delegates.
 extension WebViewController: GADBannerViewDelegate {
     func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
-        lblName.isHidden = self.bannerView.isHidden ? true : false
+
     }
 
     func bannerView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: Error) {
@@ -357,6 +338,6 @@ extension WebViewController: GADBannerViewDelegate {
     }
 
     func bannerViewDidDismissScreen(_ bannerView: GADBannerView) {
-        self.lblName.isHidden = true
+
     }
 }

@@ -170,28 +170,31 @@ fileprivate struct SidebarSettingsView: View {
     }
 }
 
-fileprivate struct AboutView: View {
+struct AboutView: View {
     @State var externalLinkURL: URL?
     
     var body: some View {
         List {
             Section {
                 Text("""
-                     Kiwix is an offline reader for online content like Wikipedia, Project Gutenberg, or TED Talks. \
-                     It makes knowledge available to people with no or limited internet access. \
-                     The software as well as the content is free to use for anyone.
+                     
+                     You may withdraw your consent for a personalized ad experience at any time by enabling Opt out of Ads Personalization under Settings/Google/Ads on your Android device and then restarting this app. By doing this, you will still see ads, but they may not be as relevant to your interests.
+                     
+                     We also use analytics tracking called Google Firebase which allows us to see helpful data of how many people are using our app, how often they are using our app, and other things like what pages they read. This data allows us get an idea what parts of our app people enjoy the most. It ultimately helps us make the app better for our users. You can learn more about how Google manages its data and ad sites at www.google.com/policies/technologies/partner-sites
+                     
+                     This app is a part of Wiksi Apps and is the only official Bulbapedia app. All Bulbapedia content used is under CC BY-NC-SA. Pokémon content and materials are trademarks and copyrights of Nintendo, Creatures, and Game Freak and their licensors. All rights reserved.
+                     
+                     This app is a heavily modified version of the official Wikipedia Android App. Below you will find information about contributors, translators, libraries used, as well as the Apache 2.0 License that the official Wikipedia Android App is licensed under. Here is a link to the Bulbapedia Privacy Policy and the following is a link to our advertiser Playwire\'s Privacy Policy. Also, we are legally obligated to let you know that because this app contains ads, there may be a collection/use of something called an advertising identifier which advertisers may use to better serve you ads. X. THIRD PARTY ADVERTISERS - YOUR AD CHOICES
+                     We use third-party advertising companies to serve ads when you visit the Websites and/or use the Mobile Apps. These companies may use information about your visits to any of the Websites and other websites and the Mobile App(s) and other mobile applications in order to provide advertisements about goods and services of interest to you. You have the ability to opt out of the use of your information for purposes of online third-party advertising. If you would like more information about your choices, visit aboutads.info. You may have the ability to manage tracking and ad preferences on your mobile device from your devices settings. We do not respond to Web browser "do not track" signals or other similar mechanisms.
+
                      """
                 )
                     .lineLimit(nil)
                     .minimumScaleFactor(0.5) // to avoid unnecessary truncation (three dots)
-                Button("Our Website") { externalLinkURL = URL(string: "https://www.kiwix.org") }
-            }
-            Section(header: Text("Release")) {
-                Text("This app is released under the terms of the GNU General Public License version 3.")
-                Button("Source") { externalLinkURL = URL(string: "https://github.com/kiwix/apple") }
-                Button("GNU General Public License v3") {
-                    externalLinkURL = URL(string: "https://www.gnu.org/licenses/gpl-3.0.en.html")
-                }
+                Button("Our Website") { externalLinkURL = URL(string: "https://bulbapedia.bulbagarden.net/wiki/Main_Page") }
+                Button("CC BY-NC-SA") { externalLinkURL = URL(string: "https://creativecommons.org/licenses/by-nc-sa/3.0/us/") }
+                Button("Bulbapedia Privacy Policy") { externalLinkURL = URL(string: "http://bulbapedia.bulbagarden.net/wiki/Bulbapedia:Privacy_policy") }
+                Button("Playwire Privacy Policy") { externalLinkURL = URL(string: "https://playwire.com/privacy-policy/") }
             }
             Section(header: Text("Dependencies")) {
                 Dependency(name: "libkiwix", license: "GPLv3", version: "9.4.1")
