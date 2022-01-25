@@ -29,7 +29,7 @@ class RemoveAdsVC: UIViewController {
             print(sSelf.productsArray)
         }
         
-        NotificationCenter.default.addObserver(self, selector: #selector(dismissSelf), name: NSNotification.Name("dismissRemoveAds"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(dismissSelf), name: NSNotification.Name(UserDefaultKeys.UD_DismissRemoveAdsScreen), object: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {

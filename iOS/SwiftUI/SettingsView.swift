@@ -8,7 +8,7 @@
 
 import SafariServices
 import SwiftUI
-
+import StoreKit
 import Defaults
 
 struct SettingsView: View {
@@ -26,12 +26,12 @@ struct SettingsView: View {
                     }
                 }
                 Section {
-                    Button("Send Feedback") { sendFeedback() }
                     Button("Rate the App") {
-                        UIApplication.shared.open(
-                            URL(string: "itms-apps://itunes.apple.com/us/app/kiwix/id997079563?action=write-review")!,
-                            options: [:]
-                        )
+                        if #available(iOS 10.3, *) {
+                            SKStoreReviewController.requestReview()
+                        } else {
+
+                        }
                     }
                 }
                 Section(footer: version) {

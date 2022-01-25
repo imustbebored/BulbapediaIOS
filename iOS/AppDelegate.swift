@@ -15,6 +15,7 @@ import UserNotifications
 import FirebaseMessaging
 import AppTrackingTransparency
 import AdSupport
+import StoreKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, DirectoryMonitorDelegate {
@@ -39,8 +40,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, DirectoryMonitorDelegate 
         application.registerForRemoteNotifications()
         Messaging.messaging().delegate = self
         
-        IAPHandler.shared.restorePurchase()
+        Messaging.messaging().subscribe(toTopic: "test_bulba") { error in
+            print("Subscribed to test_bulba topic")
+        }
         
+        restoreIAPDayWise()
+        
+        setReviewDialog()
+                
         print("Document Directory URL: \(URL.documentDirectory)")
         
         DownloadService.shared.restorePreviousState()
@@ -64,7 +71,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, DirectoryMonitorDelegate 
     
     func applicationDidBecomeActive(_ application: UIApplication) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-//            self.requestPermission()
+            self.requestPermission()
         }
     }
     
@@ -128,6 +135,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate, DirectoryMonitorDelegate 
             }
         }
     }
+    
+    func restoreIAPDayWise() {
+        if let lastAlertDate = UserDefaults.standard.object(forKey: UserDefaultKeys.UD_HasRestoredToday) as? Date {
+            if Calendar.current.isDateInToday(lastAlertDate) {
+                print("IAP has restored once today !")
+            } else {
+                restorePurchase()
+            }
+        } else {
+            restorePurchase()
+        }
+    }
+    
+    func restorePurchase() {
+        UserDefaults.standard.set(Date(), forKey: UserDefaultKeys.UD_HasRestoredToday)
+        IAPHandler.shared.restorePurchase()
+    }
+    
+    func setReviewDialog() {
+        if #available(iOS 10.3, *) {
+            SKStoreReviewController.requestReview()
+        } else {
+
+        }
+    }
+    
 }
 
 extension AppDelegate: UNUserNotificationCenterDelegate {

@@ -144,7 +144,7 @@ extension IAPHandler: SKProductsRequestDelegate, SKPaymentTransactionObserver{
                     if let complition = self.purchaseProductComplition {
                         UserDefaults.standard.set(true, forKey: UserDefaultKeys.UD_IsPurchased)
                         NotificationCenter.default.post(name: NSNotification.Name(UserDefaultKeys.UD_HideBannerOnPurchase), object: nil)
-                        NotificationCenter.default.post(name: NSNotification.Name("dismissRemoveAds"), object: nil)
+                        NotificationCenter.default.post(name: NSNotification.Name(UserDefaultKeys.UD_DismissRemoveAdsScreen), object: nil)
                         NotificationCenter.default.post(name: NSNotification.Name(UserDefaultKeys.UD_UpdateMoreButtonWithIAP), object: nil)
                         complition(IAPHandlerAlertType.purchased, self.productToPurchase, trans)
                     }
@@ -152,6 +152,9 @@ extension IAPHandler: SKProductsRequestDelegate, SKPaymentTransactionObserver{
                 case .failed:
                     log("Product purchase failed")
                     SKPaymentQueue.default().finishTransaction(transaction as! SKPaymentTransaction)
+                    UserDefaults.standard.set(false, forKey: UserDefaultKeys.UD_IsPurchased)
+                    NotificationCenter.default.post(name: NSNotification.Name(UserDefaultKeys.UD_HandleBannerAdsAppearance), object: nil)
+                    NotificationCenter.default.post(name: NSNotification.Name(UserDefaultKeys.UD_UpdateMoreButtonWithIAP), object: nil)
                     break
                 case .restored:
                     log("Product restored")

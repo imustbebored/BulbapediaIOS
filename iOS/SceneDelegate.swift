@@ -55,7 +55,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func sceneDidBecomeActive(_ scene: UIScene) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-//            self.requestPermission()
+            self.requestPermission()
         }
     }
     

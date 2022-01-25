@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>FirebaseAppDelegateProxyEnabled</key>
-	<false/>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
@@ -54,12 +52,14 @@
 	</array>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
-	<key>ITSAppUsesNonExemptEncryption</key>
+	<key>FirebaseAppDelegateProxyEnabled</key>
 	<false/>
 	<key>GADApplicationIdentifier</key>
 	<string>ca-app-pub-6531503260671471~4219297136</string>
 	<key>GADIsAdManagerApp</key>
 	<true/>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>LSSupportsOpeningDocumentsInPlace</key>
@@ -97,8 +97,8 @@
 	<string>Bulbapedia need your location to show nearby articles.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>Bulbapedia needs permission to saves images to your photos app.</string>
-    <key>NSUserTrackingUsageDescription</key>
-    <string>Bulbapedia need request permission to track users.</string>
+	<key>NSUserTrackingUsageDescription</key>
+	<string>Bulbapedia need request permission to track users.</string>
 	<key>SKAdNetworkItems</key>
 	<array>
 		<dict>

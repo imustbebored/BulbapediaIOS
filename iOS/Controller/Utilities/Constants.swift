@@ -11,6 +11,7 @@ import Foundation
 struct ConstantsKeys {
     
     static let InitialGDPRTexts = "This app personalizes your advertising experience using Playwire and Google Ad Manager. These companies and services, along with Google Firebase, may collect and process personal info such as device IDs, location data, and other interest data to provide ads tailored to you and helpful analytics data for us. We also use local storage to save articles and preferences to your device. By agreeing, you confirm that you are over the age of 16 and accept these terms."
+    static let ReviewDialogText = "Thank you so much for using The Bulbapedia App. If you're enjoying it so far, please take a second and leave us a rating. Every single review helps A LOT and is greatly appreciated. A ton of work has gone into this app and we want to thank you all for your support!"
     
 }
 
@@ -21,5 +22,8 @@ struct UserDefaultKeys {
     static let UD_UpdateMoreButtonWithIAP = "Update_More_Button_WithIAP"
     static let UD_HideBannerOnPurchase = "Hide_Banner_Purchase"
     static let UD_HasLaunchedOnce = "HasLaunchedOnce"
+    static let UD_HasRestoredToday = "Has_Restored_Today"
+    static let UD_DismissRemoveAdsScreen = "dismissRemoveAds"
+    static let UD_NumberOfAppOpened = "Number_App_Opened"
     
 }
