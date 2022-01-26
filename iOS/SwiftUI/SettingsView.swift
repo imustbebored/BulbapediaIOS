@@ -48,7 +48,7 @@ struct SettingsView: View {
         HStack {
             Spacer()
             if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
-                Text("Kiwix for iOS v\(version)")
+                Text("Bulbapedia v\(version)")
             }
             Spacer()
         }
@@ -68,7 +68,7 @@ fileprivate struct FontSizeSettingsView: View {
     var body: some View {
         List {
             Section(header: Text("Example")) {
-                Text("Kiwix is an offline reader for online content like Wikipedia, Project Gutenberg, or TED Talks.")
+                Text("Bulbapedia is an encyclopaedia about Pokémon to which anyone can contribute.")
                     .font(Font.system(size: 17.0 * CGFloat(webViewTextSizeAdjustFactor)))
             }
             if let number = NSNumber(value: webViewTextSizeAdjustFactor),

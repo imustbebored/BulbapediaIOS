@@ -95,6 +95,8 @@
 	<string>Kiwix needs permission to saves images to your photos app.</string>
     <key>NSUserTrackingUsageDescription</key>
     <string>Kiwix need request permission to track users.</string>
+    <key>UIUserInterfaceStyle</key>
+    <string>Light</string>
 	<key>SKAdNetworkItems</key>
 	<array>
 		<dict>

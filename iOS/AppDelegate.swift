@@ -77,7 +77,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, DirectoryMonitorDelegate 
     
     func applicationWillTerminate(_ application: UIApplication) {
         UserDefaults.standard.set(false, forKey: "Is_Active_Session")
-        UserDefaults.standard.set(false, forKey: UserDefaultKeys.UD_IsPurchased)
         UserDefaults.standard.synchronize()
         fileMonitor.stop()
     }
@@ -137,27 +136,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate, DirectoryMonitorDelegate 
     }
     
     func restoreIAPDayWise() {
-        if let lastAlertDate = UserDefaults.standard.object(forKey: UserDefaultKeys.UD_HasRestoredToday) as? Date {
-            if Calendar.current.isDateInToday(lastAlertDate) {
-                print("IAP has restored once today !")
-            } else {
-                restorePurchase()
+        if !UserDefaults.standard.bool(forKey: UserDefaultKeys.UD_IsPurchased) {
+            if !UserDefaults.standard.bool(forKey: UserDefaultKeys.UD_HasTriedRestoredinnewapp){
+                UserDefaults.standard.set(true, forKey: UserDefaultKeys.UD_HasTriedRestoredinnewapp)
+                IAPHandler.shared.restorePurchase()
             }
-        } else {
-            restorePurchase()
         }
     }
     
-    func restorePurchase() {
-        UserDefaults.standard.set(Date(), forKey: UserDefaultKeys.UD_HasRestoredToday)
-        IAPHandler.shared.restorePurchase()
-    }
-    
     func setReviewDialog() {
-        if #available(iOS 10.3, *) {
-            SKStoreReviewController.requestReview()
-        } else {
-
+        if !UserDefaults.standard.bool(forKey: UserDefaultKeys.UD_HasReviewDialogShownOnce) {
+            var numOfAppOpen = UserDefaults.standard.integer(forKey: UserDefaultKeys.UD_NumberOfAppOpened)
+            if numOfAppOpen == 3 {
+                numOfAppOpen = 0
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    if #available(iOS 10.3, *) {
+                        UserDefaults.standard.set(true, forKey: UserDefaultKeys.UD_HasReviewDialogShownOnce)
+                        SKStoreReviewController.requestReview()
+                    } else {
+                        
+                    }
+                }
+            } else {
+                numOfAppOpen += 1
+            }
+            UserDefaults.standard.set(numOfAppOpen, forKey: UserDefaultKeys.UD_NumberOfAppOpened)
+            UserDefaults.standard.synchronize()
         }
     }
     

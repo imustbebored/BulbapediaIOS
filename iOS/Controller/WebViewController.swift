@@ -22,7 +22,7 @@ class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
         config.userContentController = {
             let controller = WKUserContentController()
             guard FeatureFlags.wikipediaDarkUserCSS,
-                  let path = Bundle.main.path(forResource: "wikipedia_dark", ofType: "css"),
+                  let path = Bundle.main.path(forResource: "bulbapedia_styles", ofType: "css"),
                   let css = try? String(contentsOfFile: path) else { return controller }
             let source = """
                 var style = document.createElement('style');
@@ -36,9 +36,9 @@ class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
         return WKWebView(frame: .zero, configuration: config)
     }()
     
-    var bannerView: GAMBannerView!
+    var bannerView: GAMBannerView?
     var interstitial: GAMInterstitialAd?
-    
+
     private var textSizeAdjustFactorObserver: DefaultsObservation?
     private var rootViewController: RootViewController? {
         splitViewController?.parent as? RootViewController
@@ -75,7 +75,6 @@ class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
         setActivityIndicator()
         
         setBannerAd()
-        setInterstitialAd()
         
         // observe webView font size adjust factor
         textSizeAdjustFactorObserver = Defaults.observe(keys: .webViewTextSizeAdjustFactor) { self.adjustTextSize() }
@@ -91,14 +90,14 @@ class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
     }
     
     @objc func hideAdOnPurchase() {
-        bannerView.isHidden = true
+        bannerView?.isHidden = true
     }
     
     @objc func handleBannerAdAppearance() {
         if UserDefaults.standard.bool(forKey: UserDefaultKeys.UD_IsPurchased) {
-            bannerView.isHidden = true
+            bannerView?.isHidden = true
         } else {
-            bannerView.isHidden = false
+            bannerView?.isHidden = false
         }
     }
     
@@ -113,38 +112,49 @@ class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
     }
     
     func setBannerAd() {
-        let request = GAMRequest()
-        let extras = GADExtras()
-        extras.additionalParameters = ["suppress_test_label": "1"]
-        request.register(extras)
-        
-        // In this case, we instantiate the banner with desired ad size.
-        let adSize = GADAdSizeFromCGSize(CGSize(width: 320, height: 50))
-        bannerView = GAMBannerView(adSize: adSize)
-//        bannerView.isHidden = true
-        
-        bannerView.adUnitID = "/154013155,7264022/1016210/72846/1016210-72846-mobile_leaderboard" // "/6499/example/banner" - Testing ad
-        bannerView.rootViewController = self
-        bannerView.delegate = self
-        bannerView.load(request)
-        
-        addBannerViewToView(bannerView)
+        if !UserDefaults.standard.bool(forKey: UserDefaultKeys.UD_IsPurchased) {
+            let request = GAMRequest()
+            let extras = GADExtras()
+            extras.additionalParameters = ["suppress_test_label": "1"]
+            request.register(extras)
+            
+            // In this case, we instantiate the banner with desired ad size.
+            let adSize = GADAdSizeFromCGSize(CGSize(width: 320, height: 50))
+            bannerView = GAMBannerView(adSize: adSize)
+    //        bannerView.isHidden = true
+            
+            bannerView?.adUnitID = "/154013155,7264022/1016210/72846/1016210-72846-mobile_leaderboard" // "/6499/example/banner" - Testing ad
+            bannerView?.rootViewController = self
+            bannerView?.delegate = self
+            bannerView?.load(request)
+            
+            addBannerViewToView(bannerView!)
+        }
     }
     
     func setInterstitialAd() {
-        let request = GAMRequest()
-        let extras = GADExtras()
-        extras.additionalParameters = ["suppress_test_label": "1"]
-        request.register(extras)
-        
-        // "/6499/example/interstitial" - Testing ad
-        GAMInterstitialAd.load(withAdManagerAdUnitID: "/154013155,7264022/1016210/72846/1016210-72846-in_game_item", request: request) { [self] ad, error in
-            if let error = error {
-              print("Failed to load interstitial ad with error: \(error.localizedDescription)")
-              return
+        if !UserDefaults.standard.bool(forKey: UserDefaultKeys.UD_IsPurchased) {
+            let request = GAMRequest()
+            let extras = GADExtras()
+            extras.additionalParameters = ["suppress_test_label": "1"]
+            request.register(extras)
+            
+            // "/6499/example/interstitial" - Testing ad
+            GAMInterstitialAd.load(withAdManagerAdUnitID: "/154013155,7264022/1016210/72846/1016210-72846-in_game_item", request: request) { [self] ad, error in
+                if let error = error {
+                  print("Failed to load interstitial ad with error: \(error.localizedDescription)")
+                  return
+                }
+                self.interstitial = ad
+                self.interstitial?.fullScreenContentDelegate = self
+                if self.presentedViewController != nil {
+                    self.presentedViewController?.dismiss(animated: false, completion: {
+                        self.interstitial?.present(fromRootViewController: self)
+                    })
+                } else {
+                    self.interstitial?.present(fromRootViewController: self)
+                }
             }
-            interstitial = ad
-            interstitial?.fullScreenContentDelegate = self
         }
     }
     
@@ -168,22 +178,7 @@ class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
                               constant: 0)
         ])
     }
-    
-    func presentInterstitialAdOnArticle() {
-        if interstitial != nil {
-            if self.presentedViewController != nil {
-                self.presentedViewController?.dismiss(animated: false, completion: {
-                    self.interstitial?.present(fromRootViewController: self)
-                })
-            } else {
-                interstitial?.present(fromRootViewController: self)
-            }
-        } else {
-            print("Ad wasn't ready")
-            setInterstitialAd()
-        }
-    }
-    
+        
     func showInternetConnectionAlert() {
         let alert = UIAlertController(title: "", message: "Offline mode only available in Pro version. Please connect to the internet.", preferredStyle: .alert)
         let alertAction = UIAlertAction(title: "OK", style: .default) { okAct in
@@ -237,9 +232,7 @@ class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
             if viewedArticleCount == 7 {
                 viewedArticleCount = 0
                 if !UserDefaults.standard.bool(forKey: UserDefaultKeys.UD_IsPurchased) {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                        self.presentInterstitialAdOnArticle()
-                    }
+                    setInterstitialAd()
                 }
             } else {
                 viewedArticleCount += 1
@@ -296,7 +289,6 @@ class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
 extension WebViewController: GADFullScreenContentDelegate {
       func ad(_ ad: GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {
           print("Ad did fail to present full screen content.")
-          setInterstitialAd()
       }
 
       func adDidPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
@@ -304,7 +296,6 @@ extension WebViewController: GADFullScreenContentDelegate {
       }
 
       func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
-          setInterstitialAd()
           if UserDefaults.standard.bool(forKey: "Is_Active_Session") == false {
               UserDefaults.standard.set(true, forKey: "Is_Active_Session")
               UserDefaults.standard.synchronize()

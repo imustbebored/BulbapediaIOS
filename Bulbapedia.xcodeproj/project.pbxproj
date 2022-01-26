@@ -13,6 +13,8 @@
 		7226BC6E279AD05700FF3328 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724A1DC5279AC1EF00996C62 /* Constants.swift */; };
 		7226BC70279AD96200FF3328 /* AboutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7226BC6F279AD96200FF3328 /* AboutVC.swift */; };
 		7226BC71279AD96200FF3328 /* AboutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7226BC6F279AD96200FF3328 /* AboutVC.swift */; };
+		722CC87C27A1206400014E01 /* bulbapedia_styles.css in Resources */ = {isa = PBXBuildFile; fileRef = 722CC87B27A1206400014E01 /* bulbapedia_styles.css */; };
+		722CC87D27A1206400014E01 /* bulbapedia_styles.css in Resources */ = {isa = PBXBuildFile; fileRef = 722CC87B27A1206400014E01 /* bulbapedia_styles.css */; };
 		7230B8442799930D002917FA /* offline_bulba.zim in Resources */ = {isa = PBXBuildFile; fileRef = 7230B8432799930C002917FA /* offline_bulba.zim */; };
 		7230B8452799930D002917FA /* offline_bulba.zim in Resources */ = {isa = PBXBuildFile; fileRef = 7230B8432799930C002917FA /* offline_bulba.zim */; };
 		7247485A279541FE00CA8629 /* libkiwix.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72474859279541FE00CA8629 /* libkiwix.xcframework */; };
@@ -330,6 +332,7 @@
 		0B0A92B2E91D949BDA22AD48 /* Pods_iOS_Dev.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_Dev.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		72108629278EB239007C19EF /* iOS copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "iOS copy-Info.plist"; path = "/Users/bigsur/Documents/Hardik/Jonathan/Bulbapedia/iOS copy-Info.plist"; sourceTree = "<absolute>"; };
 		7226BC6F279AD96200FF3328 /* AboutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutVC.swift; sourceTree = "<group>"; };
+		722CC87B27A1206400014E01 /* bulbapedia_styles.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = bulbapedia_styles.css; sourceTree = "<group>"; };
 		7230B8432799930C002917FA /* offline_bulba.zim */ = {isa = PBXFileReference; lastKnownFileType = file; path = offline_bulba.zim; sourceTree = "<group>"; };
 		72474859279541FE00CA8629 /* libkiwix.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libkiwix.xcframework; sourceTree = "<group>"; };
 		724A1DC5279AC1EF00996C62 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -886,6 +889,7 @@
 			children = (
 				9779A5D02456796A00F6F6FF /* Kiwix-Bridging-Header.h */,
 				970885D0271339A300C5795C /* wikipedia_dark.css */,
+				722CC87B27A1206400014E01 /* bulbapedia_styles.css */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -1213,6 +1217,7 @@
 			files = (
 				72744CB0278EB9A8006A1C6A /* Kiwix_logo_v3_320px.png in Resources */,
 				727EC88C2795538300474438 /* GoogleService-Info.plist in Resources */,
+				722CC87D27A1206400014E01 /* bulbapedia_styles.css in Resources */,
 				72744CB1278EB9A8006A1C6A /* Main.storyboard in Resources */,
 				72744CB3278EB9A8006A1C6A /* About.html in Resources */,
 				72744CB4278EB9A8006A1C6A /* LaunchScreen.storyboard in Resources */,
@@ -1244,6 +1249,7 @@
 			files = (
 				975AEBD32597EACF00392988 /* Kiwix_logo_v3_320px.png in Resources */,
 				727EC88B2795538300474438 /* GoogleService-Info.plist in Resources */,
+				722CC87C27A1206400014E01 /* bulbapedia_styles.css in Resources */,
 				97246C821FC4D12A0056AE5D /* Main.storyboard in Resources */,
 				9763EDCB201FCC3A00F3A6D5 /* About.html in Resources */,
 				97A36C441F8C21210079B452 /* LaunchScreen.storyboard in Resources */,
@@ -2055,7 +2061,7 @@
 				CODE_SIGN_ENTITLEMENTS = iOS/Support/Kiwix.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = WQJVTURJ6W;
 				ENABLE_BITCODE = YES;
@@ -2095,7 +2101,7 @@
 				CODE_SIGN_ENTITLEMENTS = iOS/Support/Kiwix.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = WQJVTURJ6W;
 				ENABLE_BITCODE = YES;

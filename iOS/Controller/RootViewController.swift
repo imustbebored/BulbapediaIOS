@@ -123,36 +123,12 @@ class RootViewController: UIViewController, UISearchControllerDelegate, UISplitV
         }
     }
     
-    func showReviewRateAlert() {
-        var numOfAppOpen = UserDefaults.standard.integer(forKey: UserDefaultKeys.UD_NumberOfAppOpened)
-        if numOfAppOpen == 1 {
-            numOfAppOpen = 0
-            let alertController = UIAlertController(title: "Hey there Pokéfan!", message: ConstantsKeys.ReviewDialogText, preferredStyle: .alert)
-            
-            let noAction = UIAlertAction(title: "Not Now", style: .default) { no in
-                
-            }
-            
-            let notAction = UIAlertAction(title: "No Thanks", style: .default) { not in
-                
-            }
-            
-            let rateAction = UIAlertAction(title: "Rate It Now", style: .default) { rate in
-                UIApplication.shared.open(URL(string: "itms-apps://itunes.apple.com/us/app/bulbapedia/id1242159382?action=write-review")!, options: [:])
-            }
-            
-            alertController.addAction(noAction)
-            alertController.addAction(notAction)
-            alertController.addAction(rateAction)
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
-                self.present(alertController, animated: true, completion: nil)
-            }
-        } else {
-            numOfAppOpen += 1
-        }
-        UserDefaults.standard.set(numOfAppOpen, forKey: UserDefaultKeys.UD_NumberOfAppOpened)
-        UserDefaults.standard.synchronize()
+    @objc func showSuccessAlert() {
+        self.view.makeToast("Restoring success")
+    }
+    
+    @objc func showFailureAlert() {
+        self.view.makeToast("Restoring failed")
     }
     
     func moveZIMFileToDirectory() {

@@ -17,6 +17,7 @@ class RemoveAdsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        btnPrice.isUserInteractionEnabled = false
         IAPHandler.shared.setProductIds(ids: ["org.bulbagarden.alpha.removeads"])
         IAPHandler.shared.fetchAvailableProducts { [weak self] (products) in
             guard let sSelf = self else {
@@ -25,6 +26,7 @@ class RemoveAdsVC: UIViewController {
             sSelf.productsArray = products
             DispatchQueue.main.async {
                 sSelf.btnPrice.setTitle("\(sSelf.productsArray[0].price) ONE TIME", for: .normal)
+                sSelf.btnPrice.isUserInteractionEnabled = true
             }
             print(sSelf.productsArray)
         }
@@ -46,6 +48,7 @@ class RemoveAdsVC: UIViewController {
     }
     
     @IBAction func btnPricePurchaseTapped(_ sender: UIButton) {
+        if self.productsArray.count == 0 {return}
         IAPHandler.shared.purchase(product: self.productsArray[0]) { alert, product, transaction in
             if let tran = transaction, let prod = product {
                 print(tran)

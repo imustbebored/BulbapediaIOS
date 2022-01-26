@@ -17,13 +17,14 @@ struct ConstantsKeys {
 
 struct UserDefaultKeys {
     
-    static let UD_IsPurchased = "Is_Purchased"
+    static let UD_IsPurchased = "IN_APP_PURCHASE_ADVT"
     static let UD_HandleBannerAdsAppearance = "Handle_Banner_ads"
     static let UD_UpdateMoreButtonWithIAP = "Update_More_Button_WithIAP"
     static let UD_HideBannerOnPurchase = "Hide_Banner_Purchase"
     static let UD_HasLaunchedOnce = "HasLaunchedOnce"
-    static let UD_HasRestoredToday = "Has_Restored_Today"
+    static let UD_HasTriedRestoredinnewapp = "Has_Tried_Restored_in_new_app"
     static let UD_DismissRemoveAdsScreen = "dismissRemoveAds"
     static let UD_NumberOfAppOpened = "Number_App_Opened"
+    static let UD_HasReviewDialogShownOnce = "Has_Review_Dialog_Shown_Once"
     
 }
