@@ -123,7 +123,9 @@ class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
             bannerView = GAMBannerView(adSize: adSize)
     //        bannerView.isHidden = true
             
-            bannerView?.adUnitID = "/154013155,7264022/1016210/72846/1016210-72846-mobile_leaderboard" // "/6499/example/banner" - Testing ad
+            let testID = "/6499/example/banner"
+            let liveAdID = "/154013155,7264022/1016210/72846/1016210-72846-mobile_leaderboard"
+            bannerView?.adUnitID = testID
             bannerView?.rootViewController = self
             bannerView?.delegate = self
             bannerView?.load(request)
@@ -139,8 +141,9 @@ class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
             extras.additionalParameters = ["suppress_test_label": "1"]
             request.register(extras)
             
-            // "/6499/example/interstitial" - Testing ad
-            GAMInterstitialAd.load(withAdManagerAdUnitID: "/154013155,7264022/1016210/72846/1016210-72846-in_game_item", request: request) { [self] ad, error in
+            let testID = "/6499/example/interstitial"
+            let liveAdID = "/154013155,7264022/1016210/72846/1016210-72846-in_game_item"
+            GAMInterstitialAd.load(withAdManagerAdUnitID: testID, request: request) { [self] ad, error in
                 if let error = error {
                   print("Failed to load interstitial ad with error: \(error.localizedDescription)")
                   return
