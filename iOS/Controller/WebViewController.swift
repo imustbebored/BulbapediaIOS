@@ -125,7 +125,7 @@ class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
             
             let testID = "/6499/example/banner"
             let liveAdID = "/154013155,7264022/1016210/72846/1016210-72846-mobile_leaderboard"
-            bannerView?.adUnitID = testID
+            bannerView?.adUnitID = liveAdID
             bannerView?.rootViewController = self
             bannerView?.delegate = self
             bannerView?.load(request)
@@ -143,7 +143,7 @@ class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
             
             let testID = "/6499/example/interstitial"
             let liveAdID = "/154013155,7264022/1016210/72846/1016210-72846-in_game_item"
-            GAMInterstitialAd.load(withAdManagerAdUnitID: testID, request: request) { [self] ad, error in
+            GAMInterstitialAd.load(withAdManagerAdUnitID: liveAdID, request: request) { [self] ad, error in
                 if let error = error {
                   print("Failed to load interstitial ad with error: \(error.localizedDescription)")
                   return
