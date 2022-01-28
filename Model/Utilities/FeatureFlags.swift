@@ -14,7 +14,7 @@ struct FeatureFlags {
         #if DEBUG
         true
         #else
-        false
+        true
         #endif
     }
 }

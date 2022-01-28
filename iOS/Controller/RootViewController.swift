@@ -135,11 +135,7 @@ class RootViewController: UIViewController, UISearchControllerDelegate, UISplitV
         let fileManager = FileManager.default
         let documentsDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
         
-        if let zimFiles = onDeviceZimFiles, !zimFiles.isEmpty {
-            let zimFile = zimFiles.first
-            isInitialWeb = false
-            self.openArticleDirect(zimFileID: zimFile?.fileID ?? "")
-        } else {
+        if UserDefaults.standard.url(forKey: UserDefaultKeys.UD_MainArticleURL) == nil {
             isInitialWeb = true
             guard let sourcePath = Bundle.main.path(forResource: "offline_bulba", ofType: "zim") else {
                 return
@@ -155,6 +151,9 @@ class RootViewController: UIViewController, UISearchControllerDelegate, UISplitV
             } else {
                 return
             }
+        } else {
+            isInitialWeb = false
+            openMainArticleOffline()
         }
     }
     
@@ -229,6 +228,15 @@ class RootViewController: UIViewController, UISearchControllerDelegate, UISplitV
     
     func openMainPage(zimFileID: String) {
         guard let url = ZimFileService.shared.getMainPageURL(zimFileID: zimFileID) else { return }
+        if UserDefaults.standard.url(forKey: UserDefaultKeys.UD_MainArticleURL) == nil {
+            UserDefaults.standard.set(url, forKey: UserDefaultKeys.UD_MainArticleURL)
+            UserDefaults.standard.synchronize()
+        }
+        openURL(url)
+    }
+    
+    func openMainArticleOffline() {
+        guard let url = UserDefaults.standard.url(forKey: UserDefaultKeys.UD_MainArticleURL) else { return }
         openURL(url)
     }
     
