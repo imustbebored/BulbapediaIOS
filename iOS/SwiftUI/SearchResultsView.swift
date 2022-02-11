@@ -148,7 +148,15 @@ private class ViewModel: ObservableObject {
         operation.completionBlock = { [unowned self] in
             guard !operation.isCancelled else { return }
             DispatchQueue.main.sync {
-                self.results = operation.results
+                var mainResults = operation.results
+                var arrFiltered = mainResults.filter { $0.title.contains("Pokémon") }
+                print(arrFiltered)
+                for result in arrFiltered {
+                    let index = mainResults.firstIndex(where: { $0.title == result.title })
+                    mainResults.remove(at: index ?? 0)
+                }
+                arrFiltered.append(contentsOf: mainResults)
+                self.results = arrFiltered
                 self.inProgress = self.queue.operationCount > 0
             }
         }

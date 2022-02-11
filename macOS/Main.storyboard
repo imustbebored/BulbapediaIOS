@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="95r-g6-5ej">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="95r-g6-5ej">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17506"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19455"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -629,7 +630,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Kiwix" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Bulbapedia" customModuleProvider="target"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-85" y="-468"/>
@@ -637,7 +638,7 @@
         <!--Window Controller-->
         <scene sceneID="RfV-d4-Op0">
             <objects>
-                <windowController id="95r-g6-5ej" customClass="WindowController" customModule="Kiwix" customModuleProvider="target" sceneMemberID="viewController">
+                <windowController id="95r-g6-5ej" customClass="WindowController" customModule="Bulbapedia" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="Welcome to Kiwix" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" tabbingMode="preferred" titleVisibility="hidden" id="Rv4-VQ-fOi">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
@@ -648,7 +649,7 @@
                                 <toolbarItem implicitItemIdentifier="NSToolbarShowColorsItem" id="Dc7-xv-uOM"/>
                                 <toolbarItem implicitItemIdentifier="NSToolbarShowFontsItem" id="Nd5-o7-2Oy"/>
                                 <toolbarItem implicitItemIdentifier="NSToolbarPrintItem" id="DdE-rT-INJ"/>
-                                <toolbarItem implicitItemIdentifier="153CBDE8-AAD7-4988-BBF4-DCB6C88DDAF9" label="Toggle Sidebar" paletteLabel="Toggle Sidebar" image="Sidebar" sizingBehavior="auto" id="Zb5-oj-enX">
+                                <toolbarItem implicitItemIdentifier="153CBDE8-AAD7-4988-BBF4-DCB6C88DDAF9" label="Toggle Sidebar" paletteLabel="Toggle Sidebar" image="Sidebar" title="Textured Rounded" sizingBehavior="auto" id="Zb5-oj-enX">
                                     <nil key="toolTip"/>
                                     <button key="view" verticalHuggingPriority="750" id="b8e-oI-y8S">
                                         <rect key="frame" x="30" y="14" width="26" height="23"/>
@@ -662,7 +663,7 @@
                                         <action selector="toggleSidebar:" target="95r-g6-5ej" id="OMF-Wn-fMV"/>
                                     </connections>
                                 </toolbarItem>
-                                <toolbarItem implicitItemIdentifier="79EE8B2D-7890-41EC-BA1B-51CFA0C4287B" label="New Tab" paletteLabel="New Tab" image="NSAddTemplate" sizingBehavior="auto" id="5Z5-mr-XNo">
+                                <toolbarItem implicitItemIdentifier="79EE8B2D-7890-41EC-BA1B-51CFA0C4287B" label="New Tab" paletteLabel="New Tab" image="NSAddTemplate" title="Textured Rounded" sizingBehavior="auto" id="5Z5-mr-XNo">
                                     <nil key="toolTip"/>
                                     <button key="view" verticalHuggingPriority="750" id="knm-Z7-9tj">
                                         <rect key="frame" x="17" y="14" width="20" height="23"/>
@@ -695,7 +696,7 @@
                                         </connections>
                                     </segmentedControl>
                                 </toolbarItem>
-                                <toolbarItem implicitItemIdentifier="8ABE0FA0-E07C-471B-8D42-0B7054EEE30E" label="Library" paletteLabel="Library" image="NSFolder" sizingBehavior="auto" id="l4b-Ba-dQc">
+                                <toolbarItem implicitItemIdentifier="8ABE0FA0-E07C-471B-8D42-0B7054EEE30E" label="Library" paletteLabel="Library" image="NSFolder" title="Textured Rounded" sizingBehavior="auto" id="l4b-Ba-dQc">
                                     <nil key="toolTip"/>
                                     <button key="view" verticalHuggingPriority="750" id="GqL-Ei-9Jf">
                                         <rect key="frame" x="9" y="14" width="26" height="23"/>
@@ -717,7 +718,7 @@
                                         <rect key="frame" x="0.0" y="14" width="100" height="22"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
-                                            <searchField wantsLayer="YES" focusRingType="none" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hto-yD-Lan" customClass="SearchField" customModule="Kiwix" customModuleProvider="target">
+                                            <searchField wantsLayer="YES" focusRingType="none" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hto-yD-Lan" customClass="SearchField" customModule="Bulbapedia" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="100" height="22"/>
                                                 <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" focusRingType="none" usesSingleLineMode="YES" bezelStyle="round" id="S1v-SK-GDn">
                                                     <font key="font" metaFont="system"/>
@@ -733,7 +734,7 @@
                                         </constraints>
                                     </customView>
                                 </toolbarItem>
-                                <toolbarItem implicitItemIdentifier="83A087AD-2B72-4052-999C-8AE2C7ABBB46" label="Open" paletteLabel="Open" image="folder" sizingBehavior="auto" id="00F-OE-8qN">
+                                <toolbarItem implicitItemIdentifier="83A087AD-2B72-4052-999C-8AE2C7ABBB46" label="Open" paletteLabel="Open" image="folder" title="Textured Rounded" sizingBehavior="auto" id="00F-OE-8qN">
                                     <nil key="toolTip"/>
                                     <button key="view" verticalHuggingPriority="750" id="EaA-HV-0za">
                                         <rect key="frame" x="5" y="14" width="26" height="23"/>
@@ -776,7 +777,7 @@
         <scene sceneID="7az-S1-GHZ">
             <objects>
                 <windowController storyboardIdentifier="Search" id="2M8-X4-1d6" sceneMemberID="viewController">
-                    <window key="window" title="Search" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="19Z-mX-IKz" customClass="SearchWindow" customModule="Kiwix" customModuleProvider="target">
+                    <window key="window" title="Search" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="19Z-mX-IKz" customClass="SearchWindow" customModule="Bulbapedia" customModuleProvider="target">
                         <windowStyleMask key="styleMask" titled="YES" fullSizeContentView="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="372" y="411" width="480" height="270"/>
@@ -796,8 +797,8 @@
         <!--Search Controller-->
         <scene sceneID="00u-Oj-xoP">
             <objects>
-                <viewController id="IJv-yE-Q4V" customClass="SearchController" customModule="Kiwix" customModuleProvider="target" sceneMemberID="viewController">
-                    <visualEffectView key="view" misplaced="YES" blendingMode="behindWindow" material="appearanceBased" state="active" id="3Pk-1T-xXf">
+                <viewController id="IJv-yE-Q4V" customClass="SearchController" customModule="Bulbapedia" customModuleProvider="target" sceneMemberID="viewController">
+                    <visualEffectView key="view" blendingMode="behindWindow" material="appearanceBased" state="active" id="3Pk-1T-xXf">
                         <rect key="frame" x="0.0" y="0.0" width="503" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
@@ -814,7 +815,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="503" height="300"/>
                                                     <clipView key="contentView" drawsBackground="NO" id="VPT-SC-X2X">
                                                         <rect key="frame" x="0.0" y="0.0" width="503" height="300"/>
-                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
                                                             <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" columnReordering="NO" multipleSelection="NO" autosaveColumns="NO" rowHeight="38" rowSizeStyle="automatic" usesAutomaticRowHeights="YES" viewBased="YES" indentationPerLevel="13" outlineTableColumn="gSM-vu-o9B" id="UtR-18-Cii">
                                                                 <rect key="frame" x="0.0" y="0.0" width="503" height="300"/>
@@ -835,7 +836,7 @@
                                                                         </textFieldCell>
                                                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES"/>
                                                                         <prototypeCellViews>
-                                                                            <tableCellView identifier="SearchResultCell" id="vdC-P1-Bcy" customClass="SearchResultCell" customModule="Kiwix" customModuleProvider="target">
+                                                                            <tableCellView identifier="SearchResultCell" id="vdC-P1-Bcy" customClass="SearchResultCell" customModule="Bulbapedia" customModuleProvider="target">
                                                                                 <rect key="frame" x="11" y="0.0" width="480" height="32"/>
                                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                 <subviews>
@@ -885,7 +886,7 @@
                                                                                     <outlet property="titleField" destination="lYB-fO-uFI" id="QNa-0j-5ad"/>
                                                                                 </connections>
                                                                             </tableCellView>
-                                                                            <tableCellView identifier="SearchResultCellWithSnippet" id="jFq-lg-L67" customClass="SearchResultCell" customModule="Kiwix" customModuleProvider="target">
+                                                                            <tableCellView identifier="SearchResultCellWithSnippet" id="jFq-lg-L67" customClass="SearchResultCell" customModule="Bulbapedia" customModuleProvider="target">
                                                                                 <rect key="frame" x="11" y="32" width="480" height="38"/>
                                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                 <subviews>
@@ -1046,7 +1047,7 @@
         <!--Main Split View Controller-->
         <scene sceneID="0QK-dl-yLx">
             <objects>
-                <splitViewController id="mzK-Jj-OIq" customClass="MainSplitViewController" customModule="Kiwix" customModuleProvider="target" sceneMemberID="viewController">
+                <splitViewController id="mzK-Jj-OIq" customClass="MainSplitViewController" customModule="Bulbapedia" customModuleProvider="target" sceneMemberID="viewController">
                     <splitViewItems>
                         <splitViewItem canCollapse="YES" holdingPriority="260" behavior="sidebar" id="6Hj-CT-4k8"/>
                         <splitViewItem id="pUJ-5F-piC"/>
@@ -1071,7 +1072,7 @@
         <!--Navigation Split View Controller-->
         <scene sceneID="1ID-lN-bxj">
             <objects>
-                <splitViewController id="Wzy-lb-x4u" customClass="NavigationSplitViewController" customModule="Kiwix" customModuleProvider="target" sceneMemberID="viewController">
+                <splitViewController id="Wzy-lb-x4u" customClass="NavigationSplitViewController" customModule="Bulbapedia" customModuleProvider="target" sceneMemberID="viewController">
                     <splitViewItems>
                         <splitViewItem id="cR0-4X-q5p"/>
                         <splitViewItem collapsed="YES" id="c8o-Pi-yAF"/>
@@ -1096,8 +1097,8 @@
         <!--Article Navigation Controller-->
         <scene sceneID="2gK-c7-Lqj">
             <objects>
-                <viewController id="yPa-Gm-cWg" customClass="ArticleNavigationController" customModule="Kiwix" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" misplaced="YES" id="qMM-Z0-eVD">
+                <viewController id="yPa-Gm-cWg" customClass="ArticleNavigationController" customModule="Bulbapedia" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="qMM-Z0-eVD">
                         <rect key="frame" x="0.0" y="0.0" width="470" height="258"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
@@ -1114,7 +1115,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="470" height="258"/>
                                                     <clipView key="contentView" drawsBackground="NO" id="iDg-5Y-i2Y">
                                                         <rect key="frame" x="0.0" y="0.0" width="470" height="258"/>
-                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
                                                             <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" columnReordering="NO" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" rowHeight="44" rowSizeStyle="automatic" viewBased="YES" outlineTableColumn="1Og-YN-wc2" id="uI9-iN-vFI">
                                                                 <rect key="frame" x="0.0" y="0.0" width="470" height="258"/>
@@ -1135,7 +1136,7 @@
                                                                         </textFieldCell>
                                                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                         <prototypeCellViews>
-                                                                            <tableCellView identifier="ZimFileCell" id="1mY-op-Rmp" customClass="ZimFileTableCellView" customModule="Kiwix" customModuleProvider="target">
+                                                                            <tableCellView identifier="ZimFileCell" id="1mY-op-Rmp" customClass="ZimFileTableCellView" customModule="Bulbapedia" customModuleProvider="target">
                                                                                 <rect key="frame" x="11" y="1" width="447" height="44"/>
                                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                 <subviews>
@@ -1327,7 +1328,7 @@
         <!--Web Kit Web View Controller-->
         <scene sceneID="ixk-MJ-J1R">
             <objects>
-                <viewController id="euw-8A-K2g" customClass="WebKitWebViewController" customModule="Kiwix" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="euw-8A-K2g" customClass="WebKitWebViewController" customModule="Bulbapedia" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="vzN-uc-75D">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1340,7 +1341,7 @@
         <!--Content Tab Controller-->
         <scene sceneID="eEg-14-BpV">
             <objects>
-                <tabViewController selectedTabViewItemIndex="0" tabStyle="unspecified" id="0ox-PQ-qcl" customClass="ContentTabController" customModule="Kiwix" customModuleProvider="target" sceneMemberID="viewController">
+                <tabViewController selectedTabViewItemIndex="0" tabStyle="unspecified" id="0ox-PQ-qcl" customClass="ContentTabController" customModule="Bulbapedia" customModuleProvider="target" sceneMemberID="viewController">
                     <tabViewItems>
                         <tabViewItem label="Welcome" identifier="Welcome" id="4uN-UD-XCy"/>
                         <tabViewItem label="Reader" identifier="Reader" id="eYY-NL-rfX"/>
@@ -1443,7 +1444,7 @@
     <resources>
         <image name="Logo" width="128" height="128"/>
         <image name="NSActionTemplate" width="15" height="15"/>
-        <image name="NSAddTemplate" width="14" height="13"/>
+        <image name="NSAddTemplate" width="15" height="13"/>
         <image name="NSFolder" width="32" height="32"/>
         <image name="NSGoBackTemplate" width="10" height="14"/>
         <image name="NSGoForwardTemplate" width="10" height="14"/>

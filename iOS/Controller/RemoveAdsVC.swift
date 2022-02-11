@@ -51,7 +51,7 @@ class RemoveAdsVC: UIViewController {
         if self.productsArray.count == 0 {return}
         IAPHandler.shared.purchase(product: self.productsArray[0]) { alert, product, transaction in
             if let tran = transaction, let prod = product {
-                print(tran)
+                print(tran.payment.productIdentifier)
                 self.dismiss(animated: true, completion: nil)
                 print("Purchased product:- \(prod.localizedTitle)")
             }
