@@ -149,7 +149,7 @@ private class ViewModel: ObservableObject {
             guard !operation.isCancelled else { return }
             DispatchQueue.main.sync {
                 var mainResults = operation.results
-                var arrFiltered = mainResults.filter { $0.title.contains("Pokémon") }
+                var arrFiltered = mainResults.filter { $0.title.contains("(Pokémon)") }
                 print(arrFiltered)
                 for result in arrFiltered {
                     let index = mainResults.firstIndex(where: { $0.title == result.title })
