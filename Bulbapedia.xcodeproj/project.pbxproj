@@ -15,9 +15,6 @@
 		7226BC71279AD96200FF3328 /* AboutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7226BC6F279AD96200FF3328 /* AboutVC.swift */; };
 		722CC87C27A1206400014E01 /* bulbapedia_styles.css in Resources */ = {isa = PBXBuildFile; fileRef = 722CC87B27A1206400014E01 /* bulbapedia_styles.css */; };
 		722CC87D27A1206400014E01 /* bulbapedia_styles.css in Resources */ = {isa = PBXBuildFile; fileRef = 722CC87B27A1206400014E01 /* bulbapedia_styles.css */; };
-		7230B8442799930D002917FA /* offline_bulba.zim in Resources */ = {isa = PBXBuildFile; fileRef = 7230B8432799930C002917FA /* offline_bulba.zim */; };
-		7230B8452799930D002917FA /* offline_bulba.zim in Resources */ = {isa = PBXBuildFile; fileRef = 7230B8432799930C002917FA /* offline_bulba.zim */; };
-		7247485A279541FE00CA8629 /* libkiwix.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72474859279541FE00CA8629 /* libkiwix.xcframework */; };
 		724A1DC6279AC1EF00996C62 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724A1DC5279AC1EF00996C62 /* Constants.swift */; };
 		72744C66278EB9A8006A1C6A /* BookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97566A552728F58000DE7165 /* BookmarksViewController.swift */; };
 		72744C67278EB9A8006A1C6A /* SearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 97B3998C2467561900BC6F5B /* SearchResult.m */; };
@@ -95,7 +92,6 @@
 		72744CB4278EB9A8006A1C6A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 975FDAE21F6082DA00A10E8C /* LaunchScreen.storyboard */; };
 		72744CB5278EB9A8006A1C6A /* wikipedia_dark.css in Resources */ = {isa = PBXBuildFile; fileRef = 970885D0271339A300C5795C /* wikipedia_dark.css */; };
 		72744CB6278EB9A8006A1C6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97F4D10B20ADFE370038FC87 /* Assets.xcassets */; };
-		727EC887279543BF00474438 /* libkiwix_sim.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 727EC886279543BF00474438 /* libkiwix_sim.xcframework */; };
 		727EC88B2795538300474438 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 727EC88A2795538300474438 /* GoogleService-Info.plist */; };
 		727EC88C2795538300474438 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 727EC88A2795538300474438 /* GoogleService-Info.plist */; };
 		7288DA77278D444300BDDD07 /* RemoveAdsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7288DA76278D444300BDDD07 /* RemoveAdsVC.swift */; };
@@ -103,6 +99,14 @@
 		72902BC82790373200F1A865 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72744CC2278EDA78006A1C6A /* StoreKit.framework */; };
 		7295BF9E27896F3C0010BD30 /* RemoveAdsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7295BF9D27896F3B0010BD30 /* RemoveAdsView.swift */; };
 		72B5F63D2782D6270074E8F0 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B5F63C2782D6270074E8F0 /* Reachability.swift */; };
+		88756A5327E5A0D50044E712 /* offline_bulba.zim in Resources */ = {isa = PBXBuildFile; fileRef = 88756A5227E5A0D50044E712 /* offline_bulba.zim */; };
+		88756A5427E5A0D50044E712 /* offline_bulba.zim in Resources */ = {isa = PBXBuildFile; fileRef = 88756A5227E5A0D50044E712 /* offline_bulba.zim */; };
+		88756A6D27E5B5C40044E712 /* bulbapedia_all_maxi_2022_02.zim in Resources */ = {isa = PBXBuildFile; fileRef = 88756A6C27E5B5C40044E712 /* bulbapedia_all_maxi_2022_02.zim */; };
+		88756A7027E5B5C40044E712 /* bulbapedia_all_maxi_2022_02.zim in Resources */ = {isa = PBXBuildFile; fileRef = 88756A6C27E5B5C40044E712 /* bulbapedia_all_maxi_2022_02.zim */; };
+		88756A7127E5C2710044E712 /* libkiwix.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88756A6327E5A6CF0044E712 /* libkiwix.xcframework */; };
+		88756A7327E5C28C0044E712 /* libkiwix.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88756A6327E5A6CF0044E712 /* libkiwix.xcframework */; };
+		88756A7427E5C28D0044E712 /* libkiwix.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88756A6327E5A6CF0044E712 /* libkiwix.xcframework */; };
+		88756A7527E5C28E0044E712 /* libkiwix.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88756A6327E5A6CF0044E712 /* libkiwix.xcframework */; };
 		9707B8F61F4B4F1500075D4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9707B8F51F4B4F1500075D4F /* Assets.xcassets */; };
 		970885D1271339A300C5795C /* wikipedia_dark.css in Resources */ = {isa = PBXBuildFile; fileRef = 970885D0271339A300C5795C /* wikipedia_dark.css */; };
 		970EC3A123BCEC84008DCA27 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970EC3A023BCEC84008DCA27 /* Parser.swift */; };
@@ -333,14 +337,11 @@
 		72108629278EB239007C19EF /* iOS copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "iOS copy-Info.plist"; path = "/Users/bigsur/Documents/Hardik/Jonathan/Bulbapedia/iOS copy-Info.plist"; sourceTree = "<absolute>"; };
 		7226BC6F279AD96200FF3328 /* AboutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutVC.swift; sourceTree = "<group>"; };
 		722CC87B27A1206400014E01 /* bulbapedia_styles.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = bulbapedia_styles.css; sourceTree = "<group>"; };
-		7230B8432799930C002917FA /* offline_bulba.zim */ = {isa = PBXFileReference; lastKnownFileType = file; path = offline_bulba.zim; sourceTree = "<group>"; };
-		72474859279541FE00CA8629 /* libkiwix.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libkiwix.xcframework; sourceTree = "<group>"; };
 		724A1DC5279AC1EF00996C62 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		72744C58278EB7CC006A1C6A /* iOS copy2-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "iOS copy2-Info.plist"; path = "/Users/bigsur/Documents/Hardik/Jonathan/Bulbapedia/iOS copy2-Info.plist"; sourceTree = "<absolute>"; };
 		72744CBD278EB9A8006A1C6A /* iOS_Dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS_Dev.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72744CBE278EB9A9006A1C6A /* iOS copy3-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "iOS copy3-Info.plist"; path = "/Users/bigsur/Documents/Hardik/Jonathan/Bulbapedia/iOS copy3-Info.plist"; sourceTree = "<absolute>"; };
 		72744CC2278EDA78006A1C6A /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		727EC886279543BF00474438 /* libkiwix_sim.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libkiwix_sim.xcframework; sourceTree = "<group>"; };
 		727EC88A2795538300474438 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		727EC88D279575F400474438 /* GoogleMobileAds.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleMobileAds.xcframework; path = "Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.xcframework"; sourceTree = "<group>"; };
 		7288DA76278D444300BDDD07 /* RemoveAdsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveAdsVC.swift; sourceTree = "<group>"; };
@@ -349,6 +350,10 @@
 		72B5F63C2782D6270074E8F0 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		8357AF39A1FE1921E04D6BD9 /* Pods-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS.release.xcconfig"; path = "Target Support Files/Pods-iOS/Pods-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		887501C3B587478E5CCE0B90 /* Pods-iOS_Dev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS_Dev.release.xcconfig"; path = "Target Support Files/Pods-iOS_Dev/Pods-iOS_Dev.release.xcconfig"; sourceTree = "<group>"; };
+		88756A5227E5A0D50044E712 /* offline_bulba.zim */ = {isa = PBXFileReference; lastKnownFileType = file; path = offline_bulba.zim; sourceTree = "<group>"; };
+		88756A6127E5A6CF0044E712 /* libkiwix_sim.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libkiwix_sim.xcframework; sourceTree = "<group>"; };
+		88756A6327E5A6CF0044E712 /* libkiwix.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libkiwix.xcframework; sourceTree = "<group>"; };
+		88756A6C27E5B5C40044E712 /* bulbapedia_all_maxi_2022_02.zim */ = {isa = PBXFileReference; lastKnownFileType = file; path = bulbapedia_all_maxi_2022_02.zim; sourceTree = "<group>"; };
 		97041F7E1F9652D4007D63F5 /* WikiMed.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = WikiMed.plist; sourceTree = "<group>"; };
 		9707541A23C2D3AB0076B74E /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		9707B8F51F4B4F1500075D4F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -492,7 +497,7 @@
 			files = (
 				72744CA7278EB9A8006A1C6A /* Realm in Frameworks */,
 				72744CA8278EB9A8006A1C6A /* NotificationCenter.framework in Frameworks */,
-				727EC887279543BF00474438 /* libkiwix_sim.xcframework in Frameworks */,
+				88756A7527E5C28E0044E712 /* libkiwix.xcframework in Frameworks */,
 				72744CA9278EB9A8006A1C6A /* RealmSwift in Frameworks */,
 				72744CAA278EB9A8006A1C6A /* Fuzi in Frameworks */,
 				72744CAB278EB9A8006A1C6A /* WebKit.framework in Frameworks */,
@@ -512,6 +517,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88756A7327E5C28C0044E712 /* libkiwix.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -521,7 +527,7 @@
 			files = (
 				72902BC82790373200F1A865 /* StoreKit.framework in Frameworks */,
 				7215C834277DB8690089DCCD /* Realm in Frameworks */,
-				7247485A279541FE00CA8629 /* libkiwix.xcframework in Frameworks */,
+				88756A7127E5C2710044E712 /* libkiwix.xcframework in Frameworks */,
 				97C5763D202CD9C000E37502 /* NotificationCenter.framework in Frameworks */,
 				7215C836277DB8690089DCCD /* RealmSwift in Frameworks */,
 				9744658026F7981500072DC2 /* Fuzi in Frameworks */,
@@ -544,6 +550,7 @@
 			files = (
 				97242BA42735E6D700C87F85 /* Fuzi in Frameworks */,
 				97242BAB2735E70F00C87F85 /* Defaults in Frameworks */,
+				88756A7427E5C28D0044E712 /* libkiwix.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -578,18 +585,27 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		727EC88827954BB200474438 /* Development */ = {
+		88756A5F27E5A6CF0044E712 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				727EC886279543BF00474438 /* libkiwix_sim.xcframework */,
+				88756A6027E5A6CF0044E712 /* Development */,
+				88756A6227E5A6CF0044E712 /* Production */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		88756A6027E5A6CF0044E712 /* Development */ = {
+			isa = PBXGroup;
+			children = (
+				88756A6127E5A6CF0044E712 /* libkiwix_sim.xcframework */,
 			);
 			path = Development;
 			sourceTree = "<group>";
 		};
-		727EC88927954BBF00474438 /* Production */ = {
+		88756A6227E5A6CF0044E712 /* Production */ = {
 			isa = PBXGroup;
 			children = (
-				72474859279541FE00CA8629 /* libkiwix.xcframework */,
+				88756A6327E5A6CF0044E712 /* libkiwix.xcframework */,
 			);
 			path = Production;
 			sourceTree = "<group>";
@@ -656,7 +672,8 @@
 				975FDB0E1F60944A00A10E8C /* Controller */,
 				97F425C327151A0D00D0F738 /* QuickLookPreview */,
 				97F4D10B20ADFE370038FC87 /* Assets.xcassets */,
-				7230B8432799930C002917FA /* offline_bulba.zim */,
+				88756A5227E5A0D50044E712 /* offline_bulba.zim */,
+				88756A6C27E5B5C40044E712 /* bulbapedia_all_maxi_2022_02.zim */,
 				975FDAEA1F60839900A10E8C /* Support */,
 			);
 			path = iOS;
@@ -842,7 +859,7 @@
 		97A2AB7F1C1B80FF00052E74 = {
 			isa = PBXGroup;
 			children = (
-				97EC18AE26E8555E008309ED /* Libraries */,
+				88756A5F27E5A6CF0044E712 /* Libraries */,
 				970EC39E23BCE7F5008DCA27 /* Model */,
 				975FDAD81F6082DA00A10E8C /* iOS */,
 				979315821E5127930093D3BA /* macOS */,
@@ -970,15 +987,6 @@
 				97B7941F1F4E23F300F3EBE8 /* WelcomeView.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		97EC18AE26E8555E008309ED /* Libraries */ = {
-			isa = PBXGroup;
-			children = (
-				727EC88927954BBF00474438 /* Production */,
-				727EC88827954BB200474438 /* Development */,
-			);
-			path = Libraries;
 			sourceTree = "<group>";
 		};
 		97F425C327151A0D00D0F738 /* QuickLookPreview */ = {
@@ -1216,14 +1224,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				72744CB0278EB9A8006A1C6A /* Kiwix_logo_v3_320px.png in Resources */,
+				88756A5427E5A0D50044E712 /* offline_bulba.zim in Resources */,
 				727EC88C2795538300474438 /* GoogleService-Info.plist in Resources */,
 				722CC87D27A1206400014E01 /* bulbapedia_styles.css in Resources */,
+				88756A7027E5B5C40044E712 /* bulbapedia_all_maxi_2022_02.zim in Resources */,
 				72744CB1278EB9A8006A1C6A /* Main.storyboard in Resources */,
 				72744CB3278EB9A8006A1C6A /* About.html in Resources */,
 				72744CB4278EB9A8006A1C6A /* LaunchScreen.storyboard in Resources */,
 				72744CB5278EB9A8006A1C6A /* wikipedia_dark.css in Resources */,
 				72744CB6278EB9A8006A1C6A /* Assets.xcassets in Resources */,
-				7230B8452799930D002917FA /* offline_bulba.zim in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1248,14 +1257,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				975AEBD32597EACF00392988 /* Kiwix_logo_v3_320px.png in Resources */,
+				88756A5327E5A0D50044E712 /* offline_bulba.zim in Resources */,
 				727EC88B2795538300474438 /* GoogleService-Info.plist in Resources */,
 				722CC87C27A1206400014E01 /* bulbapedia_styles.css in Resources */,
+				88756A6D27E5B5C40044E712 /* bulbapedia_all_maxi_2022_02.zim in Resources */,
 				97246C821FC4D12A0056AE5D /* Main.storyboard in Resources */,
 				9763EDCB201FCC3A00F3A6D5 /* About.html in Resources */,
 				97A36C441F8C21210079B452 /* LaunchScreen.storyboard in Resources */,
 				970885D1271339A300C5795C /* wikipedia_dark.css in Resources */,
 				97F4D10C20ADFE370038FC87 /* Assets.xcassets in Resources */,
-				7230B8442799930D002917FA /* offline_bulba.zim in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1746,7 +1756,7 @@
 				CODE_SIGN_ENTITLEMENTS = iOS/Support/Kiwix.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 86;
+				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = WQJVTURJ6W;
 				ENABLE_BITCODE = YES;
@@ -1758,7 +1768,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.15.4;
+				MARKETING_VERSION = 6.0.4;
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.bulbagarden.alpha;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1787,7 +1797,7 @@
 				CODE_SIGN_ENTITLEMENTS = iOS/Support/Kiwix.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 86;
+				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = WQJVTURJ6W;
 				ENABLE_BITCODE = YES;
@@ -1797,7 +1807,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.15.4;
+				MARKETING_VERSION = 6.0.4;
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.bulbagarden.alpha;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2059,8 +2069,8 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_ENTITLEMENTS = iOS/Support/Kiwix.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = WQJVTURJ6W;
@@ -2073,11 +2083,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 6.0.2;
+				MARKETING_VERSION = 6.0.4;
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.bulbagarden.alpha;
 				PRODUCT_NAME = Bulbapedia;
-				PROVISIONING_PROFILE_SPECIFIER = bulba_dev;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Model/Support/Kiwix-Bridging-Header.h";
@@ -2099,8 +2109,8 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_ENTITLEMENTS = iOS/Support/Kiwix.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = WQJVTURJ6W;
@@ -2111,11 +2121,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 6.0.2;
+				MARKETING_VERSION = 6.0.4;
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.bulbagarden.alpha;
 				PRODUCT_NAME = Bulbapedia;
-				PROVISIONING_PROFILE_SPECIFIER = "dist-bulba";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Model/Support/Kiwix-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "Kiwix-Bridging-Header.h";

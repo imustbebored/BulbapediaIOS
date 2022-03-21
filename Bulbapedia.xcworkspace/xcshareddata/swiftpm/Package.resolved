@@ -6,8 +6,8 @@
         "repositoryURL": "https://github.com/sindresorhus/Defaults",
         "state": {
           "branch": null,
-          "revision": "55f3302c3ab30a8760f10042d0ebc0a6907f865a",
-          "version": "6.1.0"
+          "revision": "119f654d44f7b90f00dc11f7dd1c94a36f12576b",
+          "version": "6.2.1"
         }
       },
       {
@@ -24,8 +24,8 @@
         "repositoryURL": "https://github.com/realm/realm-core",
         "state": {
           "branch": null,
-          "revision": "c3c11a841642ac93c27bd1edd61f989fc0bfb809",
-          "version": "11.6.1"
+          "revision": "dcd3788f75bafb0cc397d145e1651aab3ad4bf0e",
+          "version": "11.12.0"
         }
       },
       {
@@ -33,8 +33,8 @@
         "repositoryURL": "https://github.com/realm/realm-swift.git",
         "state": {
           "branch": null,
-          "revision": "e83cc9f28e8bccd477b6b81cee521c02239d2773",
-          "version": "10.20.2"
+          "revision": "628cf20632d65d3a3e90ae8aaf52bce596d7ad8f",
+          "version": "10.24.2"
         }
       }
     ]
