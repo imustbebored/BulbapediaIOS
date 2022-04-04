@@ -79,6 +79,7 @@ class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
         // observe webView font size adjust factor
         textSizeAdjustFactorObserver = Defaults.observe(keys: .webViewTextSizeAdjustFactor) { self.adjustTextSize() }
         
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name("Hide_Loader_OnWeb"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(hideIndicator), name: NSNotification.Name("Hide_Loader_OnWeb"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(hideAdOnPurchase), name: NSNotification.Name(UserDefaultKeys.UD_HideBannerOnPurchase), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(handleBannerAdAppearance), name: NSNotification.Name(UserDefaultKeys.UD_HandleBannerAdsAppearance), object: nil)

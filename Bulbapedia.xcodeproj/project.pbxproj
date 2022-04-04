@@ -99,6 +99,7 @@
 		72902BC82790373200F1A865 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72744CC2278EDA78006A1C6A /* StoreKit.framework */; };
 		7295BF9E27896F3C0010BD30 /* RemoveAdsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7295BF9D27896F3B0010BD30 /* RemoveAdsView.swift */; };
 		72B5F63D2782D6270074E8F0 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B5F63C2782D6270074E8F0 /* Reachability.swift */; };
+		8865824C27EDFC86008258B5 /* libkiwix.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88756A6327E5A6CF0044E712 /* libkiwix.xcframework */; };
 		88756A5327E5A0D50044E712 /* offline_bulba.zim in Resources */ = {isa = PBXBuildFile; fileRef = 88756A5227E5A0D50044E712 /* offline_bulba.zim */; };
 		88756A5427E5A0D50044E712 /* offline_bulba.zim in Resources */ = {isa = PBXBuildFile; fileRef = 88756A5227E5A0D50044E712 /* offline_bulba.zim */; };
 		88756A6D27E5B5C40044E712 /* bulbapedia_all_maxi_2022_02.zim in Resources */ = {isa = PBXBuildFile; fileRef = 88756A6C27E5B5C40044E712 /* bulbapedia_all_maxi_2022_02.zim */; };
@@ -106,7 +107,6 @@
 		88756A7127E5C2710044E712 /* libkiwix.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88756A6327E5A6CF0044E712 /* libkiwix.xcframework */; };
 		88756A7327E5C28C0044E712 /* libkiwix.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88756A6327E5A6CF0044E712 /* libkiwix.xcframework */; };
 		88756A7427E5C28D0044E712 /* libkiwix.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88756A6327E5A6CF0044E712 /* libkiwix.xcframework */; };
-		88756A7527E5C28E0044E712 /* libkiwix.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88756A6327E5A6CF0044E712 /* libkiwix.xcframework */; };
 		9707B8F61F4B4F1500075D4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9707B8F51F4B4F1500075D4F /* Assets.xcassets */; };
 		970885D1271339A300C5795C /* wikipedia_dark.css in Resources */ = {isa = PBXBuildFile; fileRef = 970885D0271339A300C5795C /* wikipedia_dark.css */; };
 		970EC3A123BCEC84008DCA27 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970EC3A023BCEC84008DCA27 /* Parser.swift */; };
@@ -497,11 +497,11 @@
 			files = (
 				72744CA7278EB9A8006A1C6A /* Realm in Frameworks */,
 				72744CA8278EB9A8006A1C6A /* NotificationCenter.framework in Frameworks */,
-				88756A7527E5C28E0044E712 /* libkiwix.xcframework in Frameworks */,
 				72744CA9278EB9A8006A1C6A /* RealmSwift in Frameworks */,
 				72744CAA278EB9A8006A1C6A /* Fuzi in Frameworks */,
 				72744CAB278EB9A8006A1C6A /* WebKit.framework in Frameworks */,
 				72744CAC278EB9A8006A1C6A /* Defaults in Frameworks */,
+				8865824C27EDFC86008258B5 /* libkiwix.xcframework in Frameworks */,
 				C5E0C5EA5604E4A4CD3A19EB /* Pods_iOS_Dev.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2071,7 +2071,7 @@
 				CODE_SIGN_ENTITLEMENTS = iOS/Support/Kiwix.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = WQJVTURJ6W;
 				ENABLE_BITCODE = YES;
@@ -2111,7 +2111,7 @@
 				CODE_SIGN_ENTITLEMENTS = iOS/Support/Kiwix.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = WQJVTURJ6W;
 				ENABLE_BITCODE = YES;
