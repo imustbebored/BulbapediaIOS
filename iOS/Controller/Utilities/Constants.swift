@@ -27,5 +27,5 @@ struct UserDefaultKeys {
     static let UD_NumberOfAppOpened = "Number_App_Opened"
     static let UD_HasReviewDialogShownOnce = "Has_Review_Dialog_Shown_Once"
     static let UD_MainArticleURL = "Main_Article_URL"
-    
+    static let UD_IsNewVersionUpdatedAlready = "UD_IsNewVersionUpdatedAlready"
 }

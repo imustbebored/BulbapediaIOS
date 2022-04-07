@@ -44,8 +44,7 @@ class RootViewController: UIViewController, UISearchControllerDelegate, UISplitV
         super.viewDidLoad()
         
         showInitialGDPRDialog()
-        deleteOldZIMFilefromDirectory()
-        //moveZIMFileToDirectory()
+        moveZIMFileToDirectory()
         configureBarButtons(searchIsActive: searchController.isActive, animated: false)
         configureSidebarViewController()
         configureSearchController()
@@ -132,46 +131,34 @@ class RootViewController: UIViewController, UISearchControllerDelegate, UISplitV
         self.view.makeToast("Restoring failed")
     }
     
-    func deleteOldZIMFilefromDirectory() {
-        let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
-        let url = NSURL(fileURLWithPath: path)
-        if let pathComponent = url.appendingPathComponent("offline_bulba.zim") {
-            let filePath = pathComponent.path
-            let fileManager = FileManager.default
-            if fileManager.fileExists(atPath: filePath) {
-                print("FILE AVAILABLE offline_bulba")
-                do {
-                    try fileManager.removeItem(atPath: filePath)
-                    UserDefaults.standard.set(nil, forKey: UserDefaultKeys.UD_MainArticleURL)
-                }
-                catch {
-                    print("Could not clear temp folder: \(error)")
-                }
-            } else {
-                print("FILE NOT AVAILABLE")
-            }
-        } else {
-            print("FILE PATH NOT AVAILABLE")
-        }
-        moveZIMFileToDirectory()
-    }
-    
-    
     func moveZIMFileToDirectory() {
         let fileManager = FileManager.default
         let documentsDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
-        
+
+        if UserDefaults.standard.bool(forKey: UserDefaultKeys.UD_IsNewVersionUpdatedAlready) == false {
+            UserDefaults.standard.set(true, forKey: UserDefaultKeys.UD_IsNewVersionUpdatedAlready)
+            guard let sourcePath = Bundle.main.path(forResource: "offline_bulba", ofType: "zim") else {
+                return
+            }
+            let sourceUrl = URL(fileURLWithPath: sourcePath)
+            let destination = documentsDirectory.appendingPathComponent("offline_bulba.zim", isDirectory: false)
+            try? fileManager.removeItem(at: destination)
+            try? fileManager.moveItem(at: sourceUrl, to: destination)
+            print(ZimFileService.shared.zimFileIDs.count)
+            isInitialWeb = true
+            openArticle()
+            return
+        }
+
         if UserDefaults.standard.url(forKey: UserDefaultKeys.UD_MainArticleURL) == nil {
             isInitialWeb = true
-            //guard let sourcePath = Bundle.main.path(forResource: "offline_bulba", ofType: "zim") else {
-            guard let sourcePath = Bundle.main.path(forResource: "bulbapedia_all_maxi_2022_02", ofType: "zim") else {
+            guard let sourcePath = Bundle.main.path(forResource: "offline_bulba", ofType: "zim") else {
                 return
             }
             if fileManager.fileExists(atPath: sourcePath) {
                 let sourceUrl = URL(fileURLWithPath: sourcePath)
                 
-                //let destination = documentsDirectory.appendingPathComponent("offline_bulba.zim", isDirectory: false)
-                let destination = documentsDirectory.appendingPathComponent("bulbapedia_all_maxi_2022_02.zim", isDirectory: false)
+                let destination = documentsDirectory.appendingPathComponent("offline_bulba.zim", isDirectory: false)
                 try? fileManager.moveItem(at: sourceUrl, to: destination)
 
                 print(ZimFileService.shared.zimFileIDs.count)
@@ -188,15 +175,13 @@ class RootViewController: UIViewController, UISearchControllerDelegate, UISplitV
     func openArticle() {
         let fileManager = FileManager.default
         let documentsDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
-        //let destination = documentsDirectory.appendingPathComponent("offline_bulba.zim", isDirectory: false)
-        let destination = documentsDirectory.appendingPathComponent("bulbapedia_all_maxi_2022_02.zim", isDirectory: false)
+        let destination = documentsDirectory.appendingPathComponent("offline_bulba.zim", isDirectory: false)
         
         if fileManager.fileExists(atPath: destination.path) {
             print("file copied")
             self.checkAndOpenZIMWithDelay()
         } else {
-            //guard let sourcePath = Bundle.main.path(forResource: "offline_bulba", ofType: "zim") else {
-            guard let sourcePath = Bundle.main.path(forResource: "bulbapedia_all_maxi_2022_02", ofType: "zim") else {
+            guard let sourcePath = Bundle.main.path(forResource: "offline_bulba", ofType: "zim") else {
                 return
             }
             let sourceUrl = URL(fileURLWithPath: sourcePath)

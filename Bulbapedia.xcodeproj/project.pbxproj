@@ -98,12 +98,10 @@
 		7288DA79278D511100BDDD07 /* IAPHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7288DA78278D511100BDDD07 /* IAPHandler.swift */; };
 		72902BC82790373200F1A865 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72744CC2278EDA78006A1C6A /* StoreKit.framework */; };
 		7295BF9E27896F3C0010BD30 /* RemoveAdsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7295BF9D27896F3B0010BD30 /* RemoveAdsView.swift */; };
+		72A1044B27FEC61A00CE6A0C /* offline_bulba.zim in Resources */ = {isa = PBXBuildFile; fileRef = 72A1044A27FEC61A00CE6A0C /* offline_bulba.zim */; };
+		72A1044C27FEC61A00CE6A0C /* offline_bulba.zim in Resources */ = {isa = PBXBuildFile; fileRef = 72A1044A27FEC61A00CE6A0C /* offline_bulba.zim */; };
 		72B5F63D2782D6270074E8F0 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B5F63C2782D6270074E8F0 /* Reachability.swift */; };
-		8865824C27EDFC86008258B5 /* libkiwix.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88756A6327E5A6CF0044E712 /* libkiwix.xcframework */; };
-		88756A5327E5A0D50044E712 /* offline_bulba.zim in Resources */ = {isa = PBXBuildFile; fileRef = 88756A5227E5A0D50044E712 /* offline_bulba.zim */; };
-		88756A5427E5A0D50044E712 /* offline_bulba.zim in Resources */ = {isa = PBXBuildFile; fileRef = 88756A5227E5A0D50044E712 /* offline_bulba.zim */; };
-		88756A6D27E5B5C40044E712 /* bulbapedia_all_maxi_2022_02.zim in Resources */ = {isa = PBXBuildFile; fileRef = 88756A6C27E5B5C40044E712 /* bulbapedia_all_maxi_2022_02.zim */; };
-		88756A7027E5B5C40044E712 /* bulbapedia_all_maxi_2022_02.zim in Resources */ = {isa = PBXBuildFile; fileRef = 88756A6C27E5B5C40044E712 /* bulbapedia_all_maxi_2022_02.zim */; };
+		72DB728827FAFFAD0009520B /* libkiwix_sim.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88756A6127E5A6CF0044E712 /* libkiwix_sim.xcframework */; };
 		88756A7127E5C2710044E712 /* libkiwix.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88756A6327E5A6CF0044E712 /* libkiwix.xcframework */; };
 		88756A7327E5C28C0044E712 /* libkiwix.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88756A6327E5A6CF0044E712 /* libkiwix.xcframework */; };
 		88756A7427E5C28D0044E712 /* libkiwix.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88756A6327E5A6CF0044E712 /* libkiwix.xcframework */; };
@@ -347,13 +345,12 @@
 		7288DA76278D444300BDDD07 /* RemoveAdsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveAdsVC.swift; sourceTree = "<group>"; };
 		7288DA78278D511100BDDD07 /* IAPHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPHandler.swift; sourceTree = "<group>"; };
 		7295BF9D27896F3B0010BD30 /* RemoveAdsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveAdsView.swift; sourceTree = "<group>"; };
+		72A1044A27FEC61A00CE6A0C /* offline_bulba.zim */ = {isa = PBXFileReference; lastKnownFileType = file; path = offline_bulba.zim; sourceTree = "<group>"; };
 		72B5F63C2782D6270074E8F0 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		8357AF39A1FE1921E04D6BD9 /* Pods-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS.release.xcconfig"; path = "Target Support Files/Pods-iOS/Pods-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		887501C3B587478E5CCE0B90 /* Pods-iOS_Dev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS_Dev.release.xcconfig"; path = "Target Support Files/Pods-iOS_Dev/Pods-iOS_Dev.release.xcconfig"; sourceTree = "<group>"; };
-		88756A5227E5A0D50044E712 /* offline_bulba.zim */ = {isa = PBXFileReference; lastKnownFileType = file; path = offline_bulba.zim; sourceTree = "<group>"; };
 		88756A6127E5A6CF0044E712 /* libkiwix_sim.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libkiwix_sim.xcframework; sourceTree = "<group>"; };
 		88756A6327E5A6CF0044E712 /* libkiwix.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libkiwix.xcframework; sourceTree = "<group>"; };
-		88756A6C27E5B5C40044E712 /* bulbapedia_all_maxi_2022_02.zim */ = {isa = PBXFileReference; lastKnownFileType = file; path = bulbapedia_all_maxi_2022_02.zim; sourceTree = "<group>"; };
 		97041F7E1F9652D4007D63F5 /* WikiMed.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = WikiMed.plist; sourceTree = "<group>"; };
 		9707541A23C2D3AB0076B74E /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		9707B8F51F4B4F1500075D4F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -500,8 +497,8 @@
 				72744CA9278EB9A8006A1C6A /* RealmSwift in Frameworks */,
 				72744CAA278EB9A8006A1C6A /* Fuzi in Frameworks */,
 				72744CAB278EB9A8006A1C6A /* WebKit.framework in Frameworks */,
+				72DB728827FAFFAD0009520B /* libkiwix_sim.xcframework in Frameworks */,
 				72744CAC278EB9A8006A1C6A /* Defaults in Frameworks */,
-				8865824C27EDFC86008258B5 /* libkiwix.xcframework in Frameworks */,
 				C5E0C5EA5604E4A4CD3A19EB /* Pods_iOS_Dev.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -672,8 +669,7 @@
 				975FDB0E1F60944A00A10E8C /* Controller */,
 				97F425C327151A0D00D0F738 /* QuickLookPreview */,
 				97F4D10B20ADFE370038FC87 /* Assets.xcassets */,
-				88756A5227E5A0D50044E712 /* offline_bulba.zim */,
-				88756A6C27E5B5C40044E712 /* bulbapedia_all_maxi_2022_02.zim */,
+				72A1044A27FEC61A00CE6A0C /* offline_bulba.zim */,
 				975FDAEA1F60839900A10E8C /* Support */,
 			);
 			path = iOS;
@@ -1224,10 +1220,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				72744CB0278EB9A8006A1C6A /* Kiwix_logo_v3_320px.png in Resources */,
-				88756A5427E5A0D50044E712 /* offline_bulba.zim in Resources */,
+				72A1044C27FEC61A00CE6A0C /* offline_bulba.zim in Resources */,
 				727EC88C2795538300474438 /* GoogleService-Info.plist in Resources */,
 				722CC87D27A1206400014E01 /* bulbapedia_styles.css in Resources */,
-				88756A7027E5B5C40044E712 /* bulbapedia_all_maxi_2022_02.zim in Resources */,
 				72744CB1278EB9A8006A1C6A /* Main.storyboard in Resources */,
 				72744CB3278EB9A8006A1C6A /* About.html in Resources */,
 				72744CB4278EB9A8006A1C6A /* LaunchScreen.storyboard in Resources */,
@@ -1257,10 +1252,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				975AEBD32597EACF00392988 /* Kiwix_logo_v3_320px.png in Resources */,
-				88756A5327E5A0D50044E712 /* offline_bulba.zim in Resources */,
+				72A1044B27FEC61A00CE6A0C /* offline_bulba.zim in Resources */,
 				727EC88B2795538300474438 /* GoogleService-Info.plist in Resources */,
 				722CC87C27A1206400014E01 /* bulbapedia_styles.css in Resources */,
-				88756A6D27E5B5C40044E712 /* bulbapedia_all_maxi_2022_02.zim in Resources */,
 				97246C821FC4D12A0056AE5D /* Main.storyboard in Resources */,
 				9763EDCB201FCC3A00F3A6D5 /* About.html in Resources */,
 				97A36C441F8C21210079B452 /* LaunchScreen.storyboard in Resources */,
@@ -2071,7 +2065,7 @@
 				CODE_SIGN_ENTITLEMENTS = iOS/Support/Kiwix.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = WQJVTURJ6W;
 				ENABLE_BITCODE = YES;
@@ -2111,7 +2105,7 @@
 				CODE_SIGN_ENTITLEMENTS = iOS/Support/Kiwix.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = WQJVTURJ6W;
 				ENABLE_BITCODE = YES;
