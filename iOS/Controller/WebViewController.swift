@@ -13,6 +13,8 @@ import Defaults
 import GoogleMobileAds
 import SwiftUI
 import FirebaseAnalytics
+import FirebaseCore
+import Playwire
 
 class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
     let webView: WKWebView = {
@@ -36,8 +38,14 @@ class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
         return WKWebView(frame: .zero, configuration: config)
     }()
     
-    var bannerView: GAMBannerView?
-    var interstitial: GAMInterstitialAd?
+    /*var bannerView: GAMBannerView?
+    var interstitial: GAMInterstitialAd?*/
+    
+    let adUnitIdForInterstitial = "interstitial"
+    var interstitial: PWInterstitial?
+    
+    let adUnitIdForBanner = "banner-320x50"
+    var bannerView: PWBannerView?
 
     private var textSizeAdjustFactorObserver: DefaultsObservation?
     private var rootViewController: RootViewController? {
@@ -73,8 +81,8 @@ class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
             navigationController?.isNavigationBarHidden = true
         }
         setActivityIndicator()
-        
-        setBannerAd()
+        setUpAdsRequest()
+//        setBannerAd()
         
         // observe webView font size adjust factor
         textSizeAdjustFactorObserver = Defaults.observe(keys: .webViewTextSizeAdjustFactor) { self.adjustTextSize() }
@@ -102,6 +110,35 @@ class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
         }
     }
     
+    func setUpAdsRequest() {
+        let publisherId = "publisher"
+        let appId = "test"
+        PlaywireSDK.shared.initialize(
+           publisherId: publisherId,
+           appId: appId,
+           viewController: self) {
+               self.interstitial = PWInterstitial(adUnitName: self.adUnitIdForInterstitial, delegate: self)
+               self.interstitial?.load()
+
+               self.bannerView = PWBannerView(adUnitName: self.adUnitIdForBanner, controller: self, delegate: self)
+               self.bannerView?.autoload = true
+               self.bannerView?.load()
+        }
+        // Default console logger
+        PWNotifier.shared.startConsoleLogger()
+
+        // Default console logger for critical events
+        PWNotifier.shared.startConsoleLogger { event, critical, context in
+            return critical
+        }
+    }
+    
+    func setInterstitialAd() {
+        if ((interstitial?.isLoaded) != nil) {
+            interstitial?.show(fromViewController: self)
+        }
+    }
+    
     func setActivityIndicator() {
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(activityIndicator)
@@ -112,7 +149,19 @@ class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
         }
     }
     
-    func setBannerAd() {
+    /*func setBannerAd() {
+        if !UserDefaults.standard.bool(forKey: UserDefaultKeys.UD_IsPurchased) {
+            // In this case, we instantiate the banner with desired ad size.
+            
+            let adSize = CGRect(x: 0, y: 0, width: 320, height: 50)
+            bannerView = PWBannerView(frame: adSize)
+    //        bannerView.isHidden = true
+                        
+            addBannerViewToView(bannerView!)
+        }
+    }*/
+    
+    /*func setBannerAd() {
         if !UserDefaults.standard.bool(forKey: UserDefaultKeys.UD_IsPurchased) {
             let request = GAMRequest()
             let extras = GADExtras()
@@ -133,9 +182,9 @@ class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
             
             addBannerViewToView(bannerView!)
         }
-    }
+    }*/
     
-    func setInterstitialAd() {
+    /*func setInterstitialAd() {
         if !UserDefaults.standard.bool(forKey: UserDefaultKeys.UD_IsPurchased) {
             let request = GAMRequest()
             let extras = GADExtras()
@@ -160,9 +209,9 @@ class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
                 }
             }
         }
-    }
+    }*/
     
-    func addBannerViewToView(_ bannerView: GAMBannerView) {
+    func addBannerViewToView(_ bannerView: PWBannerView) {
         bannerView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(bannerView)
         view.addConstraints(
@@ -289,7 +338,7 @@ class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
     }
 }
 
-//MARK:- Interstitial ad delegates.
+/*//MARK:- Interstitial ad delegates.
 extension WebViewController: GADFullScreenContentDelegate {
       func ad(_ ad: GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {
           print("Ad did fail to present full screen content.")
@@ -308,9 +357,9 @@ extension WebViewController: GADFullScreenContentDelegate {
               self.present(removeAdsPopup, animated: true, completion: nil)
           }
       }
-}
+}*/
 
-//MARK:- Banner ad delegates.
+/*//MARK:- Banner ad delegates.
 extension WebViewController: GADBannerViewDelegate {
     func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
 
@@ -334,5 +383,86 @@ extension WebViewController: GADBannerViewDelegate {
 
     func bannerViewDidDismissScreen(_ bannerView: GADBannerView) {
 
+    }
+}*/
+
+//MARK: - Delegate Interstitial ads using playwire
+extension WebViewController: PWFullScreenAdDelegate {
+    func fullScreenAdDidLoad(_ ad: Playwire.PWFullScreenAd) {
+        print("fullScreenAdDidLoad")
+    }
+    
+    func fullScreenAdDidFailToLoad(_ ad: Playwire.PWFullScreenAd) {
+        print("fullScreenAdDidFailToLoad")
+    }
+    
+    func fullScreenAdWillPresentFullScreenContent(_ ad: Playwire.PWFullScreenAd) {
+        print("fullScreenAdWillPresentFullScreenContent")
+    }
+    
+    func fullScreenAdWillDismissFullScreenContent(_ ad: Playwire.PWFullScreenAd) {
+        print("fullScreenAdWillDismissFullScreenContent")
+    }
+    
+    func fullScreenAdDidDismissFullScreenContent(_ ad: Playwire.PWFullScreenAd) {
+        self.interstitial = PWInterstitial(adUnitName: self.adUnitIdForInterstitial, delegate: self)
+        self.interstitial?.load()
+        if UserDefaults.standard.bool(forKey: "Is_Active_Session") == false {
+            UserDefaults.standard.set(true, forKey: "Is_Active_Session")
+            UserDefaults.standard.synchronize()
+            let removeAdsPopup = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "RemoveAdsVC") as! RemoveAdsVC
+            removeAdsPopup.modalPresentationStyle = .fullScreen
+            self.present(removeAdsPopup, animated: true, completion: nil)
+        }
+        print("fullScreenAdDidDismissFullScreenContent")
+    }
+    
+    func fullScreenAdDidFailToPresentFullScreenContent(_ ad: Playwire.PWFullScreenAd) {
+        print("fullScreenAdDidFailToPresentFullScreenContent")
+    }
+    
+    func fullScreenAdDidRecordImpression(_ ad: Playwire.PWFullScreenAd) {
+        print("fullScreenAdDidRecordImpression")
+    }
+    
+    func fullScreenAdDidRecordClick(_ ad: Playwire.PWFullScreenAd) {
+        print("fullScreenAdDidRecordClick")
+    }
+    
+    func fullScreenAdDidUserEarn(_ ad: Playwire.PWFullScreenAd, type: String, amount: Double) {
+        print("fullScreenAdDidUserEarn")
+    }
+}
+
+
+//MARK: - Delegate Banner ads using playwire
+extension WebViewController: PWViewAdDelegate {
+    func viewAdDidLoad(_ ad: Playwire.PWViewAd) {
+        print("viewAdDidLoad")
+        addBannerViewToView(bannerView!)
+    }
+    
+    func viewAdDidFailToLoad(_ ad: Playwire.PWViewAd) {
+        print("viewAdDidFailToLoad")
+    }
+    
+    func viewAdWillPresentFullScreenContent(_ ad: Playwire.PWViewAd) {
+        print("viewAdWillPresentFullScreenContent")
+    }
+    
+    func viewAdWillDismissFullScreenContent(_ ad: Playwire.PWViewAd) {
+        print("viewAdWillDismissFullScreenContent")
+    }
+    
+    func viewAdDidDismissFullScreenContent(_ ad: Playwire.PWViewAd) {
+        print("viewAdDidDismissFullScreenContent")
+    }
+    
+    func viewAdDidRecordImpression(_ ad: Playwire.PWViewAd) {
+        print("viewAdDidRecordImpression")
+    }
+    
+    func viewAdDidRecordClick(_ ad: Playwire.PWViewAd) {
+        print("viewAdDidRecordClick")
     }
 }

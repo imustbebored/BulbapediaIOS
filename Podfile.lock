@@ -1,4 +1,8 @@
 PODS:
+  - AdColony (4.9.0)
+  - AmazonPublisherServicesSDK (4.1.0)
+  - AppLovinSDK (11.6.1)
+  - ChartboostSDK (9.1.0)
   - Firebase/Analytics (8.10.0):
     - Firebase/Core
   - Firebase/Core (8.10.0):
@@ -50,8 +54,11 @@ PODS:
     - GoogleUtilities/Reachability (~> 7.6)
     - GoogleUtilities/UserDefaults (~> 7.6)
     - nanopb (~> 2.30908.0)
-  - Google-Mobile-Ads-SDK (8.13.0):
-    - GoogleAppMeasurement (< 9.0, >= 7.0)
+  - Fyber_Marketplace_SDK (8.1.7):
+    - Fyber_Marketplace_SDK/IASDKCore (= 8.1.7)
+  - Fyber_Marketplace_SDK/IASDKCore (8.1.7)
+  - Google-Mobile-Ads-SDK (9.9.0):
+    - GoogleAppMeasurement (< 10.0, >= 7.0)
     - GoogleUserMessagingPlatform (>= 1.1)
   - GoogleAppMeasurement (8.10.0):
     - GoogleAppMeasurement/AdIdSupport (= 8.10.0)
@@ -77,7 +84,28 @@ PODS:
     - GoogleUtilities/Environment (~> 7.2)
     - nanopb (~> 2.30908.0)
     - PromisesObjC (< 3.0, >= 1.2)
-  - GoogleUserMessagingPlatform (2.0.0)
+  - GoogleMobileAdsMediationAdColony (4.9.0.0):
+    - AdColony (= 4.9.0)
+    - Google-Mobile-Ads-SDK (~> 9.0)
+  - GoogleMobileAdsMediationAppLovin (11.6.1.0):
+    - AppLovinSDK (= 11.6.1)
+    - Google-Mobile-Ads-SDK (~> 9.8)
+  - GoogleMobileAdsMediationChartboost (9.1.0.0):
+    - ChartboostSDK (= 9.1.0)
+    - Google-Mobile-Ads-SDK (~> 9.8)
+  - GoogleMobileAdsMediationFyber (8.1.7.0):
+    - Fyber_Marketplace_SDK (= 8.1.7)
+    - Google-Mobile-Ads-SDK (~> 9.8)
+  - GoogleMobileAdsMediationInMobi (10.1.2.1):
+    - Google-Mobile-Ads-SDK (~> 9.8)
+    - InMobiSDK/Core (= 10.1.2)
+  - GoogleMobileAdsMediationIronSource (7.2.6.0.0):
+    - Google-Mobile-Ads-SDK (~> 9.8)
+    - IronSourceSDK (= 7.2.6.0)
+  - GoogleMobileAdsMediationVungle (6.12.1.1):
+    - Google-Mobile-Ads-SDK (~> 9.8)
+    - VungleSDK-iOS (= 6.12.1)
+  - GoogleUserMessagingPlatform (2.0.1)
   - GoogleUtilities/AppDelegateSwizzler (7.7.0):
     - GoogleUtilities/Environment
     - GoogleUtilities/Logger
@@ -97,22 +125,62 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (7.7.0):
     - GoogleUtilities/Logger
+  - InMobiSDK/Core (10.1.2)
+  - IronSourceSDK (7.2.6.0)
   - nanopb (2.30908.0):
     - nanopb/decode (= 2.30908.0)
     - nanopb/encode (= 2.30908.0)
   - nanopb/decode (2.30908.0)
   - nanopb/encode (2.30908.0)
+  - Playwire (6.1.0):
+    - Playwire/Total (= 6.1.0)
+  - Playwire/Coppa (6.1.0):
+    - GoogleMobileAdsMediationAdColony
+    - GoogleMobileAdsMediationAppLovin
+    - GoogleMobileAdsMediationChartboost
+    - GoogleMobileAdsMediationInMobi
+    - GoogleMobileAdsMediationIronSource
+    - GoogleMobileAdsMediationVungle
+    - Playwire/Core (= 6.1.0)
+  - Playwire/Core (6.1.0):
+    - FirebaseAnalytics
+    - Google-Mobile-Ads-SDK (= 9.9.0)
+  - Playwire/Total (6.1.0):
+    - AmazonPublisherServicesSDK (= 4.1.0)
+    - GoogleMobileAdsMediationFyber
+    - Playwire/Coppa (= 6.1.0)
   - PromisesObjC (2.0.0)
   - Toast-Swift (5.0.1)
+  - VungleSDK-iOS (6.12.1)
 
 DEPENDENCIES:
   - Firebase/Analytics
   - Firebase/Core
   - Firebase/Messaging
-  - Google-Mobile-Ads-SDK
+  - Playwire (= 6.1.0)
   - Toast-Swift (~> 5.0.1)
 
 SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - AdColony
+    - AmazonPublisherServicesSDK
+    - AppLovinSDK
+    - ChartboostSDK
+    - Fyber_Marketplace_SDK
+    - Google-Mobile-Ads-SDK
+    - GoogleMobileAdsMediationAdColony
+    - GoogleMobileAdsMediationAppLovin
+    - GoogleMobileAdsMediationChartboost
+    - GoogleMobileAdsMediationFyber
+    - GoogleMobileAdsMediationInMobi
+    - GoogleMobileAdsMediationIronSource
+    - GoogleMobileAdsMediationVungle
+    - GoogleUserMessagingPlatform
+    - InMobiSDK
+    - IronSourceSDK
+    - VungleSDK-iOS
+  https://github.com/intergi/playwire-ios-podspec:
+    - Playwire
   trunk:
     - Firebase
     - FirebaseAnalytics
@@ -120,31 +188,45 @@ SPEC REPOS:
     - FirebaseCoreDiagnostics
     - FirebaseInstallations
     - FirebaseMessaging
-    - Google-Mobile-Ads-SDK
     - GoogleAppMeasurement
     - GoogleDataTransport
-    - GoogleUserMessagingPlatform
     - GoogleUtilities
     - nanopb
     - PromisesObjC
     - Toast-Swift
 
 SPEC CHECKSUMS:
+  AdColony: 4f3738dc633d7aaa8ec60729df973076cc8e97ed
+  AmazonPublisherServicesSDK: 3ce8e44f693c585fe069dde00236a256187e2a56
+  AppLovinSDK: c72c4cc9dd61ee59827813bc99af35815c08ffd4
+  ChartboostSDK: 66d900e0405c3e7d29a1bc2782c583101b565c56
   Firebase: 44213362f1dcc52555b935dc925ed35ac55f1b20
   FirebaseAnalytics: 319c9b3b1bdd400d60e2f415dff0c5f6959e6760
   FirebaseCore: 04186597c095da37d90ff9fd3e53bc61a1ff2440
   FirebaseCoreDiagnostics: 56fb7216d87e0e6ec2feddefa9d8a392fe8b2c18
   FirebaseInstallations: 830327b45345ffc859eaa9c17bcd5ae893fd5425
   FirebaseMessaging: b0aeba17332ee1ee610662b4d1e02a86db82f08f
-  Google-Mobile-Ads-SDK: 05e5d68bb42a61b2e5bef336a52789785605aa22
+  Fyber_Marketplace_SDK: a454374e88c92614e6f879afe4b22758e1d6a969
+  Google-Mobile-Ads-SDK: 8822993da940ab920bad131b5bffce7eb3f62c6a
   GoogleAppMeasurement: a3311dbcf3ea651e5a070fe8559b57c174ada081
   GoogleDataTransport: 629c20a4d363167143f30ea78320d5a7eb8bd940
-  GoogleUserMessagingPlatform: ab890ce5f6620f293a21b6bdd82e416a2c73aeca
+  GoogleMobileAdsMediationAdColony: dac67babc0a116f7e8c2afa804ebce284ab0d491
+  GoogleMobileAdsMediationAppLovin: 260ebc9f9498a8f040267a2a50b2764b03e6de4e
+  GoogleMobileAdsMediationChartboost: dfdf0d52c0288241e21ae2e3f0be4d384dab92d0
+  GoogleMobileAdsMediationFyber: 3d118fa36f231d24b061658f520bcbc407278452
+  GoogleMobileAdsMediationInMobi: b9c45683eaf32105467344f07fd2eca1091e10a8
+  GoogleMobileAdsMediationIronSource: 18203dff9fd537f5378b59b37f64e8fa179549bd
+  GoogleMobileAdsMediationVungle: d63a869c2c2d7802e139d942308a2b831222dcaa
+  GoogleUserMessagingPlatform: 5f8b30daf181805317b6b985bb51c1ff3beca054
   GoogleUtilities: e0913149f6b0625b553d70dae12b49fc62914fd1
+  InMobiSDK: 53fef744477945477a863b4eed8612578a20a266
+  IronSourceSDK: c1505d25bc587e8bc367941474e29b7dceba680c
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
+  Playwire: 12dcc75942ff47b5bce51017b02a4ad207d096df
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
+  VungleSDK-iOS: 1d3488d790daf7266d5930ca901f1c3188fb936d
 
-PODFILE CHECKSUM: 9f082e0eb6088182dd2c529442e3e72c41aa4ee1
+PODFILE CHECKSUM: abf6852aba5c0b06b98c052acdc60841462095a5
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.11.3

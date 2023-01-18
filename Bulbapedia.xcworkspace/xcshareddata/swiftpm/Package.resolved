@@ -1,43 +1,41 @@
 {
-  "object": {
-    "pins": [
-      {
-        "package": "Defaults",
-        "repositoryURL": "https://github.com/sindresorhus/Defaults",
-        "state": {
-          "branch": null,
-          "revision": "119f654d44f7b90f00dc11f7dd1c94a36f12576b",
-          "version": "6.2.1"
-        }
-      },
-      {
-        "package": "Fuzi",
-        "repositoryURL": "https://github.com/cezheng/Fuzi",
-        "state": {
-          "branch": null,
-          "revision": "f08c8323da21e985f3772610753bcfc652c2103f",
-          "version": "3.1.3"
-        }
-      },
-      {
-        "package": "RealmDatabase",
-        "repositoryURL": "https://github.com/realm/realm-core",
-        "state": {
-          "branch": null,
-          "revision": "3c78cccdc0d9f967c5c15b7f3ea081814e2b3ef2",
-          "version": "11.13.0"
-        }
-      },
-      {
-        "package": "Realm",
-        "repositoryURL": "https://github.com/realm/realm-swift.git",
-        "state": {
-          "branch": null,
-          "revision": "f9400ca044844701ea32491a4c6c4b06d74ab24d",
-          "version": "10.25.0"
-        }
+  "pins" : [
+    {
+      "identity" : "defaults",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/sindresorhus/Defaults",
+      "state" : {
+        "revision" : "119f654d44f7b90f00dc11f7dd1c94a36f12576b",
+        "version" : "6.2.1"
       }
-    ]
-  },
-  "version": 1
+    },
+    {
+      "identity" : "fuzi",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/cezheng/Fuzi",
+      "state" : {
+        "revision" : "f08c8323da21e985f3772610753bcfc652c2103f",
+        "version" : "3.1.3"
+      }
+    },
+    {
+      "identity" : "realm-core",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/realm/realm-core",
+      "state" : {
+        "revision" : "3c78cccdc0d9f967c5c15b7f3ea081814e2b3ef2",
+        "version" : "11.13.0"
+      }
+    },
+    {
+      "identity" : "realm-swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/realm/realm-swift.git",
+      "state" : {
+        "revision" : "f9400ca044844701ea32491a4c6c4b06d74ab24d",
+        "version" : "10.25.0"
+      }
+    }
+  ],
+  "version" : 2
 }
