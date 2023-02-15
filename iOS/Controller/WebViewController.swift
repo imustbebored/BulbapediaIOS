@@ -41,11 +41,14 @@ class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
     /*var bannerView: GAMBannerView?
     var interstitial: GAMInterstitialAd?*/
     
-    let adUnitIdForInterstitial = "interstitial"
+    let adUnitIdForInterstitial = "Interstitial"
     var interstitial: PWInterstitial?
     
-    let adUnitIdForBanner = "banner-320x50"
+    let adUnitIdForBanner = "Banner-320x50"
     var bannerView: PWBannerView?
+    
+    let publisherId = "havaMedia"//"1016210"
+    let appId = "bulbapedia"//"453"
 
     private var textSizeAdjustFactorObserver: DefaultsObservation?
     private var rootViewController: RootViewController? {
@@ -111,18 +114,17 @@ class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
     }
     
     func setUpAdsRequest() {
-        let publisherId = "publisher"
-        let appId = "test"
         PlaywireSDK.shared.initialize(
            publisherId: publisherId,
            appId: appId,
            viewController: self) {
                self.interstitial = PWInterstitial(adUnitName: self.adUnitIdForInterstitial, delegate: self)
                self.interstitial?.load()
-
-               self.bannerView = PWBannerView(adUnitName: self.adUnitIdForBanner, controller: self, delegate: self)
-               self.bannerView?.autoload = true
-               self.bannerView?.load()
+               if !UserDefaults.standard.bool(forKey: UserDefaultKeys.UD_IsPurchased) {
+                   self.bannerView = PWBannerView(adUnitName: self.adUnitIdForBanner, controller: self, delegate: self)
+                   self.bannerView?.autoload = true
+                   self.bannerView?.load()
+               }
         }
         // Default console logger
         PWNotifier.shared.startConsoleLogger()
@@ -134,8 +136,10 @@ class WebViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
     }
     
     func setInterstitialAd() {
-        if ((interstitial?.isLoaded) != nil) {
-            interstitial?.show(fromViewController: self)
+        DispatchQueue.main.async {
+            if ((self.interstitial?.isLoaded) != nil) {
+                self.interstitial?.show(fromViewController: self)
+            }
         }
     }
     

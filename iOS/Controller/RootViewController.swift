@@ -15,6 +15,8 @@ import RealmSwift
 import Toast_Swift
 
 var isInitialWeb = true
+let zimFileName = "offline_bulbapedia9"
+let oldFileName = "offline_bulbapedia7"
 
 class RootViewController: UIViewController, UISearchControllerDelegate, UISplitViewControllerDelegate {
     let searchController: UISearchController
@@ -136,14 +138,19 @@ class RootViewController: UIViewController, UISearchControllerDelegate, UISplitV
         let documentsDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
 
         if UserDefaults.standard.bool(forKey: UserDefaultKeys.UD_IsNewVersionUpdatedAlready) == false {
+            if let zimFiles = onDeviceZimFiles, !zimFiles.isEmpty, let zimFile = zimFiles.first {
+                LibraryService.shared.deleteOrUnlink(fileID: zimFile.fileID)
+            }
             UserDefaults.standard.set(true, forKey: UserDefaultKeys.UD_IsNewVersionUpdatedAlready)
-            guard let sourcePath = Bundle.main.path(forResource: "offline_bulba", ofType: "zim") else {
+            guard let sourcePath = Bundle.main.path(forResource: zimFileName, ofType: "zim") else {
                 return
             }
             let sourceUrl = URL(fileURLWithPath: sourcePath)
-            let destination = documentsDirectory.appendingPathComponent("offline_bulba.zim", isDirectory: false)
-            try? fileManager.removeItem(at: destination)
+            let deletedestination = documentsDirectory.appendingPathComponent("\(oldFileName).zim", isDirectory: false)
+            try? fileManager.removeItem(at: deletedestination)
+            let destination = documentsDirectory.appendingPathComponent("\(zimFileName).zim", isDirectory: false)
             try? fileManager.moveItem(at: sourceUrl, to: destination)
+//            self.onDeviceZimFiles = LibraryService.onDeviceZimFiles()?.sorted(byKeyPath: "size", ascending: false)
             print(ZimFileService.shared.zimFileIDs.count)
             isInitialWeb = true
             openArticle()
@@ -152,14 +159,15 @@ class RootViewController: UIViewController, UISearchControllerDelegate, UISplitV
 
         if UserDefaults.standard.url(forKey: UserDefaultKeys.UD_MainArticleURL) == nil {
             isInitialWeb = true
-            guard let sourcePath = Bundle.main.path(forResource: "offline_bulba", ofType: "zim") else {
+            guard let sourcePath = Bundle.main.path(forResource: zimFileName, ofType: "zim") else {
                 return
             }
             if fileManager.fileExists(atPath: sourcePath) {
                 let sourceUrl = URL(fileURLWithPath: sourcePath)
                 
-                let destination = documentsDirectory.appendingPathComponent("offline_bulba.zim", isDirectory: false)
+                let destination = documentsDirectory.appendingPathComponent("\(zimFileName).zim", isDirectory: false)
                 try? fileManager.moveItem(at: sourceUrl, to: destination)
+//                self.onDeviceZimFiles = LibraryService.onDeviceZimFiles()?.sorted(byKeyPath: "size", ascending: false)
 
                 print(ZimFileService.shared.zimFileIDs.count)
                 openArticle()
@@ -175,13 +183,13 @@ class RootViewController: UIViewController, UISearchControllerDelegate, UISplitV
     func openArticle() {
         let fileManager = FileManager.default
         let documentsDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
-        let destination = documentsDirectory.appendingPathComponent("offline_bulba.zim", isDirectory: false)
+        let destination = documentsDirectory.appendingPathComponent("\(zimFileName).zim", isDirectory: false)
         
         if fileManager.fileExists(atPath: destination.path) {
             print("file copied")
             self.checkAndOpenZIMWithDelay()
         } else {
-            guard let sourcePath = Bundle.main.path(forResource: "offline_bulba", ofType: "zim") else {
+            guard let sourcePath = Bundle.main.path(forResource: zimFileName, ofType: "zim") else {
                 return
             }
             let sourceUrl = URL(fileURLWithPath: sourcePath)
@@ -243,6 +251,7 @@ class RootViewController: UIViewController, UISearchControllerDelegate, UISplitV
     
     func openMainPage(zimFileID: String) {
         guard let url = ZimFileService.shared.getMainPageURL(zimFileID: zimFileID) else { return }
+        UserDefaults.standard.set(nil, forKey: UserDefaultKeys.UD_MainArticleURL)
         if UserDefaults.standard.url(forKey: UserDefaultKeys.UD_MainArticleURL) == nil {
             UserDefaults.standard.set(url, forKey: UserDefaultKeys.UD_MainArticleURL)
             UserDefaults.standard.synchronize()

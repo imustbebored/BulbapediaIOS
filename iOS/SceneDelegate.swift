@@ -30,7 +30,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     // MARK: - URL Handling & Actions
     
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
-        guard let context = URLContexts.first else {return}
+        guard let context = URLContexts.first else {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+                let onDeviceZimFiles = LibraryService.onDeviceZimFiles()?.sorted(byKeyPath: "size", ascending: false)
+                if let zimFiles = onDeviceZimFiles, !zimFiles.isEmpty, let zimFile = zimFiles.first {
+                    self.rootViewController.openMainPage(zimFileID: zimFile.fileID)
+                }
+            })
+            return
+        }
         if context.url.isKiwixURL {
             rootViewController.openURL(context.url)
         } else if context.url.isFileURL {

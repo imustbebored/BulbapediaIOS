@@ -64,7 +64,7 @@ extension SearchOperation {
         let searchText = self.searchText.lowercased()
         let levenshtein = Levenshtein()
         __results = results.map { result -> (result: SearchResult, score: Double) in
-            var distance = Double(levenshtein.calculateDistance(a: result.title.lowercased()[...], b: searchText[...]))
+            var distance = Double(levenshtein.calculateDistance(a: result.title.lowercased()[...], b: searchText[...]) ?? 0)
             if let probability = result.probability?.doubleValue {
                 distance = distance * Foundation.log(7.5576 - 6.4524 * probability)
             }
@@ -76,7 +76,7 @@ extension SearchOperation {
 private class Levenshtein {
     private(set) var cache = [Set<String.SubSequence>: Int]()
     
-    func calculateDistance(a: String.SubSequence, b: String.SubSequence) -> Int {
+    func calculateDistance(a: String.SubSequence, b: String.SubSequence) -> Int? {
         let key = Set([a, b])
         if let distance = cache[key] {
             return distance
@@ -85,13 +85,20 @@ private class Levenshtein {
                 if a.count == 0 || b.count == 0 {
                     return abs(a.count - b.count)
                 } else if a.first == b.first {
-                    return calculateDistance(a: a[a.index(after: a.startIndex)...], b: b[b.index(after: b.startIndex)...])
+                    return calculateDistance(a: a[a.index(after: a.startIndex)...], b: b[b.index(after: b.startIndex)...]) ?? 0
                 } else {
-                    let add = calculateDistance(a: a, b: b[b.index(after: b.startIndex)...])
-                    let replace = calculateDistance(a: a[a.index(after: a.startIndex)...], b: b[b.index(after: b.startIndex)...])
-                    let delete = calculateDistance(a: a[a.index(after: a.startIndex)...], b: b)
-                    return min(add, replace, delete) + 1
+                    if let add = calculateDistance(a: a, b: b[b.index(after: b.startIndex)...]),
+                       let replace = calculateDistance(a: a[a.index(after: a.startIndex)...], b: b[b.index(after: b.startIndex)...]),
+                       let delete = calculateDistance(a: a[a.index(after: a.startIndex)...], b: b) {
+                        return min(add, replace, delete) + 1
+                    }
+                    else {
+                        if let distance = cache[key] {
+                            return distance
+                        }
+                    }
                 }
+                return cache[key] ?? 0
             }()
             cache[key] = distance
             return distance

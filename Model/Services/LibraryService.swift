@@ -20,6 +20,7 @@ class LibraryService {
         do {
             let database = try Realm()
             let predicate = NSPredicate(format: "stateRaw == %@", ZimFile.State.onDevice.rawValue)
+            print(database.objects(ZimFile.self).filter(predicate))
             return database.objects(ZimFile.self).filter(predicate)
         } catch { return nil }
     }
@@ -48,7 +49,9 @@ class LibraryService {
                     zimFile.openInPlaceURLBookmark = nil
                 }
             }
-        } catch {}
+        } catch {
+            print("catch")
+        }
         
         // Remove file if file is in app's document directory
         if let fileURL = ZimFileService.shared.getFileURL(zimFileID: fileID),
