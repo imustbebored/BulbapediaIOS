@@ -123,14 +123,14 @@ class ButtonProvider {
     @available(iOS 14.0, *)
     private func configureMoreButtonMenu() {
         var items: [UIMenuElement] = [
-            UIAction(title: "Restore In App Purchase", image: UIImage(systemName: ""), handler: { _ in self.rootViewController?.restoreIAP() }),
+//            UIAction(title: "Restore In App Purchase", image: UIImage(systemName: ""), handler: { _ in self.rootViewController?.restoreIAP() }),
 //            UIAction(title: "Update ZIM", image: UIImage(systemName: "update_zim"), handler: { _ in self.rootViewController?.updateZimButtonTapped() }),
 //            UIAction(title: "Library", image: UIImage(systemName: "folder"), handler: { _ in self.rootViewController?.libraryButtonTapped() }),
             UIAction(title: "Settings", image: UIImage(systemName: "gear"), handler: { _ in self.rootViewController?.settingsButtonTapped() }),
         ]
-        if !UserDefaults.standard.bool(forKey: UserDefaultKeys.UD_IsPurchased) {
-            items.insert(UIAction(title: "Remove Ads and Go Offline", image: UIImage(systemName: ""), handler: { _ in self.rootViewController?.removeAdsGoOffline() }), at: 1)
-        }
+//        if !UserDefaults.standard.bool(forKey: UserDefaultKeys.UD_IsPurchased) {
+//            items.insert(UIAction(title: "Remove Ads and Go Offline", image: UIImage(systemName: ""), handler: { _ in self.rootViewController?.removeAdsGoOffline() }), at: 1)
+//        }
         if let zimFiles = onDeviceZimFiles, !zimFiles.isEmpty {
             items.insert(UIMenu(options: .displayInline, children: zimFiles.map { zimFile in
                 UIAction(title: zimFile.title, image: UIImage(systemName: "house")) { _ in self.rootViewController?.openMainPage(zimFileID: zimFile.fileID) }

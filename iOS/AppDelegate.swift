@@ -44,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, DirectoryMonitorDelegate 
             print("Subscribed to test_bulba topic")
         }
         
-        restoreIAPDayWise()
+//        restoreIAPDayWise()
         
         setReviewDialog()
                 
@@ -139,7 +139,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, DirectoryMonitorDelegate 
         if !UserDefaults.standard.bool(forKey: UserDefaultKeys.UD_IsPurchased) {
             if !UserDefaults.standard.bool(forKey: UserDefaultKeys.UD_HasTriedRestoredinnewapp){
                 UserDefaults.standard.set(true, forKey: UserDefaultKeys.UD_HasTriedRestoredinnewapp)
-                IAPHandler.shared.restorePurchase()
+//                IAPHandler.shared.restorePurchase()
             }
         }
     }

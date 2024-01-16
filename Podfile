@@ -13,7 +13,7 @@ target 'iOS' do
    pod 'Firebase/Core'
    pod 'Firebase/Messaging'
    pod 'Toast-Swift', '~> 5.0.1'
-   pod 'Playwire', '6.1.0'
+#   pod 'Playwire', '6.1.0'
 
 end
 
@@ -29,6 +29,6 @@ target 'iOS_Dev' do
   pod 'Firebase/Core'
   pod 'Firebase/Messaging'
   pod 'Toast-Swift', '~> 5.0.1'
-  pod 'Playwire', '6.1.0'
+#  pod 'Playwire', '6.1.0'
   
 end

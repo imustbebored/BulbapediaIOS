@@ -258,10 +258,10 @@
 		97F4210E22EE5590001E41F9 /* FileImportController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F4210D22EE5590001E41F9 /* FileImportController.swift */; };
 		97F4D10C20ADFE370038FC87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97F4D10B20ADFE370038FC87 /* Assets.xcassets */; };
 		97FD2F5F251EA07B0034927C /* FeatureFlags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FD2F5E251EA07B0034927C /* FeatureFlags.swift */; };
-		BD397C57296EEA40000357B6 /* libkiwix.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDADF2C0296EE85700C75C1C /* libkiwix.xcframework */; };
-		BD8F4328298BE47700438B14 /* offline_bulbapedia9.zim in Resources */ = {isa = PBXBuildFile; fileRef = BD8F4327298BE47700438B14 /* offline_bulbapedia9.zim */; };
-		BD8F4329298BE47700438B14 /* offline_bulbapedia9.zim in Resources */ = {isa = PBXBuildFile; fileRef = BD8F4327298BE47700438B14 /* offline_bulbapedia9.zim */; };
-		BDADF2C2296EE85800C75C1C /* libkiwix_sim.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDADF2BE296EE85700C75C1C /* libkiwix_sim.xcframework */; };
+		BD764F0E2B565CC20094DAB7 /* offline_bulbapedia9.zim in Resources */ = {isa = PBXBuildFile; fileRef = BD764F0D2B565CC20094DAB7 /* offline_bulbapedia9.zim */; };
+		BD764F0F2B565CC20094DAB7 /* offline_bulbapedia9.zim in Resources */ = {isa = PBXBuildFile; fileRef = BD764F0D2B565CC20094DAB7 /* offline_bulbapedia9.zim */; };
+		BD764F182B5666360094DAB7 /* libkiwix_sim.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD764F172B5666350094DAB7 /* libkiwix_sim.xcframework */; };
+		BD764F1B2B5666420094DAB7 /* libkiwix.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD764F1A2B5666410094DAB7 /* libkiwix.xcframework */; };
 		C5E0C5EA5604E4A4CD3A19EB /* Pods_iOS_Dev.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B0A92B2E91D949BDA22AD48 /* Pods_iOS_Dev.framework */; };
 /* End PBXBuildFile section */
 
@@ -477,9 +477,9 @@
 		97F4D10B20ADFE370038FC87 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		97F6CC5020BD960F005CDBD2 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		97FD2F5E251EA07B0034927C /* FeatureFlags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureFlags.swift; sourceTree = "<group>"; };
-		BD8F4327298BE47700438B14 /* offline_bulbapedia9.zim */ = {isa = PBXFileReference; lastKnownFileType = file; path = offline_bulbapedia9.zim; sourceTree = "<group>"; };
-		BDADF2BE296EE85700C75C1C /* libkiwix_sim.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libkiwix_sim.xcframework; sourceTree = "<group>"; };
-		BDADF2C0296EE85700C75C1C /* libkiwix.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libkiwix.xcframework; sourceTree = "<group>"; };
+		BD764F0D2B565CC20094DAB7 /* offline_bulbapedia9.zim */ = {isa = PBXFileReference; lastKnownFileType = file; path = offline_bulbapedia9.zim; sourceTree = "<group>"; };
+		BD764F172B5666350094DAB7 /* libkiwix_sim.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libkiwix_sim.xcframework; sourceTree = "<group>"; };
+		BD764F1A2B5666410094DAB7 /* libkiwix.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = libkiwix.xcframework; sourceTree = "<group>"; };
 		C8DDCCC1AD947FC43746FD6E /* Pods-iOS_Dev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS_Dev.debug.xcconfig"; path = "Target Support Files/Pods-iOS_Dev/Pods-iOS_Dev.debug.xcconfig"; sourceTree = "<group>"; };
 		D57B5C1FE06088FBF85BB6A2 /* Pods_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1E247ADF0EB34AB8058765F /* Pods-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS.debug.xcconfig"; path = "Target Support Files/Pods-iOS/Pods-iOS.debug.xcconfig"; sourceTree = "<group>"; };
@@ -492,10 +492,10 @@
 			files = (
 				72744CA7278EB9A8006A1C6A /* Realm in Frameworks */,
 				72744CA8278EB9A8006A1C6A /* NotificationCenter.framework in Frameworks */,
+				BD764F182B5666360094DAB7 /* libkiwix_sim.xcframework in Frameworks */,
 				72744CA9278EB9A8006A1C6A /* RealmSwift in Frameworks */,
 				72744CAA278EB9A8006A1C6A /* Fuzi in Frameworks */,
 				72744CAB278EB9A8006A1C6A /* WebKit.framework in Frameworks */,
-				BDADF2C2296EE85800C75C1C /* libkiwix_sim.xcframework in Frameworks */,
 				72744CAC278EB9A8006A1C6A /* Defaults in Frameworks */,
 				C5E0C5EA5604E4A4CD3A19EB /* Pods_iOS_Dev.framework in Frameworks */,
 			);
@@ -521,7 +521,7 @@
 			files = (
 				72902BC82790373200F1A865 /* StoreKit.framework in Frameworks */,
 				7215C834277DB8690089DCCD /* Realm in Frameworks */,
-				BD397C57296EEA40000357B6 /* libkiwix.xcframework in Frameworks */,
+				BD764F1B2B5666420094DAB7 /* libkiwix.xcframework in Frameworks */,
 				97C5763D202CD9C000E37502 /* NotificationCenter.framework in Frameworks */,
 				7215C836277DB8690089DCCD /* RealmSwift in Frameworks */,
 				9744658026F7981500072DC2 /* Fuzi in Frameworks */,
@@ -631,7 +631,7 @@
 		975FDAD81F6082DA00A10E8C /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				BD8F4327298BE47700438B14 /* offline_bulbapedia9.zim */,
+				BD764F0D2B565CC20094DAB7 /* offline_bulbapedia9.zim */,
 				976C4AA0260F876C00472A98 /* SwiftUI */,
 				975FDAD91F6082DA00A10E8C /* AppDelegate.swift */,
 				973B8011239066D0008CC8CE /* SceneDelegate.swift */,
@@ -826,7 +826,7 @@
 		97A2AB7F1C1B80FF00052E74 = {
 			isa = PBXGroup;
 			children = (
-				BDADF2B0296EE2B700C75C1C /* Libraries */,
+				BD764F042B565C8E0094DAB7 /* Libraries */,
 				970EC39E23BCE7F5008DCA27 /* Model */,
 				975FDAD81F6082DA00A10E8C /* iOS */,
 				979315821E5127930093D3BA /* macOS */,
@@ -966,27 +966,27 @@
 			path = QuickLookPreview;
 			sourceTree = "<group>";
 		};
-		BDADF2B0296EE2B700C75C1C /* Libraries */ = {
+		BD764F042B565C8E0094DAB7 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				BDADF2BD296EE85700C75C1C /* Development */,
-				BDADF2BF296EE85700C75C1C /* Production */,
+				BD764F162B5666350094DAB7 /* Development */,
+				BD764F192B5666410094DAB7 /* Production */,
 			);
 			path = Libraries;
 			sourceTree = "<group>";
 		};
-		BDADF2BD296EE85700C75C1C /* Development */ = {
+		BD764F162B5666350094DAB7 /* Development */ = {
 			isa = PBXGroup;
 			children = (
-				BDADF2BE296EE85700C75C1C /* libkiwix_sim.xcframework */,
+				BD764F172B5666350094DAB7 /* libkiwix_sim.xcframework */,
 			);
 			path = Development;
 			sourceTree = "<group>";
 		};
-		BDADF2BF296EE85700C75C1C /* Production */ = {
+		BD764F192B5666410094DAB7 /* Production */ = {
 			isa = PBXGroup;
 			children = (
-				BDADF2C0296EE85700C75C1C /* libkiwix.xcframework */,
+				BD764F1A2B5666410094DAB7 /* libkiwix.xcframework */,
 			);
 			path = Production;
 			sourceTree = "<group>";
@@ -1006,7 +1006,6 @@
 				72744CB7278EB9A8006A1C6A /* Embed App Extensions */,
 				72744CB8278EB9A8006A1C6A /* Embed Frameworks */,
 				BFF7C2B86509CCB280A630AD /* [CP] Embed Pods Frameworks */,
-				9EEA892D9B0E15F0F4855798 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1070,7 +1069,6 @@
 				97C57602202CB0E900E37502 /* Embed App Extensions */,
 				977BD604276EA929004D2C32 /* Embed Frameworks */,
 				BAC47862239567B1BA96C339 /* [CP] Embed Pods Frameworks */,
-				79D7E159FAA5AC09CA160C70 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1196,7 +1194,7 @@
 			packageReferences = (
 				9744657E26F7981500072DC2 /* XCRemoteSwiftPackageReference "Fuzi" */,
 				97654724273214530070163D /* XCRemoteSwiftPackageReference "Defaults" */,
-				7215C832277DB8690089DCCD /* XCRemoteSwiftPackageReference "realm-swift" */,
+				7215C832277DB8690089DCCD /* XCRemoteSwiftPackageReference "realm-swift.git" */,
 			);
 			productRefGroup = 97A2AB7F1C1B80FF00052E74;
 			projectDirPath = "";
@@ -1217,8 +1215,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD8F4329298BE47700438B14 /* offline_bulbapedia9.zim in Resources */,
 				72744CB0278EB9A8006A1C6A /* Kiwix_logo_v3_320px.png in Resources */,
+				BD764F0F2B565CC20094DAB7 /* offline_bulbapedia9.zim in Resources */,
 				727EC88C2795538300474438 /* GoogleService-Info.plist in Resources */,
 				722CC87D27A1206400014E01 /* bulbapedia_styles.css in Resources */,
 				72744CB1278EB9A8006A1C6A /* Main.storyboard in Resources */,
@@ -1249,8 +1247,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD8F4328298BE47700438B14 /* offline_bulbapedia9.zim in Resources */,
 				975AEBD32597EACF00392988 /* Kiwix_logo_v3_320px.png in Resources */,
+				BD764F0E2B565CC20094DAB7 /* offline_bulbapedia9.zim in Resources */,
 				727EC88B2795538300474438 /* GoogleService-Info.plist in Resources */,
 				722CC87C27A1206400014E01 /* bulbapedia_styles.css in Resources */,
 				97246C821FC4D12A0056AE5D /* Main.storyboard in Resources */,
@@ -1324,26 +1322,6 @@
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
-		79D7E159FAA5AC09CA160C70 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-iOS/Pods-iOS-resources.sh",
-				"${PODS_ROOT}/AppLovinSDK/applovin-ios-sdk-11.6.1/AppLovinSDKResources.bundle",
-				"${PODS_ROOT}/Fyber_Marketplace_SDK/IASDKCore/IASDKCore.xcframework/IASDKResources.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AppLovinSDKResources.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IASDKResources.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iOS/Pods-iOS-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		82E293CD3177C2134AE9FEDC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1384,26 +1362,6 @@
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
-		9EEA892D9B0E15F0F4855798 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-iOS_Dev/Pods-iOS_Dev-resources.sh",
-				"${PODS_ROOT}/AppLovinSDK/applovin-ios-sdk-11.6.1/AppLovinSDKResources.bundle",
-				"${PODS_ROOT}/Fyber_Marketplace_SDK/IASDKCore/IASDKCore.xcframework/IASDKResources.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AppLovinSDKResources.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IASDKResources.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iOS_Dev/Pods-iOS_Dev-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		BAC47862239567B1BA96C339 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1420,8 +1378,6 @@
 				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
 				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
-				"${PODS_XCFRAMEWORKS_BUILD_DIR}/AmazonPublisherServicesSDK/DTBiOSSDK.framework/DTBiOSSDK",
-				"${PODS_XCFRAMEWORKS_BUILD_DIR}/Playwire/Total/PrebidMobile.framework/PrebidMobile",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -1434,8 +1390,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DTBiOSSDK.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PrebidMobile.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1458,8 +1412,6 @@
 				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
 				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
-				"${PODS_XCFRAMEWORKS_BUILD_DIR}/AmazonPublisherServicesSDK/DTBiOSSDK.framework/DTBiOSSDK",
-				"${PODS_XCFRAMEWORKS_BUILD_DIR}/Playwire/Total/PrebidMobile.framework/PrebidMobile",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -1472,8 +1424,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DTBiOSSDK.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PrebidMobile.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2381,7 +2331,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		7215C832277DB8690089DCCD /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+		7215C832277DB8690089DCCD /* XCRemoteSwiftPackageReference "realm-swift.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift.git";
 			requirement = {
@@ -2405,7 +2355,7 @@
 				minimumVersion = 6.0.0;
 			};
 		};
-		72744C61278EB9A8006A1C6A /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+		72744C61278EB9A8006A1C6A /* XCRemoteSwiftPackageReference "realm-swift.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift.git";
 			requirement = {
@@ -2434,12 +2384,12 @@
 /* Begin XCSwiftPackageProductDependency section */
 		7215C833277DB8690089DCCD /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 7215C832277DB8690089DCCD /* XCRemoteSwiftPackageReference "realm-swift" */;
+			package = 7215C832277DB8690089DCCD /* XCRemoteSwiftPackageReference "realm-swift.git" */;
 			productName = Realm;
 		};
 		7215C835277DB8690089DCCD /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 7215C832277DB8690089DCCD /* XCRemoteSwiftPackageReference "realm-swift" */;
+			package = 7215C832277DB8690089DCCD /* XCRemoteSwiftPackageReference "realm-swift.git" */;
 			productName = RealmSwift;
 		};
 		72744C5C278EB9A8006A1C6A /* Fuzi */ = {
@@ -2454,12 +2404,12 @@
 		};
 		72744C60278EB9A8006A1C6A /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 72744C61278EB9A8006A1C6A /* XCRemoteSwiftPackageReference "realm-swift" */;
+			package = 72744C61278EB9A8006A1C6A /* XCRemoteSwiftPackageReference "realm-swift.git" */;
 			productName = Realm;
 		};
 		72744C62278EB9A8006A1C6A /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 72744C61278EB9A8006A1C6A /* XCRemoteSwiftPackageReference "realm-swift" */;
+			package = 72744C61278EB9A8006A1C6A /* XCRemoteSwiftPackageReference "realm-swift.git" */;
 			productName = RealmSwift;
 		};
 		97242BA32735E6D700C87F85 /* Fuzi */ = {
